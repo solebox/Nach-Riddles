@@ -2,6 +2,7 @@
 #this script convert csv file to json format
 import os
 import stat
+import codecs
 
 #defination for convert str line to list()
 #and return the list()
@@ -58,5 +59,8 @@ for item in listall:
   thefile.write("%s\n" % item)
 
 
-print listall
+print listall[0]
+print listall[0]['riddle']
+print thefile
 original_file.close()
+
