@@ -3,7 +3,7 @@
 import os
 import stat
 
-os.mknod('c1p1-conv19.csv', 0600|stat.S_IRUSR)
+#os.mknod('c1p1-conv20.csv', 0600|stat.S_IRUSR)
 
 #the file name is chepter 1 part 1 and is contain 22 riddels
 original_file = open("c1p1.csv","r")
