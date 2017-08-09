@@ -26,9 +26,15 @@ def lines_number(fname):
             pass
     return loop + 1
 
+#get input from the user about the file name and read ot write
+print "CSV to JSON Convertor v0.1"
+csv_file = str(raw_input("Please type source file name (csv format) to convert: "))
+json_file = str(raw_input("Please type destination file name (json format): "))
+
 #the file name is chepter 1 part 1 and is contain 22 riddels
 #opening the file, read it and save it in object
-original_file = open("c1p1-En.csv","r")
+original_file = open(csv_file,"r")
+dest_file = open(json_file,"w")
 
 #read the first line and using def() for convert the line to list
 line1 = str_to_list(original_file.readline())
@@ -55,10 +61,9 @@ for i in range(lines_number):
 #os.mknod('c1p1-En.json', 0600|stat.S_IRUSR)
 
 #open the file we just created and save in it the list that we created
-thefile = open('c1p1-En.json', 'w')
+#thefile = open('c1p1-En.json', 'w')
 for item in listall:
-  thefile.write("%s\n" % item)
-
+    dest_file.write("%s\n" % item)
 
 original_file.close()
 print "convert DONE!"
