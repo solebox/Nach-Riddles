@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 import json
 from pprint import pprint
+
+##the _name_ is equal to _main_ only if this file is load
+## if we load other file and called from the other file "import c"
+##it will load only func and def but not if statment becouse "_name_" is equal
+## to the name of file and not "_main_" becouse it not load directly
+
 if __name__ == '__main__':
     with open('./c1p1-En.csv', encoding='utf8') as f:
         d = {}
