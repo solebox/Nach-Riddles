@@ -1,7 +1,8 @@
 from xml.dom import minidom
 
-data = minidom.parse('test.xml')
+xmldoc = minidom.parse('us-states.xml')
+states = xmldoc.getElementsByTagName('states')[0]
+state = states.getElementsByTagName('state')
 
-name = minidom.getElementByTagName('name')[0]
-print 'Name:' ,tree.find('name').text
-print name
+for lop in state:
+    print (state)
