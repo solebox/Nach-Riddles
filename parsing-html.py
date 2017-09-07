@@ -8,3 +8,4 @@ print spans_all
 for lop in spans_all:
     spans = lop.firstChild.data
     print spans
+
