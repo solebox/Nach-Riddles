@@ -6,6 +6,9 @@ spans_all = body.getElementsByTagName('span')
 print spans_all
 
 for lop in spans_all:
-    spans = lop.firstChild.data
+    try:
+        spans = lop.firstChild.data
+    except AttributeError:
+        continue
     print spans
 
