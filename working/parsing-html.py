@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from xml.dom import minidom
 
-htmldoc = minidom.parse('riddles.html')
+htmldoc = minidom.parse('cut_riddles_file6.html')
 body = htmldoc.getElementsByTagName('body')[0]
 spans_all = body.getElementsByTagName('span')
 print (spans_all)
