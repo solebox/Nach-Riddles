@@ -23,7 +23,7 @@ for lop in spans_all:
 print (to_the_file)
 test.write(to_the_file)
 # Close opend file
-#test.close()
+test.close()
 print (to_the_file)
 
 
