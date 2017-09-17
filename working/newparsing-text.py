@@ -33,7 +33,7 @@ def while_to_remove_newline(answers):
     return cut_pitronot(answers)
 
 
-for lop in range(2):
+for lop in range(100):
     #the book name and riddles title
     first_line = file_without_lines.readline().replace(":", "").replace(",", " ")
     print(first_line)
@@ -44,21 +44,17 @@ for lop in range(2):
         riddlesTitle = first_line
     parasha = cut_line(riddlesTitle)
     torah_parasha = cut_torah_parasha(riddlesTitle)
-    for lop in range(23):
+    for lop in range(24):
         riddlestring = file_without_lines.readline()
-        print ('in for lop',riddlestring)
         if "פתרונות: " in riddlestring:
             middle_file = open("middle_file.txt", "r")
             answers = while_to_remove_newline(riddlestring).rstrip('\n').split(',')
-            print ('this is a list',answers)
             for lop in answers:
                 answer = remove_space(lop)
-                print (answer)
                 allLine = middle_file.readline().rstrip('\n') + ',' + answer + '\n'
                 riddle_converted.write(allLine)
-                print(allLine)
             middle_file = open("middle_file.txt", "w")
-            middle_file.truncate()
+            break
 
 
         riddleNumber = take_letter(riddlestring)
