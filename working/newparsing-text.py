@@ -33,10 +33,9 @@ def while_to_remove_newline(answers):
     return cut_pitronot(answers)
 
 
-for lop in range(100):
+for lop in range(1):
     #the book name and riddles title
     first_line = file_without_lines.readline().replace(":", "").replace(",", " ")
-    print(first_line)
     if "ספר" in first_line:
         bookName = first_line
         riddlesTitle = file_without_lines.readline().replace(":", "").replace(",", " ")

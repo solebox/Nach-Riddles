@@ -10,7 +10,7 @@ from pprint import pprint
 if __name__ == '__main__':
 
     ##this file can run only in python3 (python2 can load 'encoding' argument in function
-    with open('./c1p1-En.csv', encoding='utf8') as f:
+    with open('./riddle-converted.csv', encoding='utf8') as f:
         ##make dictionary
         d = {}
         next(f) # Skip the first line
@@ -33,4 +33,5 @@ if __name__ == '__main__':
             d[book][parasha]['torah_parasha'] = torah_parasha
             d[book][parasha]['riddles'].append({ riddle_number: {'riddle': riddle, 'answer': answer} })
         print(json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False))
-    
+        riddles_json_file = open('riddles_json_file.json', 'w')
+        riddles_json_file.write(json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False))
