@@ -8,6 +8,7 @@ export default class NachRiddles extends Component{
     return(
       <View>
         <OpeningPage/>
+        <Image style={{ flex:1, height:null, width:null }} source={require("../img/header_logo.png")}/>
       </View>
     );
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View} from 'react-native';
+import {AppRegistry, Text, View, Image } from 'react-native';
 
 import OpeningPage from './app/components/OpeningPage';
 
