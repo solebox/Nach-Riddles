@@ -3,12 +3,14 @@
 # Open a file
 file_without_lines = open("file_without_lines.txt", "r",)
 middle_file = open("middle_file.txt", "w", )
-riddle_converted = open("riddle-converted.csv", "w",)
+riddle_converted = open("riddle-converted2.csv", "w",)
 
 def take_letter(string):
     return string[0:1]
 
 def remove_letter(string):
+    if ',' in string:
+        string = string.replace(',', '')
     return string[2:]
 
 
