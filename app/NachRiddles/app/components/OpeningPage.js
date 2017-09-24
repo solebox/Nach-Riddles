@@ -7,21 +7,39 @@ export default class OpeningPage extends Component {
       <View style={styles.container}>
       <View>
         <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
-        <View style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          }}>
-        <Image style={{width: 250, height:200}} source={require("../img/book.png")}/>
+        <View style={styles.imageViewer}>
+        <Image style={{width: 360, height:200}} source={require("../img/Book.png")}/>
         </View>
       </View>
-      <View style={{height:80}}>
+      <View style={{height:50}}>
       <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
       </View>
       <View style={styles.buttonView}>
         <Button
           onPress={this.changeColor}
-          title="משחק"
-          color={'skyblue'}
+          title="התחל"
+          color='skyblue'
+        />
+        </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={this.changeColor}
+          title="שלבים"
+          color='skyblue'
+        />
+      </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={this.changeColor}
+          title="הגדרות"
+          color='skyblue'
+        />
+      </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={this.changeColor}
+          title="אודות"
+          color='skyblue'
         />
       </View>
       </View>
@@ -33,14 +51,15 @@ export default class OpeningPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    height:545,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  viewer: {
+  imageViewer: {
+    height:170,
     alignItems: 'center',
     justifyContent: 'center',
-        
-  }
+  },
   titleText: {
     color: 'skyblue',
     fontWeight: 'bold',
@@ -55,8 +74,8 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     textAlign: 'center',
-    width: 100,
-    height: 100
+    width: 150,
+    height: 45
   }
 
 });
