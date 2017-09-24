@@ -20,7 +20,7 @@ export default class OpeningPage extends Component {
       <View style={styles.buttonView}>
         <Button
           onPress={this.changeColor}
-          title="התחל משחק"
+          title="משחק"
           color={'skyblue'}
         />
       </View>
