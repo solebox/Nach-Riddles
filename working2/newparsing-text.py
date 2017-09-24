@@ -9,10 +9,13 @@ def take_letter(string):
     return string[0:1]
 
 def remove_letter(string):
-    if ',' in string:
-        string = string.replace(',', '')
     return string[2:]
 
+def remove_comma(string):
+    if ',' in string:
+        string = string.replace(',', '')
+        string = string.replace('[', '')
+    return string
 
 def cut_line(string):
     return string[:string.index("מקבילה")]
@@ -35,7 +38,7 @@ def while_to_remove_newline(answers):
     return cut_pitronot(answers)
 
 
-for lop in range(1):
+for lop in range(2000):
     #the book name and riddles title
     first_line = file_without_lines.readline().replace(":", "").replace(",", " ")
     if "ספר" in first_line:
@@ -59,8 +62,8 @@ for lop in range(1):
 
 
         riddleNumber = take_letter(riddlestring)
-        riddle = remove_letter(riddlestring)
-        nextLineRiddle = file_without_lines.readline()
+        riddle = remove_comma(remove_letter(riddlestring))
+        nextLineRiddle = remove_comma(file_without_lines.readline())
         allRiddle = riddle.rstrip('\n') + nextLineRiddle
         lineCSV = bookName.rstrip('\n')+ ',' + parasha + ',' + torah_parasha.rstrip('\n')+ ',' + riddleNumber+ ',' + allRiddle
 
