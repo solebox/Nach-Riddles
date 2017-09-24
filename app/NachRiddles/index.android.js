@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View} from 'react-native';
 
-export default class NachRiddles Component{
+import OpeningPage from './app/components/OpeningPage';
+
+export default class NachRiddles extends Component{
   render() {
     return(
       <View>
-        <Text>Hello World!</Text>
+        <OpeningPage/>
       </View>
     );
   }
