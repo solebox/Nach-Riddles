@@ -6,12 +6,12 @@ export default class OpeningPage extends Component {
     return (
       <View style={styles.container}>
       <View>
-        <Text style={styles.titleText}>Nach Riddles</Text>
+        <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
         <View style={{
           justifyContent: 'center',
           alignItems: 'center',
           }}>
-        <Image style={{width: 250, height:200}} source={require("../img/NachRiddles.png")}/>
+        <Image style={{width: 250, height:200}} source={require("../img/book.png")}/>
         </View>
       </View>
       <View style={{height:80}}>
@@ -33,11 +33,14 @@ export default class OpeningPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height:500,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white'
   },
+  viewer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+        
+  }
   titleText: {
     color: 'skyblue',
     fontWeight: 'bold',
