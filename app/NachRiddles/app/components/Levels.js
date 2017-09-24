@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet, Text, Button } from 'react-native';
+import { AppRegistry, View } from 'react-native';
 
-export default class OpeningPage extends Component {
+export default class Levels extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      <View>
-        <Text style={styles.titleText}>שלבים</Text>
-        </View>
+      // Try setting `alignItems` to 'flex-start'
+      // Try setting `justifyContent` to `flex-end`.
+      // Try setting `flexDirection` to `row`.
+      <View style={{
+        flex: 1,
+        flexDirection: 'flex-end',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+      }}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
-}
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    height:70,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'powderblue',
-  },
-  titleText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 40,
-    textAlign: 'center',
-  },
-});
+};
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('OpeningPage', () => OpeningPage);
+AppRegistry.registerComponent('Levels', () => Levels);
