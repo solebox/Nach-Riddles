@@ -30,6 +30,7 @@ export default class OpeningPage extends Component {
 }
 
 
+
 const styles = StyleSheet.create({
   container: {
     height:500,
