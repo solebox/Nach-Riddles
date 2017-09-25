@@ -9,6 +9,9 @@ import ComponentRiddles from './app/components/ComponentRiddles';
 
 
 export default class HomeScreen extends React.Component{
+  static navigationOptions = {
+    header: null
+  }
 /*constructor(props) {
       super(props);
       this.state = {
@@ -119,7 +122,9 @@ const NachRiddles = StackNavigator({
   Levels: { screen: LevelsScreen },
   Setting: { screen: SettingScreen },
   About: { screen: AboutScreen },
-});
+},
+  { headerMode: 'screen' }
+);
 //export HomeScreen;
 
 
