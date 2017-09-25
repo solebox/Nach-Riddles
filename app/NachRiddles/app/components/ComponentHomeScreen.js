@@ -6,10 +6,12 @@ import ComponentLevels from './ComponentLevels';
 import ComponentAbout from './ComponentAbout';
 import ComponentRiddles from './ComponentRiddles';
 
-class Home extends React.Component{
+export default class Home extends React.Component{
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
-    const { ComponentHomeScreen } = this.props.navigation;
-    return (
+    const { navigate } = this.props.navigation;
       <View style={styles.container}>
         <View>
           <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
@@ -22,28 +24,28 @@ class Home extends React.Component{
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => navigate('Riddles')}
+          onPress={() => this.props.navigation.navigate('Riddles')}
           title="התחל"
           color='skyblue'
         />
         </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => navigate('Levels')}
+          onPress={() => this.props.navigation.navigate('Levels')}
           title="שלבים"
           color='skyblue'
         />
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => navigate('Setting')}
+          onPress={() => this.props.navigation.navigate('Setting')}
           title="הגדרות"
           color='skyblue'
         />
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => navigate('About')}
+          onPress={() => this.props.navigation.navigate('About')}
           title="אודות"
           color='skyblue'
         />
@@ -112,7 +114,7 @@ const HomeScreen = StackNavigator({
   Setting: { screen: SettingScreen },
   About: { screen: AboutScreen },
 });
-export default HomeScreen;
+//export HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
