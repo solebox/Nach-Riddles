@@ -8,7 +8,7 @@ import ComponentRiddles from './ComponentRiddles';
 
 class Home extends React.Component{
   render() {
-    const { navigate } = this.props.navigation;
+    const { ComponentHomeScreen } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View>
@@ -52,6 +52,7 @@ class Home extends React.Component{
     );
   }
 }
+
 class RiddlesScreen extends React.Component {
   static navigationOptions = {
     title: 'אביעה חידות מני קדם',
@@ -111,7 +112,7 @@ const HomeScreen = StackNavigator({
   Setting: { screen: SettingScreen },
   About: { screen: AboutScreen },
 });
-//export HomeScreen;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
