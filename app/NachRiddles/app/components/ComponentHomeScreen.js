@@ -6,9 +6,9 @@ import ComponentLevels from './ComponentLevels';
 import ComponentAbout from './ComponentAbout';
 import ComponentRiddles from './ComponentRiddles';
 
-export default class ComponentHomeScreen extends Component {
+class Home extends React.Component{
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View>
