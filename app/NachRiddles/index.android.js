@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, Image } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import OpeningPage from './app/components/OpeningPage';
-import Levels from './app/components/Levels';
-import About from './app/components/About';
-import Riddles from './app/components/Riddles';
+import ComponentHomeScreen from './app/components/ComponentHomeScreen';
+import ComponentLevels from './app/components/ComponentLevels';
+import ComponentAbout from './app/components/ComponentAbout';
+import ComponentRiddles from './app/components/ComponentRiddles';
+
 
 export default class NachRiddles extends Component{
   render() {
     return(
       <View>
-        <Riddles />
+        <ComponentHomeScreen />
       </View>
     );
   }

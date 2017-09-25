@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet, Text, Button} from 'react-native';
 
-export default class Riddles extends Component {
+export default class ComponentRiddles extends Component {
   render() {
     return (
         <View>
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
 });
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('Riddles', () => Riddles);
+AppRegistry.registerComponent('ComponentRiddles', () => ComponentRiddles);
