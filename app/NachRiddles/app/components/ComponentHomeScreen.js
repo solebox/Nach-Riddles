@@ -7,11 +7,15 @@ import ComponentAbout from './ComponentAbout';
 import ComponentRiddles from './ComponentRiddles';
 
 export default class Home extends React.Component{
-  static navigationOptions = {
-    title: 'Welcome',
-  };
+  constructor(props) {
+      super(props);
+      this.state = {
+          discounts: undefined
+      }
+   }
   render() {
-    const { navigate } = this.props.navigation;
+    const navigation = this.props.navigation;
+    return(
       <View style={styles.container}>
         <View>
           <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
@@ -24,28 +28,28 @@ export default class Home extends React.Component{
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => this.props.navigation.navigate('Riddles')}
+          onPress={() => navigation.navigate('Riddles')}
           title="התחל"
           color='skyblue'
         />
         </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => this.props.navigation.navigate('Levels')}
+          onPress={() => navigation.navigate('Levels')}
           title="שלבים"
           color='skyblue'
         />
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => this.props.navigation.navigate('Setting')}
+          onPress={() => navigation.navigate('Setting')}
           title="הגדרות"
           color='skyblue'
         />
       </View>
       <View style={styles.buttonView}>
         <Button
-          onPress={() => this.props.navigation.navigate('About')}
+          onPress={() => navigation.navigate('About')}
           title="אודות"
           color='skyblue'
         />
