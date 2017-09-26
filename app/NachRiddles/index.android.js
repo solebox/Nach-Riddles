@@ -22,13 +22,15 @@ export default class HomeScreen extends React.Component{
   render() {
     return(
       <View style={styles.container}>
-        <View>
+        <View >
           <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
             <View style={styles.imageViewer}>
-            <Image style={{width: 360, height:200}} source={require("./app/img/Book.png")}/>
+            <View >
+            <Image style={{width: 360, height:165}} source={require("./app/img/Book.png")}/>
+            </View>
           </View>
         </View>
-      <View style={{height:30}}>
+      <View style={{height:50}}>
       <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
       </View>
 
@@ -132,16 +134,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white'
   },
-  imageViewer: {
-    height:170,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   titleText: {
     color: '#2196F3',
     fontWeight: 'bold',
     fontSize: 50,
     textAlign: 'center',
+
+  },
+  imageViewer: {
+    height:160,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   lineText: {
     color: '#2196F3',
