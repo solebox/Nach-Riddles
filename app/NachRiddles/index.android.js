@@ -33,31 +33,27 @@ export default class HomeScreen extends React.Component{
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
           <View style={styles.button}>
-          <Text style={styles.buttonText}>"התחלה"</Text>
+          <Text style={styles.buttonText}>התחל</Text>
           </View>
         </TouchableOpacity>
 
-      <View style={styles.buttonView}>
-        <Button
-          onPress={() => this.props.navigation.navigate('Levels')}
-          title="שלבים"
-          color='skyblue'
-        />
-      </View>
-      <View style={styles.buttonView}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Setting')}
-          title="הגדרות"
-          color='skyblue'
-        />
-      </View>
-      <View style={styles.buttonView}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('About')}
-          title="אודות"
-          color='skyblue'
-        />
-      </View>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Levels')}>
+          <View style={styles.button}>
+          <Text style={styles.buttonText}>התקדמות</Text>
+          </View>
+        </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Setting')}>
+        <View style={styles.button}>
+        <Text style={styles.buttonText}>הגדרות</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('About')}>
+        <View style={styles.button}>
+        <Text style={styles.buttonText}>אודות</Text>
+        </View>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -140,13 +136,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   titleText: {
-    color: 'skyblue',
+    color: '#2196F3',
     fontWeight: 'bold',
     fontSize: 50,
     textAlign: 'center',
   },
   lineText: {
-    color: 'skyblue',
+    color: '#2196F3',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
@@ -157,7 +153,7 @@ const styles = StyleSheet.create({
     height: 45
   },
   button: {
-    marginBottom: 10,
+    marginBottom: 5,
     width: 150,
     height: 45,
     alignItems: 'center',
@@ -165,7 +161,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     padding: 13,
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold',
   }
 });
 
