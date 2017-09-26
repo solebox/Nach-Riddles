@@ -13,7 +13,7 @@ export default class ComponentLevels extends Component {
             <Text style={styles.titleText}>שלבים</Text>
             </View>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+            <TouchableOpacity onPress={() => this.props.navigation.dispatch('Riddles')}>
               <View style={styles.container2}>
                  <Image
                    style={styles.backdrop}
