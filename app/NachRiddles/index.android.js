@@ -39,7 +39,7 @@ export default class HomeScreen extends React.Component{
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Levels')}>
           <View style={styles.button}>
-          <Text style={styles.buttonText}>התקדמות</Text>
+          <Text style={styles.buttonText}>שלבים</Text>
           </View>
         </TouchableOpacity>
 
