@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+import ComponentBookSelector from './app/components/ComponentBookSelector';
 import indexAndroid from './index.android';
 import ComponentLevels from './app/components/ComponentLevels';
 import ComponentAbout from './app/components/ComponentAbout';
@@ -27,22 +28,15 @@ export default class HomeScreen extends React.Component{
             <Image style={{width: 360, height:200}} source={require("./app/img/Book.png")}/>
           </View>
         </View>
-      <View style={{height:50}}>
+      <View style={{height:30}}>
       <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
       </View>
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
-          <View style={styles.container2}>
-             <Image
-               style={styles.backdrop}
-               source={require("./app/img/open-book2.png")}>
-                 <View style={styles.backdropView}>
-                   <Text style={styles.headline}>התחל</Text>
-                 </View>
-             </Image>
-           </View>
-
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('BookSelector')}>
+        <View style={styles.button}>
+        <Text style={styles.buttonText}>התחל</Text>
+        </View>
+      </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Levels')}>
           <View style={styles.button}>
@@ -66,14 +60,14 @@ export default class HomeScreen extends React.Component{
   }
 }
 
-class RiddlesScreen extends React.Component {
+class BookSelectorScreen extends React.Component {
   static navigationOptions = {
     title: 'אביעה חידות מני קדם',
   };
   render() {
     return (
       <View>
-        <ComponentRiddles/>
+        <ComponentBookSelector/>
       </View>
     );
   }
@@ -121,7 +115,7 @@ class SettingScreen extends React.Component {
 
 const NachRiddles = StackNavigator({
   Home: { screen: HomeScreen },
-  Riddles: { screen: RiddlesScreen },
+  BookSelector: { screen: BookSelectorScreen },
   Levels: { screen: LevelsScreen },
   Setting: { screen: SettingScreen },
   About: { screen: AboutScreen },
@@ -133,7 +127,7 @@ const NachRiddles = StackNavigator({
 
 const styles = StyleSheet.create({
   container: {
-    height:545,
+    height:570,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white'
@@ -157,49 +151,24 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     textAlign: 'center',
-    width: 150,
+    width: 170,
     height: 45
   },
   button: {
     marginBottom: 5,
-    width: 150,
+    width: 200,
     height: 45,
     alignItems: 'center',
     backgroundColor: '#2196F3'
   },
   buttonText: {
-    padding: 13,
+    fontSize: 30,
+    padding: 1,
     color: 'black',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)'
   },
-  container2: {
-    margin: 5,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#2196F3',
-    width: 160
-  },
-  backdrop: {
-    margin: 5,
-    padding: 0,
-    width: 150,
-    height: 30
-  },
-  backdropView: {
-    padding: 0,
-    width: 150,
-    height: 30,
-    backgroundColor: 'rgba(0,0,0,0)',
-  },
-  headline: {
-    fontWeight: 'bold',
-    fontSize: 25,
-    alignItems: 'center',
-    textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'black'
-  }
+
 });
 
 

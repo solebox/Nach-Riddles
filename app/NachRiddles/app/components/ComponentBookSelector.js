@@ -1,72 +1,102 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet, Text, Button } from 'react-native';
+import { AppRegistry, View, Image, StyleSheet,ScrollView, Text, Button, TouchableOpacity} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+
+import ComponentRiddles from './ComponentRiddles';
 
 export default class ComponentLevels extends Component {
   render() {
     return (
-
+       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View>
           <View>
             <Text style={styles.titleText}>שלבים</Text>
             </View>
 
-          <View style={styles.buttonView}>
-            <Button
-              onPress={this.changeColor}
-              title="ספר יהושע"
-              color='skyblue'
-            />
-            </View>
-            <View style={styles.buttonView}>
-              <Button
-                onPress={this.changeColor}
-                title="ספר שופטים"
-                color='#D3D3D3'
-              />
-              </View>
-              <View style={styles.buttonView}>
-                <Button
-                  onPress={this.changeColor}
-                  title="ספר שמואל"
-                  color='#D3D3D3'
-                />
-                </View>
-                <View style={styles.buttonView}>
-                  <Button
-                    onPress={this.changeColor}
-                    title="ספר מלכים"
-                    color='#D3D3D3'
-                  />
-                  </View>
-                  <View style={styles.buttonView}>
-                    <Button
-                      onPress={this.changeColor}
-                      title="ספר דניאל"
-                      color='#D3D3D3'
-                    />
-                    </View>
-          </View>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+              <View style={styles.container2}>
+                 <Image
+                   style={styles.backdrop}
+                   source={require("../img/open-book2.png")}>
+                     <View style={styles.backdropView}>
+                       <Text style={styles.headline}>ספר יהושע</Text>
+                     </View>
+                 </Image>
+               </View>
+            </TouchableOpacity>
 
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+              <View style={styles.container2}>
+                 <Image
+                   style={styles.backdrop}
+                   source={require("../img/open-book2.png")}>
+                     <View style={styles.backdropView}>
+                       <Text style={styles.headline}>ספר שופטים</Text>
+                     </View>
+                 </Image>
+               </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+              <View style={styles.container2}>
+                 <Image
+                   style={styles.backdrop}
+                   source={require("../img/open-book2.png")}>
+                     <View style={styles.backdropView}>
+                       <Text style={styles.headline}>ספר שמואל</Text>
+                     </View>
+                 </Image>
+               </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+              <View style={styles.container2}>
+                 <Image
+                   style={styles.backdrop}
+                   source={require("../img/open-book2.png")}>
+                     <View style={styles.backdropView}>
+                       <Text style={styles.headline}>ספר מלכים</Text>
+                     </View>
+                 </Image>
+               </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+              <View style={styles.container2}>
+                 <Image
+                   style={styles.backdrop}
+                   source={require("../img/open-book2.png")}>
+                     <View style={styles.backdropView}>
+                       <Text style={styles.headline}>ספר דניאל</Text>
+                     </View>
+                 </Image>
+               </View>
+            </TouchableOpacity>
+          </View>
+  </ScrollView>
+    );
+  }
+}
+class RiddlesScreen extends React.Component {
+  static navigationOptions = {
+    title: 'אביעה חידות מני קדם',
+  };
+  render() {
+    return (
+      <View>
+        <ComponentRiddles/>
+      </View>
     );
   }
 }
 
-
+const NachRiddles = StackNavigator({
+  Riddles: { screen: RiddlesScreen },
+},
+  { headerMode: 'screen' }
+);
 
 const styles = StyleSheet.create({
-  container: {
-    height:600,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'powderblue',
-  },
-  titleView: {
-    height:10,
-    width:360,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'steelblue',
-  },
   titleText: {
     height:60,
     color: 'white',
@@ -75,12 +105,33 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'steelblue',
   },
-  buttonView: {
+  container2: {
+    margin: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    height: 90,
+    width: 350
+  },
+  backdrop: {
+    margin: 5,
+    padding: 0,
+    width: 340,
+    height: 80
+  },
+  backdropView: {
+    padding: 0,
+    width: 340,
+    height: 80,
+    backgroundColor: 'rgba(176,224,230, 0.8)',
+  },
+  headline: {
+    fontWeight: 'bold',
+    fontSize: 60,
+    alignItems: 'center',
     textAlign: 'center',
-    justifyContent: 'center',
-    height: 45,
-    width: 360,
-
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'black'
   }
 });
 
