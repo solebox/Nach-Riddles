@@ -33,7 +33,8 @@ export default class HomeScreen extends React.Component{
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
           <View style={styles.button}>
-          <Text style={styles.buttonText}>התחל</Text>
+            <Image style={styles.button} source={require('./app/img/open-book2.png')}/>
+            <Text style={styles.buttonText}>התחל</Text>
           </View>
         </TouchableOpacity>
 
