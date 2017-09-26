@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet, Text, Button } from 'react-native';
+import { AppRegistry, View, Image, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import indexAndroid from './index.android';
@@ -30,13 +30,13 @@ export default class HomeScreen extends React.Component{
       <View style={{height:50}}>
       <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
       </View>
-      <View style={styles.buttonView}>
-        <Button
-          onPress={() => this.props.navigation.navigate('Riddles')}
-          title="התחל"
-          color='skyblue'
-        />
-        </View>
+
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
+          <View style={styles.button}>
+          <Text style={styles.buttonText}>"התחלה"</Text>
+          </View>
+        </TouchableOpacity>
+
       <View style={styles.buttonView}>
         <Button
           onPress={() => this.props.navigation.navigate('Levels')}
@@ -45,14 +45,14 @@ export default class HomeScreen extends React.Component{
         />
       </View>
       <View style={styles.buttonView}>
-        <Button
+        <TouchableOpacity
           onPress={() => this.props.navigation.navigate('Setting')}
           title="הגדרות"
           color='skyblue'
         />
       </View>
       <View style={styles.buttonView}>
-        <Button
+        <TouchableOpacity
           onPress={() => this.props.navigation.navigate('About')}
           title="אודות"
           color='skyblue'
@@ -155,8 +155,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: 150,
     height: 45
+  },
+  button: {
+    marginBottom: 10,
+    width: 150,
+    height: 45,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  },
+  buttonText: {
+    padding: 13,
+    color: 'white'
   }
-
 });
 
 

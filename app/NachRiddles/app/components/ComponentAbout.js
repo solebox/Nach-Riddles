@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 export default class ComponentRiddles extends Component {
   render() {
-    var customData = require('../database/riddle_json_file2.json');
+    var customData = require('../database/riddles_json_file2.json');
     return (
         <View>
           <View style={{height:60, backgroundColor:"skyblue"}}>
