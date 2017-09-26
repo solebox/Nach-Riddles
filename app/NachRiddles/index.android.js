@@ -32,14 +32,16 @@ export default class HomeScreen extends React.Component{
       </View>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
-          <View style={styles.button}>
-            <Image style={styles.button} source={require('./app/img/open-book2.png')}/>
-            <Text style={{
-            marginBottom: 5,
-            width: 150,
-            height: 45,
-            alignItems: 'center',}}>התחל</Text>
-          </View>
+          <View style={styles.container2}>
+             <Image
+               style={styles.backdrop}
+               source={require("./app/img/open-book2.png")}>
+                 <View style={styles.backdropView}>
+                   <Text style={styles.headline}>התחל</Text>
+                 </View>
+             </Image>
+           </View>
+
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Levels')}>
@@ -134,6 +136,7 @@ const styles = StyleSheet.create({
     height:545,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'white'
   },
   imageViewer: {
     height:170,
@@ -166,11 +169,38 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     padding: 13,
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0)'
+  },
+  container2: {
+    margin: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    width: 160
+  },
+  backdrop: {
+    margin: 5,
+    padding: 0,
+    width: 150,
+    height: 30
+  },
+  backdropView: {
+    padding: 0,
+    width: 150,
+    height: 30,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  headline: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    alignItems: 'center',
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'black'
   }
 });
-
 
 
 // skip this line if using Create React Native App
