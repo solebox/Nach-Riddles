@@ -4,8 +4,10 @@ import { StackNavigator } from 'react-navigation';
 
 import ComponentRiddles from './ComponentRiddles';
 
-export default class ComponentLevels extends Component {
+export default class ComponentLevels extends React.Component {
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
        <ScrollView contentContainerStyle={styles.contentContainer}>
         <View>
@@ -13,7 +15,7 @@ export default class ComponentLevels extends Component {
             <Text style={styles.titleText}>שלבים</Text>
             </View>
 
-            <TouchableOpacity onPress={() => this.props.navigation.dispatch('Riddles')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
               <View style={styles.container2}>
                  <Image
                    style={styles.backdrop}
@@ -24,7 +26,7 @@ export default class ComponentLevels extends Component {
                  </Image>
                </View>
             </TouchableOpacity>
-
+{/*
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Riddles')}>
               <View style={styles.container2}>
                  <Image
@@ -72,11 +74,14 @@ export default class ComponentLevels extends Component {
                  </Image>
                </View>
             </TouchableOpacity>
+*/}
           </View>
+
   </ScrollView>
     );
   }
 }
+
 class RiddlesScreen extends React.Component {
   static navigationOptions = {
     title: 'אביעה חידות מני קדם',
