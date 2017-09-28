@@ -9,7 +9,6 @@ import {
   Button,
   TouchableOpacity
 } from 'react-native'
-import { StackNavigator } from 'react-navigation'
 
 import ComponentRiddles from './ComponentRiddles'
 
@@ -23,7 +22,7 @@ export default class ComponentLevels extends React.Component {
           </View>
 
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Riddles')}
+            onPress={() => this.props.navigation.navigate('Book')}
           >
             <View style={styles.container2}>
               <Image
@@ -42,7 +41,7 @@ export default class ComponentLevels extends React.Component {
                  <Image
                    style={styles.backdrop}
                    source={require("../img/open-book2.png")}>
-                     <View style={styles.backdropView}>
+                      <View style={styles.backdropView}>
                        <Text style={styles.headline}>ספר שופטים</Text>
                      </View>
                  </Image>
@@ -103,13 +102,6 @@ class RiddlesScreen extends React.Component {
     )
   }
 }
-
-const NachRiddles = StackNavigator(
-  {
-    Riddles: { screen: RiddlesScreen }
-  },
-  { headerMode: 'screen' }
-)
 
 const styles = StyleSheet.create({
   titleText: {

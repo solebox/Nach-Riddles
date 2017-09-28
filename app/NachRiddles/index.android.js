@@ -81,13 +81,13 @@ export default class HomeScreen extends React.Component {
 }
 
 class BookSelectorScreen extends React.Component {
-  static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
+  constructor(props) {
+    super(props)
   }
   render() {
     return (
       <View>
-        <ComponentBookSelector />
+        <ComponentBookSelector navigation={this.props.navigation} />
       </View>
     )
   }
@@ -132,16 +132,24 @@ class SettingScreen extends React.Component {
   }
 }
 
+class BookScreen extends React.Component {
+  render() {
+    return <Text>Im da b00000k</Text>
+  }
+}
+
 const NachRiddles = StackNavigator(
   {
     Home: { screen: HomeScreen },
     BookSelector: { screen: BookSelectorScreen },
     Levels: { screen: LevelsScreen },
     Setting: { screen: SettingScreen },
-    About: { screen: AboutScreen }
+    About: { screen: AboutScreen },
+    Book: { screen: BookScreen }
   },
   { headerMode: 'screen' }
 )
+
 //export HomeScreen;
 
 const styles = StyleSheet.create({
