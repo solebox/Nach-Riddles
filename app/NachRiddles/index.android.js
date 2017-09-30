@@ -16,6 +16,8 @@ import ComponentLevels from './app/components/ComponentLevels'
 import ComponentAbout from './app/components/ComponentAbout'
 import ComponentRiddles from './app/components/ComponentRiddles'
 
+import database from './app/database/riddles_json_file2.json'
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -134,7 +136,7 @@ class SettingScreen extends React.Component {
 
 class BookScreen extends React.Component {
   render() {
-    return <Text>Im da b00000k</Text>
+    return <Text>{JSON.stringify(database['ספר דניאל'], null, 2)}</Text>
   }
 }
 
