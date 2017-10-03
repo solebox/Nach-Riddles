@@ -8,6 +8,8 @@ import {
   Button
 } from 'react-native'
 
+import database from '../database/riddles_json_file2'
+
 export default class ComponentRiddles extends Component {
   static navigationOptions = {
     header: null
@@ -27,8 +29,11 @@ export default class ComponentRiddles extends Component {
           <Image
                 style={styles.imageView}
                 source={require('../img/free-question-mark-background.jpg')}>
-              <Text>ספר יהושע</Text>
+              <Text style={styles.titleText3}>את מה נשאו הכהנים כשבתוך הירדן היו עומדים</Text>
           </Image>
+        </View>
+        <View>
+            <Text>{JSON.stringify(database['ספר יהושע'], null, 2)}</Text>
         </View>
       </View>
     )
@@ -38,7 +43,7 @@ export default class ComponentRiddles extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop:40,
-    height: 300,
+    height: 83,
     width: 360,
     alignItems: 'center',
 
@@ -64,14 +69,14 @@ const styles = StyleSheet.create({
   imageView: {
     paddingTop:0,
     paddingBottom:0 ,
-    width: 340,
-    height: 80,
+    width: 360,
+    height: 300,
   },
   titleText3: {
-    paddingTop:50 ,
-    paddingBottom:100 ,
+    paddingTop:100 ,
+    paddingBottom:130 ,
     includeFontPadding: true,
-    backgroundColor: 'darkorchid',
+    backgroundColor: 'rgba(135,206,235, 0.4)',
     color: '#000',
     fontWeight: 'bold',
     fontSize: 28,
