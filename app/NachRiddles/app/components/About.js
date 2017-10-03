@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import {AppRegistry, View, Image,ScrollView, StyleSheet, Text, Button} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-export default class ComponentRiddles extends Component {
+export default class About extends Component {
   render() {
-    var customData = require('../database/riddles_json_file2.json');
     return (
              <ScrollView contentContainerStyle={styles.contentContainer}>
         <View>
@@ -81,4 +80,4 @@ const styles = StyleSheet.create({
 });
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('ComponentRiddles', () => ComponentRiddles);
+AppRegistry.registerComponent('About', () => About);

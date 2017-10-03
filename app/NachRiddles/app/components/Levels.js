@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet, Text, Button } from 'react-native';
 
-export default class ComponentLevels extends Component {
+export default class Levels extends Component {
+  static navigationOptions = {
+    header: null
+  }
   render() {
     return (
 
@@ -85,4 +88,4 @@ const styles = StyleSheet.create({
 });
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('ComponentLevels', () => ComponentLevels);
+AppRegistry.registerComponent('Levels', () => Levels);

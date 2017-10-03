@@ -10,9 +10,9 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-import ComponentRiddles from './ComponentRiddles'
+import Riddles from './Riddles'
 
-export default class ComponentLevels extends React.Component {
+export default class BookSelector extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -143,4 +143,4 @@ const styles = StyleSheet.create({
 })
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('ComponentLevels', () => ComponentLevels)
+AppRegistry.registerComponent('BookSelector', () => BookSelector)

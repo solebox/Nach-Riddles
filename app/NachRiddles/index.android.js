@@ -10,13 +10,15 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-import ComponentBookSelector from './app/components/ComponentBookSelector'
+import HomeScreen from './app/components/HomeScreen'
+import BookSelector from './app/components/BookSelector'
 import indexAndroid from './index.android'
-import ComponentLevels from './app/components/ComponentLevels'
-import ComponentAbout from './app/components/ComponentAbout'
-import ComponentRiddles from './app/components/ComponentRiddles'
+import Levels from './app/components/Levels'
+import About from './app/components/About'
+import Riddles from './app/components/Riddles'
+import Settings from './app/components/Settings'
 
-export default class HomeScreen extends React.Component {
+export default class NachRiddles extends React.Component {
   static navigationOptions = {
     header: null
   }
@@ -28,66 +30,25 @@ export default class HomeScreen extends React.Component {
    }*/
   render() {
     return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
-          <View style={styles.imageViewer}>
-            <View>
-              <Image
-                style={{ width: 360, height: 165 }}
-                source={require('./app/img/Book.png')}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={{ height: 50 }}>
-          <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
-        </View>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('BookSelector')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>התחל</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Levels')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>שלבים</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Setting')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>הגדרות</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('About')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>אודות</Text>
-          </View>
-        </TouchableOpacity>
+      <View>
+        <HomeScreen />
       </View>
     )
   }
 }
 
 class BookSelectorScreen extends React.Component {
+  static navigationOptions = {
+    header: null
+  }
+  /*
   constructor(props) {
     super(props)
-  }
+  }*/
   render() {
     return (
       <View>
-        <ComponentBookSelector navigation={this.props.navigation} />
+        <BookSelector navigation={this.props.navigation} />
       </View>
     )
   }
@@ -95,12 +56,25 @@ class BookSelectorScreen extends React.Component {
 
 class LevelsScreen extends React.Component {
   static navigationOptions = {
+    header: null
+  }
+  render() {
+    return (
+      <View>
+        <Levels navigation={this.props.navigation} />
+      </View>
+    )
+  }
+}
+
+class SettingsScreen extends React.Component {
+  static navigationOptions = {
     title: 'אביעה חידות מני קדם'
   }
   render() {
     return (
       <View>
-        <ComponentLevels />
+        <Settings navigation={this.props.navigation} />
       </View>
     )
   }
@@ -108,25 +82,12 @@ class LevelsScreen extends React.Component {
 
 class AboutScreen extends React.Component {
   static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
+    header: null
   }
   render() {
     return (
       <View>
-        <ComponentAbout />
-      </View>
-    )
-  }
-}
-
-class SettingScreen extends React.Component {
-  static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
-  }
-  render() {
-    return (
-      <View>
-        <ComponentSetting />
+        <About navigation={this.props.navigation} />
       </View>
     )
   }
@@ -134,12 +95,12 @@ class SettingScreen extends React.Component {
 
 class RiddlesScreen extends React.Component {
   static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
+    header: null
   }
   render() {
     return (
       <View>
-        <ComponentRiddles />
+        <Riddles navigation={this.props.navigation}/>
       </View>
     )
   }
@@ -151,12 +112,12 @@ class BookScreen extends React.Component {
   }
 }
 
-const NachRiddles = StackNavigator(
+const Navigate = StackNavigator(
   {
     Home: { screen: HomeScreen },
     BookSelector: { screen: BookSelectorScreen },
     Levels: { screen: LevelsScreen },
-    Setting: { screen: SettingScreen },
+    Settings: { screen: SettingsScreen },
     About: { screen: AboutScreen },
     Riddles: { screen: RiddlesScreen }
   },
@@ -212,4 +173,4 @@ const styles = StyleSheet.create({
 })
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('NachRiddles', () => NachRiddles)
+AppRegistry.registerComponent('NachRiddles', () => Navigate)
