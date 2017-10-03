@@ -2,7 +2,7 @@ import React from 'react';
 import {AppRegistry, Text, View, Button} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from './app/HomeScreen';
+import HomeScreen from './app/components/HomeScreen';
 
 export default class NachRiddles extends React.Component {
 
