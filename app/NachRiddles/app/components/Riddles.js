@@ -20,13 +20,15 @@ export default class ComponentRiddles extends Component {
           <Text style={styles.titleText}>פרשת יהושע</Text>
           <Text style={styles.titleText}>ספר יהושע</Text>
         </View>
-        <View style={styles.container}>
+        <View  style={styles.container}>
           <Text style={styles.titleText2}>חידה א</Text>
         </View>
         <View>
-          <Text style={styles.titleText3}>
-            את מה נשאו הכהנים כשבתוך הירדן היו עומדים
-          </Text>
+          <Image
+                style={styles.imageView}
+                source={require('../img/free-question-mark-background.jpg')}>
+              <Text>ספר יהושע</Text>
+          </Image>
         </View>
       </View>
     )
@@ -35,13 +37,14 @@ export default class ComponentRiddles extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 125,
+    paddingTop:40,
+    height: 300,
     width: 360,
     alignItems: 'center',
-    justifyContent: 'center'
+
   },
   titleText: {
-    height: 45,
+    height: 40,
     width: 120,
     color: 'white',
     fontWeight: 'bold',
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'steelblue'
   },
   titleText2: {
-    height: 45,
+
     width: 360,
     color: 'white',
     fontWeight: 'bold',
@@ -58,14 +61,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'skyblue'
   },
+  imageView: {
+    paddingTop:0,
+    paddingBottom:0 ,
+    width: 340,
+    height: 80,
+  },
   titleText3: {
-    height: 45,
-    width: 360,
+    paddingTop:50 ,
+    paddingBottom:100 ,
+    includeFontPadding: true,
+    backgroundColor: 'darkorchid',
     color: '#000',
     fontWeight: 'bold',
-    fontSize: 15,
-    textAlign: 'center'
+    fontSize: 28,
+    textAlign: 'center',
   }
+
 })
 
 // skip this line if using Create React Native App
