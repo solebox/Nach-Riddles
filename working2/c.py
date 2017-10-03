@@ -10,7 +10,7 @@ from pprint import pprint
 if __name__ == '__main__':
 
     ##this file can run only in python3 (python2 can load 'encoding' argument in function
-    with open('./riddle-converted2.csv', encoding='utf8') as f:
+    with open('./riddle-converted3.csv', encoding='utf8') as f:
         ##make dictionary
         d = {}
         next(f) # Skip the first line
@@ -28,10 +28,10 @@ if __name__ == '__main__':
             if parasha not in d[book]:
                 d[book][parasha] = {}
             if 'riddles' not in d[book][parasha]:
-                d[book][parasha]['riddles'] = []
+                d[book][parasha]['riddles'] = {}
 
             d[book][parasha]['torah_parasha'] = torah_parasha
-            d[book][parasha]['riddles'].append({ riddle_number: {'riddle': riddle, 'answer': answer} })
+            d[book][parasha]['riddles'][riddle_number] = {'riddle': riddle, 'answer': answer}
         print(json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False))
-        riddles_json_file = open('riddles_json_file2.json', 'w')
+        riddles_json_file = open('riddles_json_file3.json', 'w')
         riddles_json_file.write(json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False))
