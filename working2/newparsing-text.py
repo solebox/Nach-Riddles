@@ -3,7 +3,7 @@
 # Open a file
 file_without_lines = open("file_without_lines.txt", "r",)
 middle_file = open("middle_file.txt", "w", )
-riddle_converted = open("riddle-converted2.csv", "w",)
+riddle_converted = open("riddle-converted3.csv", "w",)
 
 def take_letter(string):
     return string[0:1]
@@ -27,6 +27,7 @@ def cut_pitronot(string):
     return string[len("פתרונות: "):]
 
 def remove_space(string):
+    string = string.replace(".", "")
     if string[0] == ' ':
         return string[1:]
     else:
@@ -38,7 +39,7 @@ def while_to_remove_newline(answers):
     return cut_pitronot(answers)
 
 
-for lop in range(2000):
+for lop in range(1):
     #the book name and riddles title
     first_line = file_without_lines.readline().replace(":", "").replace(",", " ")
     if "ספר" in first_line:
@@ -59,7 +60,8 @@ for lop in range(2000):
                 riddle_converted.write(allLine)
             middle_file = open("middle_file.txt", "w")
             break
-
+        else:
+            print("end of script")
 
         riddleNumber = take_letter(riddlestring)
         riddle = remove_comma(remove_letter(riddlestring))
