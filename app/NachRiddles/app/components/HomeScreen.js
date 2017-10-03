@@ -10,13 +10,12 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-import ComponentBookSelector from './app/components/ComponentBookSelector'
-import indexAndroid from './index.android'
-import ComponentLevels from './app/components/ComponentLevels'
-import ComponentAbout from './app/components/ComponentAbout'
-import ComponentRiddles from './app/components/ComponentRiddles'
+import ComponentBookSelector from './ComponentBookSelector'
+import ComponentLevels from './ComponentLevels'
+import ComponentAbout from './ComponentAbout'
+import ComponentRiddles from './ComponentRiddles'
 
-import database from './app/database/riddles_json_file2.json'
+import database from '../database/riddles_json_file2.json'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -37,7 +36,7 @@ export default class HomeScreen extends React.Component {
             <View>
               <Image
                 style={{ width: 360, height: 165 }}
-                source={require('./app/img/Book.png')}
+                source={require('../img/Book.png')}
               />
             </View>
           </View>
