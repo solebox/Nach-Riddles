@@ -6,7 +6,11 @@ middle_file = open("middle_file.txt", "w", )
 riddle_converted = open("riddle-converted3.csv", "w",)
 
 def take_letter(string):
-    return string[0:1]
+    string = string[0:1]
+    alphabet = "אבגדהוזחטיכלמנסעפצקרשת"
+    number = alphabet.index(string) + 1
+    print(number)
+    return str(number)
 
 def remove_letter(string):
     return string[2:]
@@ -39,7 +43,7 @@ def while_to_remove_newline(answers):
     return cut_pitronot(answers)
 
 
-for lop in range(1):
+for lop in range(2000):
     #the book name and riddles title
     first_line = file_without_lines.readline().replace(":", "").replace(",", " ")
     if "ספר" in first_line:
