@@ -9,7 +9,7 @@ export default class NachRiddles extends React.Component {
   render() {
    return (
      <View>
-       <Text>this is Lucy component</Text>
+       <HomeScreen />
      </View>
     );
   }

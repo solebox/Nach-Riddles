@@ -14,7 +14,6 @@ import ComponentBookSelector from './ComponentBookSelector'
 import ComponentLevels from './ComponentLevels'
 import ComponentAbout from './ComponentAbout'
 import ComponentRiddles from './ComponentRiddles'
-
 import database from '../database/riddles_json_file2.json'
 
 export default class HomeScreen extends React.Component {
