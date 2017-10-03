@@ -1,202 +1,157 @@
-import React, { Component } from 'react'
-import {
-  AppRegistry,
-  View,
-  Image,
-  StyleSheet,
-  Text,
-  Button,
-  TouchableOpacity
-} from 'react-native'
-import { StackNavigator } from 'react-navigation'
+import React, { Component } from 'react';
+import { AppRegistry, View, Image, StyleSheet, Text, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import ComponentBookSelector from './ComponentBookSelector'
-import ComponentLevels from './ComponentLevels'
-import ComponentAbout from './ComponentAbout'
-import ComponentRiddles from './ComponentRiddles'
-import database from '../database/riddles_json_file2.json'
+import ComponentLevels from './ComponentLevels';
+import ComponentAbout from './ComponentAbout';
+import ComponentRiddles from './ComponentRiddles';
 
-export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  }
-  /*constructor(props) {
+export default class Home extends React.Component{
+  constructor(props) {
       super(props);
       this.state = {
           discounts: undefined
       }
-   }*/
+   }
   render() {
-    return (
+    const navigation = this.props.navigation;
+    return(
       <View style={styles.container}>
         <View>
           <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
-          <View style={styles.imageViewer}>
-            <View>
-              <Image
-                style={{ width: 360, height: 165 }}
-                source={require('../img/Book.png')}
-              />
-            </View>
+            <View style={styles.imageViewer}>
+            <Image style={{width: 360, height:200}} source={require("../img/Book.png")}/>
           </View>
         </View>
-        <View style={{ height: 50 }}>
-          <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
-        </View>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('BookSelector')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>התחל</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Levels')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>שלבים</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Setting')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>הגדרות</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('About')}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>אודות</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={{height:50}}>
+      <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
       </View>
-    )
+      <View style={styles.buttonView}>
+        <Button
+          onPress={() => navigation.navigate('Riddles')}
+          title="התחל"
+          color='skyblue'
+        />
+        </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={() => navigation.navigate('Levels')}
+          title="שלבים"
+          color='skyblue'
+        />
+      </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={() => navigation.navigate('Setting')}
+          title="הגדרות"
+          color='skyblue'
+        />
+      </View>
+      <View style={styles.buttonView}>
+        <Button
+          onPress={() => navigation.navigate('About')}
+          title="אודות"
+          color='skyblue'
+        />
+      </View>
+      </View>
+    );
   }
 }
 
-class BookSelectorScreen extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+class RiddlesScreen extends React.Component {
+  static navigationOptions = {
+    title: 'אביעה חידות מני קדם',
+  };
   render() {
     return (
       <View>
-        <ComponentBookSelector navigation={this.props.navigation} />
+        <ComponentRiddles/>
       </View>
-    )
+    );
   }
 }
 
 class LevelsScreen extends React.Component {
   static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
-  }
+    title: 'אביעה חידות מני קדם',
+  };
   render() {
     return (
       <View>
-        <ComponentLevels />
+        <ComponentLevels/>
       </View>
-    )
+    );
   }
 }
 
 class AboutScreen extends React.Component {
   static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
-  }
+    title: 'אביעה חידות מני קדם',
+  };
   render() {
     return (
       <View>
-        <ComponentAbout />
+        <ComponentAbout/>
       </View>
-    )
+    );
   }
 }
+
 
 class SettingScreen extends React.Component {
   static navigationOptions = {
-    title: 'אביעה חידות מני קדם'
-  }
+    title: 'אביעה חידות מני קדם',
+  };
   render() {
     return (
       <View>
-        <ComponentSetting />
+        <ComponentSetting/>
       </View>
-    )
+    );
   }
 }
 
-class BookScreen extends React.Component {
-  render() {
-    return <Text>{JSON.stringify(database['ספר דניאל'], null, 2)}</Text>
-  }
-}
-
-const NachRiddles = StackNavigator(
-  {
-    Home: { screen: HomeScreen },
-    BookSelector: { screen: BookSelectorScreen },
-    Levels: { screen: LevelsScreen },
-    Setting: { screen: SettingScreen },
-    About: { screen: AboutScreen },
-    Book: { screen: BookScreen }
-  },
-  { headerMode: 'screen' }
-)
-
+const HomeScreen = StackNavigator({
+  Riddles: { screen: RiddlesScreen },
+  Levels: { screen: LevelsScreen },
+  Setting: { screen: SettingScreen },
+  About: { screen: AboutScreen },
+});
 //export HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    height: 570,
+    height:545,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white'
-  },
-
-  titleText: {
-    color: '#2196F3',
-    fontWeight: 'bold',
-    fontSize: 50,
-    textAlign: 'center'
   },
   imageViewer: {
-    height: 160,
+    height:170,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  titleText: {
+    color: 'skyblue',
+    fontWeight: 'bold',
+    fontSize: 50,
+    textAlign: 'center',
   },
   lineText: {
-    color: '#2196F3',
+    color: 'skyblue',
     fontWeight: 'bold',
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   buttonView: {
     textAlign: 'center',
-    width: 170,
+    width: 150,
     height: 45
-  },
-  button: {
-    marginBottom: 5,
-    width: 200,
-    height: 45,
-    alignItems: 'center',
-    backgroundColor: '#2196F3'
-  },
-  buttonText: {
-    fontSize: 30,
-    padding: 1,
-    color: 'black',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0)'
   }
-})
+
+});
+
+
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('NachRiddles', () => NachRiddles)
+AppRegistry.registerComponent('ComponentHomeScreen', () => ComponentHomeScreen);

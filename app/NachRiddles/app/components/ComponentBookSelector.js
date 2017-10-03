@@ -22,7 +22,7 @@ export default class ComponentLevels extends React.Component {
           </View>
 
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Book')}
+            onPress={() => this.props.navigation.navigate('Riddles')}
           >
             <View style={styles.container2}>
               <Image
