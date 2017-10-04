@@ -12,6 +12,16 @@ import {
 import database from '../database/riddles_json_file3'
 
 export default class ComponentRiddles extends Component {
+  getData(
+    return fatch(database).then((response) => response.Json()).then((responseJson) => {alert(responseJson);});
+  )
+  componentDidMount(){
+    var pageRiddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
+    alert(pageRiddle)
+    return(
+      pageRiddle
+    )
+  }
   static navigationOptions = {
     header: null
   }
@@ -32,11 +42,11 @@ export default class ComponentRiddles extends Component {
           <Image
                 style={styles.imageView}
                 source={require('../img/free-question-mark-background.jpg')}>
-              <Text style={styles.titleText3}>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1]}</Text>
+              <Text style={styles.titleText3}>{componentDidMount()}</Text>
           </Image>
         </View>
         <View>
-          <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle)}</Text>
+          <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle.value)}</Text>
         </View>
       </View>
       </ScrollView>
