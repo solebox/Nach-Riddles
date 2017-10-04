@@ -13,7 +13,7 @@ if __name__ == '__main__':
     with open('./riddle-converted3.csv', encoding='utf8') as f:
         ##make dictionary
         d = {}
-        next(f) # Skip the first line
+        ##next(f) # Skip the first line
         for l in f: #line by line go through f to l
             (book,
              parasha,

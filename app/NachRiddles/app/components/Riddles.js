@@ -5,17 +5,20 @@ import {
   Image,
   StyleSheet,
   Text,
-  Button
+  Button,
+  ScrollView,
 } from 'react-native'
 
-import database from '../database/riddles_json_file2'
+import database from '../database/riddles_json_file3'
 
 export default class ComponentRiddles extends Component {
   static navigationOptions = {
     header: null
   }
+
   render() {
     return (
+      <ScrollView contentContainerStyle={styles.contentContainer}>
       <View>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Text style={styles.titleText}>מקבילה ל-בראשית</Text>
@@ -29,21 +32,29 @@ export default class ComponentRiddles extends Component {
           <Image
                 style={styles.imageView}
                 source={require('../img/free-question-mark-background.jpg')}>
-              <Text style={styles.titleText3}>את מה נשאו הכהנים כשבתוך הירדן היו עומדים</Text>
+              <Text style={styles.titleText3}>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1]}</Text>
           </Image>
         </View>
         <View>
-            <Text>{JSON.stringify(database['ספר יהושע'], null, 2)}</Text>
+          <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle)}</Text>
         </View>
       </View>
+      </ScrollView>
+    )
+  }
+}
+class riddle_line extends Component {
+  render(){
+    return(
+      <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle)}</Text>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:40,
-    height: 83,
+    paddingTop:0,
+    height: 43,
     width: 360,
     alignItems: 'center',
 
