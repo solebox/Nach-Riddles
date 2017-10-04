@@ -12,21 +12,30 @@ import {
 import database from '../database/riddles_json_file3'
 
 export default class ComponentRiddles extends Component {
-  getData(
-    return fatch(database).then((response) => response.Json()).then((responseJson) => {alert(responseJson);});
-  )
-  componentDidMount(){
-    var pageRiddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
-    alert(pageRiddle)
-    return(
-      pageRiddle
-    )
-  }
   static navigationOptions = {
     header: null
   }
 
   render() {
+    for(var j = 0 ; j < 3 ; j++){
+    return (j);
+}
+}}
+/*
+    for (var i=1; 1<23; i++){
+      var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle;
+      var answer = database.BookOfJoshua.JoshuaRiddle.riddles[1].answer;
+      return(alert(i))
+    }
+  }}*/
+/*        <View>
+          <Text style={styles.titleText3}>{riddle}</Text>
+          <Text style={styles.titleText3}>{answer}</Text>
+        </View>
+      )
+    }
+  }*/
+      /*
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
       <View>
@@ -42,17 +51,20 @@ export default class ComponentRiddles extends Component {
           <Image
                 style={styles.imageView}
                 source={require('../img/free-question-mark-background.jpg')}>
-              <Text style={styles.titleText3}>{componentDidMount()}</Text>
+
+              <Text style={styles.titleText3}>{data}</Text>
           </Image>
         </View>
         <View>
-          <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle.value)}</Text>
+          <Text style={styles.titleText3}>{database.BookOfJoshua.JoshuaRiddle.riddles[1].answer}</Text>
         </View>
       </View>
       </ScrollView>
     )
+      }
+
   }
-}
+}*/
 class riddle_line extends Component {
   render(){
     return(
