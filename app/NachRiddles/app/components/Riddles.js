@@ -16,14 +16,19 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  constructor(props) {
-    super(props);
-    this.state = {text: ''};
-  }
 
   render() {
     var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
     var answer = database.BookOfJoshua.JoshuaRiddle.riddles[2].answer;
+
+    function check(user_answer){
+      if (user_answer !== answer) {
+        check_answer = <wrong_answer />
+      } else {
+        check_answer = <correct_answer />
+      }
+    }
+
       return(
         <View>
           <View>
@@ -31,13 +36,29 @@ export default class Riddles extends Component {
             <Text>{answer}</Text>
           </View>
           <TextInput
-            style={{height: 40}}
+            style={{height: 40,  borderColor: 'gray', borderWidth: 1}}
             placeholder="הקש את תשובתך"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(text) => check(text)}
           />
         </View>
       );
     }
+}
+
+class wrong_answer extends Component {
+  render(){
+    return(
+      <Text>{alert("תשובה לא נכונה")}</Text>
+    )
+  }
+}
+
+class Correct_answer extends Component {
+  render(){
+    return(
+      <Text>{alert("תשובה נכונה")}</Text>
+    )
+  }
 }
 /*
     for (var i=1; 1<23; i++){
