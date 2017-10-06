@@ -7,20 +7,38 @@ import {
   Text,
   Button,
   ScrollView,
+  TextInput,
 } from 'react-native'
 
 import database from '../database/riddles_json_file3'
 
-export default class ComponentRiddles extends Component {
+export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
 
   render() {
-    for(var j = 0 ; j < 3 ; j++){
-    return (j);
+    var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
+    var answer = database.BookOfJoshua.JoshuaRiddle.riddles[2].answer;
+      return(
+        <View>
+          <View>
+            <Text>{riddle}</Text>
+            <Text>{answer}</Text>
+          </View>
+          <TextInput
+            style={{height: 40}}
+            placeholder="הקש את תשובתך"
+            onChangeText={(text) => this.setState({text})}
+          />
+        </View>
+      );
+    }
 }
-}}
 /*
     for (var i=1; 1<23; i++){
       var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle;
@@ -65,13 +83,7 @@ export default class ComponentRiddles extends Component {
 
   }
 }*/
-class riddle_line extends Component {
-  render(){
-    return(
-      <Text>{JSON.stringify(database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle)}</Text>
-    )
-  }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -119,4 +131,4 @@ const styles = StyleSheet.create({
 })
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('ComponentRiddles', () => ComponentRiddles)
+AppRegistry.registerComponent('Riddles', () => Riddles)
