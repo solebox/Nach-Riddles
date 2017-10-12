@@ -10,13 +10,22 @@ import {
 } from 'react-native'
 import { Header, RiddleHeader, Button, Spinner } from './common';
 import database from '../database/riddles_json_file3';
+import axios from 'axios';
 
 export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
+  state = { database: [] };
+
+  componentWillMount(){
+    axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
+      .then(response => this.setState({ database: response.data}));
+
+  }
 
   render() {
+    console.log(this.state);
     var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
     var answer = database.BookOfJoshua.JoshuaRiddle.riddles[2].answer;
 
@@ -27,6 +36,9 @@ export default class Riddles extends Component {
         check_answer = <correct_answer />
       }
     }
+
+
+
 
       return(
         <View>
