@@ -8,115 +8,41 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native'
-import { Header, RiddleHeader, Button, Spinner } from './common';
-import database from '../database/riddles_json_file3';
+import { Header, RiddleHeader,RiddleSections, Button, Spinner } from './common';
+import database from '../database/riddles-testing-file';
 import axios from 'axios';
 
 export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  state = { database: [] };
-
-  componentWillMount(){
-    axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
-      .then(response => this.setState({ database: response.data}));
-
-  }
 
   render() {
-    console.log(this.state);
-    var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[2].riddle;
-    var answer = database.BookOfJoshua.JoshuaRiddle.riddles[2].answer;
-
-    function check(user_answer){
-      if (user_answer !== answer) {
-        check_answer = <wrong_answer />
-      } else {
-        check_answer = <correct_answer />
+    let num = 0;
+    for (i=0;i<0;i++){
+        num += 1;
       }
-    }
+    const check = database[num].riddle_section;
+    const book = database[num].book
+    const riddle_section = database[num].riddle_section
+    const parallel = database[num].parallel
 
-
+    console.log(database[0].answer);
 
 
       return(
         <View>
             <Header headerText="אביעה חידות מני קדם" />
-            <RiddleHeader headerText="אביעה חידות מני קדם" />
-          <View>
-            <Text>{riddle}</Text>
-            <Text>{answer}</Text>
-          </View>
-          <TextInput
-            style={{height: 40,  borderColor: 'gray', borderWidth: 1}}
-            placeholder="הקש את תשובתך"
-            onChangeText={(text) => check(text)}
-          />
+            <RiddleHeader headerText={check} />
+            <RiddleSections
+             bookText={book}
+             riddle_sectionText={riddle_section}
+             parallelText={parallel}
+             />
         </View>
       );
     }
 }
-
-class wrong_answer extends Component {
-  render(){
-    return(
-      <Text>{alert("תשובה לא נכונה")}</Text>
-    )
-  }
-}
-
-class Correct_answer extends Component {
-  render(){
-    return(
-      <Text>{alert("תשובה נכונה")}</Text>
-    )
-  }
-}
-/*
-    for (var i=1; 1<23; i++){
-      var riddle = database.BookOfJoshua.JoshuaRiddle.riddles[1].riddle;
-      var answer = database.BookOfJoshua.JoshuaRiddle.riddles[1].answer;
-      return(alert(i))
-    }
-  }}*/
-/*        <View>
-          <Text style={styles.titleText3}>{riddle}</Text>
-          <Text style={styles.titleText3}>{answer}</Text>
-        </View>
-      )
-    }
-  }*/
-      /*
-    return (
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-      <View>
-        <View style={{ flex: 1, flexDirection: 'row' }}>
-          <Text style={styles.titleText}>מקבילה ל-בראשית</Text>
-          <Text style={styles.titleText}>פרשת יהושע</Text>
-          <Text style={styles.titleText}>ספר יהושע</Text>
-        </View>
-        <View  style={styles.container}>
-          <Text style={styles.titleText2}>חידה א</Text>
-        </View>
-        <View>
-          <Image
-                style={styles.imageView}
-                source={require('../img/free-question-mark-background.jpg')}>
-
-              <Text style={styles.titleText3}>{data}</Text>
-          </Image>
-        </View>
-        <View>
-          <Text style={styles.titleText3}>{database.BookOfJoshua.JoshuaRiddle.riddles[1].answer}</Text>
-        </View>
-      </View>
-      </ScrollView>
-    )
-      }
-
-  }
-}*/
 
 
 const styles = StyleSheet.create({
