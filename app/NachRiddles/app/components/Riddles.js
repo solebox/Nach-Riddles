@@ -5,12 +5,11 @@ import {
   Image,
   StyleSheet,
   Text,
-  Button,
   ScrollView,
   TextInput,
 } from 'react-native'
-
-import database from '../database/riddles_json_file3'
+import { Header, RiddleHeader, Button, Spinner } from './common';
+import database from '../database/riddles_json_file3';
 
 export default class Riddles extends Component {
   static navigationOptions = {
@@ -31,6 +30,8 @@ export default class Riddles extends Component {
 
       return(
         <View>
+            <Header headerText="אביעה חידות מני קדם" />
+            <RiddleHeader headerText="אביעה חידות מני קדם" />
           <View>
             <Text>{riddle}</Text>
             <Text>{answer}</Text>

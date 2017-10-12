@@ -1,21 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  Image,
   StyleSheet,
   Text,
-  Button,
-  TouchableOpacity
-} from 'react-native'
-import { StackNavigator } from 'react-navigation'
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from './HomeScreen'
-import BookSelector from './BookSelector'
-import Levels from './Levels'
-import About from './About'
-import Riddles from './Riddles'
-import Settings from './Settings'
+import HomeScreen from './HomeScreen';
+import BookSelector from './BookSelector';
+import Levels from './Levels';
+import About from './About';
+import Riddles from './Riddles';
+import Settings from './Settings';
 
 export default class NachRiddles extends React.Component {
   static navigationOptions = {
