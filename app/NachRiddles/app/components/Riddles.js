@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native'
-import { Header, RiddleHeader,RiddleSections, Button, Spinner } from './common';
+import { Header, RiddleHeader, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
 import axios from 'axios';
 
@@ -18,27 +18,22 @@ export default class Riddles extends Component {
   }
 
   render() {
-    let num = 0;
-    for (i=0;i<0;i++){
-        num += 1;
-      }
-    const check = database[num].riddle_section;
-    const book = database[num].book
-    const riddle_section = database[num].riddle_section
-    const parallel = database[num].parallel
 
-    console.log(database[0].answer);
+    const check = database[0].riddle_section;
+    const book = database[0].book
+    const riddle_section = database[0].riddle_section
+    const parallel = database[0].parallel
+    let riddle = database[0].riddle;
+    let answer = database[0].answer;
 
 
       return(
         <View>
             <Header headerText="אביעה חידות מני קדם" />
             <RiddleHeader headerText={check} />
-            <RiddleSections
-             bookText={book}
-             riddle_sectionText={riddle_section}
-             parallelText={parallel}
-             />
+            <RiddleBox headerText={riddle}/>
+            <AnswerBox headerText={answer}/>
+            <LettersBox headerText={answer}/>
         </View>
       );
     }

@@ -4,5 +4,8 @@ export * from './CardSection';
 export * from './Header';
 export * from './RiddleHeader';
 export * from './RiddleSections';
+export * from './RiddleBox';
+export * from './AnswerBox';
+export * from './LettersBox';
 export * from './Input';
 export * from './Spinner';
