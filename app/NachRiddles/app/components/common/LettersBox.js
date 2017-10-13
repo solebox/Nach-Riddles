@@ -6,7 +6,7 @@ class LettersBox extends Component{
 
     render(){
     //this is script for making new string of the answer and random letter
-    //the string is putting in the boxes in random way 
+    //the string is putting in the boxes in random way
     let answer = this.props.headerText;
     console.log(answer)
     let randomNum = Math.floor(Math.random() * 22)
@@ -38,8 +38,8 @@ class LettersBox extends Component{
     for (let i = 0; i < answerlen; i++) {
         var res = answer[list[i]]
         test.push(
-            <TouchableOpacity style={styles.boxStyle} key={i}>
-              <Text>{res}</Text>
+            <TouchableOpacity onPress={console.log(this.props)} style={styles.boxStyle} key={i}>
+              <Text letter={res}>{res}</Text>
             </TouchableOpacity>
         );
       }
