@@ -9,10 +9,8 @@ import { StackNavigator } from 'react-navigation';
 
 import HomeScreen from './HomeScreen';
 import BookSelector from './BookSelector';
-import Levels from './Levels';
 import About from './About';
 import Riddles from './Riddles';
-import Settings from './Settings';
 
 export default class NachRiddles extends React.Component {
   static navigationOptions = {
@@ -112,61 +110,11 @@ const Navigate = StackNavigator(
   {
     Home: { screen: HomeScreen },
     BookSelector: { screen: BookSelectorScreen },
-    Levels: { screen: LevelsScreen },
-    Settings: { screen: SettingsScreen },
     About: { screen: AboutScreen },
     Riddles: { screen: RiddlesScreen }
   },
   { headerMode: 'screen' }
 )
-
-//export HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    height: 570,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white'
-  },
-
-  titleText: {
-    color: '#2196F3',
-    fontWeight: 'bold',
-    fontSize: 50,
-    textAlign: 'center'
-  },
-  imageViewer: {
-    height: 160,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  lineText: {
-    color: '#2196F3',
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  buttonView: {
-    textAlign: 'center',
-    width: 170,
-    height: 45
-  },
-  button: {
-    marginBottom: 5,
-    width: 200,
-    height: 45,
-    alignItems: 'center',
-    backgroundColor: '#2196F3'
-  },
-  buttonText: {
-    fontSize: 30,
-    padding: 1,
-    color: 'black',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0)'
-  }
-})
 
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('NachRiddles', () => Navigate)

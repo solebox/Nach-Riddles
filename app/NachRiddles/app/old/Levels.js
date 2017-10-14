@@ -10,7 +10,7 @@ export default class Levels extends Component {
 
         <View>
           <View>
-            <Text style={styles.titleText}>שלבים</Text>
+            <Text style={styles.titleText}>?שלבים</Text>
             </View>
 
           <View style={styles.buttonView}>

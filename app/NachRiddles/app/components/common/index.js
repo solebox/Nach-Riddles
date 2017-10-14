@@ -3,6 +3,7 @@ export * from './Card';
 export * from './CardSection';
 export * from './Header';
 export * from './RiddleHeader';
+export * from './RiddleSectionsHeader';
 export * from './RiddleSections';
 export * from './RiddleBox';
 export * from './AnswerBox';

@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native'
-import { Header, RiddleHeader, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
+import { Header, RiddleHeader,RiddleSectionsHeader, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
 import axios from 'axios';
 
@@ -28,18 +28,24 @@ export default class Riddles extends Component {
     console.log(urldatabase[3])
 
 
-    const check = database[0].riddle_section;
     const book = database[0].book
     const riddle_section = database[0].riddle_section
     const parallel = database[0].parallel
+    const riddle_number = database[0].riddle_number
     let riddle = database[0].riddle;
     let answer = database[0].answer;
 
 
       return(
         <View>
-            <Header headerText="אביעה חידות מני קדם" />
-            <RiddleHeader headerText={check} />
+            <RiddleHeader headerText={book} />
+            <View style={styles.viewFlex}>
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <RiddleSectionsHeader headerText={riddle_section} />
+                <RiddleSectionsHeader headerText={parallel} />
+                <RiddleSectionsHeader headerText={"חידה מספר" + riddle_number} />
+              </View>
+            </View>
             <RiddleBox headerText={riddle}/>
             <AnswerBox headerText={answer}/>
             <LettersBox headerText={answer}/>
@@ -50,12 +56,8 @@ export default class Riddles extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop:0,
-    height: 43,
-    width: 360,
-    alignItems: 'center',
-
+  viewFlex: {
+    height: 60,
   },
   titleText: {
     height: 40,

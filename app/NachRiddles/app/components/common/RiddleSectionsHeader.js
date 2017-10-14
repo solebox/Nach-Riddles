@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, View } from 'react-native';
 
 
-class RiddleHeader extends Component{
+class RiddleSectionsHeader extends Component{
   render(){
     return(
       <View style={styles.viewStyle}>
@@ -14,19 +14,23 @@ class RiddleHeader extends Component{
 
 const styles = {
   viewStyle:{
-    backgroundColor: '#ffffff',
+    flex:1,
     alignItems:'center',
-    height: 50,
+    backgroundColor: '#000000',
+    height: 60,
     shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.8,
     elevation: 2,
-    position: 'relative'
+    position: 'relative',
+    margin:2,
+    flexWrap: 'wrap'
+
   },
   textStyle: {
-    fontSize:20,
+    fontSize:15,
     color: 'steelblue',
   }
 
 };
 
-export {RiddleHeader};
+export {RiddleSectionsHeader};

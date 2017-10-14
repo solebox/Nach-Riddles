@@ -11,8 +11,6 @@ import {
 import { StackNavigator } from 'react-navigation'
 
 import BookSelector from './BookSelector'
-import indexAndroid from '../../index.android'
-import Levels from './Levels'
 import About from './About'
 import Riddles from './Riddles'
 
@@ -45,7 +43,7 @@ export default class HomeScreen extends React.Component {
             </View>
             <View style={styles.buttonView}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('BookSelector')}
+                onPress={() => this.props.navigation.navigate('Riddles')}
               >
                 <View style={styles.button}>
                   <Text style={styles.buttonText}>התחל</Text>
