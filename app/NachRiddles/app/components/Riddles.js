@@ -25,7 +25,7 @@ export default class Riddles extends Component {
 
     let urldatabase = jsondata()
     console.log("check2")
-    console.log(urldatabase[3:6])
+    console.log(urldatabase[3])
 
 
     const check = database[0].riddle_section;

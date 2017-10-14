@@ -29,7 +29,55 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <Image
+        style={styles.imageStyle}
+        source={require('../img/riddle.jpg')}
+      >
+        <View style={styles.backdropView}>
+          <View>
+            <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
+            <Image
+              style={{ width: 360, height: 165 }}
+              source={require('../img/Book.png')}
+            />
+            <View style={{ height: 50 }}>
+              <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
+            </View>
+            <View style={styles.buttonView}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('BookSelector')}
+              >
+                <View style={styles.button}>
+                  <Text style={styles.buttonText}>התחל</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonView}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('About')}
+              >
+                <View style={styles.button}>
+                  <Text style={styles.buttonText}>אודות</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Image>
+      </View>
+    )
+  }
+}
+
+
+
+      /*
+      <View style={styles.container}>
         <View>
+          <Image
+            style={{ flex:1, resizeMode: 'stretch'}}
+            source={require('../img/riddle.jpg')}
+          />
           <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
           <View style={styles.imageViewer}>
             <View>
@@ -81,15 +129,62 @@ export default class HomeScreen extends React.Component {
 }
 
 //export HomeScreen;
+*/
 
 const styles = StyleSheet.create({
   container: {
-    height: 570,
+    flex:1,
+    backgroundColor: 'rgba(0,0,0,0)',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white'
+  },
+  imageStyle: {
+    flex: 1,
+    resizeMode: 'stretch',
+    width: null,
+    height: null,
+  },
+  backdropView: {
+    flex:1,
+    backgroundColor: 'rgba(255,255,255, 0.8)'
+  },
+  titleText: {
+    textAlign: 'center',
+    color: '#2196F3',
+    fontWeight: 'bold',
+    fontSize: 50,
+  },
+  lineText: {
+    color: '#2196F3',
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center'
+  },
+  buttonView: {
+    alignItems: 'center',
+  },
+  button: {
+    marginBottom: 5,
+    width: 220,
+    height: 45,
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    position: 'relative',
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'white',
+
+
+
+  },
+  buttonText: {
+    fontSize: 30,
+    padding: 1,
+    color: 'white',
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0)'
   },
 
+/*
   titleText: {
     color: '#2196F3',
     fontWeight: 'bold',
@@ -125,7 +220,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)'
-  }
+  }*/
 })
 
 // skip this line if using Create React Native App
