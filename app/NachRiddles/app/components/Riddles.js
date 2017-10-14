@@ -16,16 +16,16 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
+  state = { urldatabase: []};
+  componentWillMount(){
+    axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
+      .then(response => this.setState({urldatabase: response.data}));
+  }
 
   render() {
-    function jsondata() {
-      return fetch('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
-      return response.json();
-    }
 
-    let urldatabase = jsondata()
     console.log("check2")
-    console.log(urldatabase[3])
+    console.log(axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')[0])
 
 
     const book = database[0].book

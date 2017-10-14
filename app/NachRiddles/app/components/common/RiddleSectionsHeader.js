@@ -16,12 +16,8 @@ const styles = {
   viewStyle:{
     flex:1,
     alignItems:'center',
-    backgroundColor: '#000000',
+    backgroundColor: 'blue',
     height: 60,
-    shadowOffset: { width: 0, height: 2},
-    shadowOpacity: 0.8,
-    elevation: 2,
-    position: 'relative',
     margin:2,
     flexWrap: 'wrap'
 

@@ -16,7 +16,7 @@ const styles = {
   viewStyle:{
     backgroundColor: '#ffffff',
     alignItems:'center',
-    height: 50,
+    height: 30,
     shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.8,
     elevation: 2,
