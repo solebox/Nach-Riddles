@@ -17,14 +17,15 @@ export default class Riddles extends Component {
     header: null
   }
 
-  let state = [];
-  componentWillMount(){
-    axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
-      .then(response => this.setState(response.data));
-  }
-
   render() {
-    console.log({state})
+    function jsondata() {
+      return fetch('https://zwerd.com/NachRiddles/database/riddles-testing-file.json')
+      return response.json();
+    }
+
+    let urldatabase = jsondata()
+    console.log("check2")
+    console.log(urldatabase[3:6])
 
 
     const check = database[0].riddle_section;
