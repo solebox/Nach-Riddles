@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 class LettersBox extends Component {
+
   onClick(letter) {
     console.log(letter);
+
   }
     render(){
     //this is script for making new string of the answer and random letters
@@ -45,7 +47,16 @@ class LettersBox extends Component {
         console.log('check',letter)
         LettersBoxes.push(
             <TouchableOpacity onPress={() => this.onClick(letter)} style={styles.boxStyle} key={i}>
-              <Text letter={letter}>{letter}</Text>
+              <Image
+                source={require('../../img/parchment3.gif')}
+                style={{width: 40, height: 40, alignItems: 'center'}}
+                >
+                <View>
+                  <Text
+                    style={{fontSize:28, fontWeight: 'bold',}}
+                    letter={letter}>{letter}</Text>
+                </View>
+              </Image>
             </TouchableOpacity>
         );
       }
@@ -61,8 +72,8 @@ const styles = {
     flexWrap: 'wrap',
     alignItems:'center',
     justifyContent:'center',
-    height: 130,
-    borderWidth: 2,
+    height: 96,
+    borderWidth: 0,
     position: 'relative'
   },
   textStyle: {
@@ -74,8 +85,8 @@ const styles = {
   boxStyle: {
     borderWidth: 2,
     borderColor: 'blue',
-    margin: 5,
-    padding:10,
+    margin: 1,
+    padding:0,
 
   }
 };

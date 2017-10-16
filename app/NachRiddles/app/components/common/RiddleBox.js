@@ -16,16 +16,16 @@ const styles = {
   viewStyle:{
     alignItems:'center',
     justifyContent:'center',
-    height: 250,
+    height: 180,
     shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.8,
     elevation: 2,
     position: 'relative'
   },
   textStyle: {
+    fontFamily: 'stam1',
     fontSize:30,
-    fontWeight: 'bold',
-    color: 'steelblue',
+    color: '#2196F3',
     textAlign: 'center',
   }
 

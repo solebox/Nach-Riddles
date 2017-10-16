@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 class AnswerBox extends Component{
@@ -26,7 +26,7 @@ const styles = {
     alignItems:'center',
     justifyContent:'center',
     height: 80,
-    borderWidth: 2,
+    borderWidth: 0,
     position: 'relative'
   },
   textStyle: {
@@ -38,7 +38,7 @@ const styles = {
   boxStyle: {
     borderWidth: 2,
     borderColor: 'blue',
-    margin: 5,
+    margin: 2,
     padding:10,
 
   }

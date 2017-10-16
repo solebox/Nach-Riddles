@@ -84,15 +84,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255, 0.8)'
   },
   titleText: {
-    fontFamily: 'stam',
+    fontFamily: 'stam1',
     textAlign: 'center',
     color: '#2196F3',
     fontSize: 50,
   },
   lineText: {
+    fontFamily: 'nrkis',
     color: 'red',
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center'
   },
   buttonView: {

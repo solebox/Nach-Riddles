@@ -22,8 +22,9 @@ const styles = {
     position: 'relative'
   },
   textStyle: {
+    fontFamily: 'stam1',
     fontSize:20,
-    color: 'steelblue',
+    color: '#2196F3',
   }
 
 };

@@ -9,7 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native'
-import { Header, RiddleHeader,RiddleSectionsHeader, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
+import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
 import axios from 'axios';
 
@@ -48,13 +48,17 @@ export default class Riddles extends Component {
                 <RiddleHeader headerText={book} />
                 <View style={styles.viewFlex}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
-                    <RiddleSectionsHeader headerText={riddle_section} />
-                    <RiddleSectionsHeader headerText={parallel} />
-                    <RiddleSectionsHeader headerText={"חידה מספר" + riddle_number} />
+                    <RiddleSectionsHeader2 headerText={riddle_section} />
+                    <RiddleSectionsHeader1 headerText={parallel} />
+                    <RiddleSectionsHeader1 headerText={"חידה מספר\n" + riddle_number} />
                   </View>
                 </View>
                 <RiddleBox headerText={riddle}/>
-                <AnswerBox headerText={answer}/>
+                <Image
+                  style={{ width: 360, height: 165, justifyContent: 'center'}}
+                  source={require('../img/scroll.png')}>
+                    <AnswerBox headerText={answer}/>
+                </Image>
                 <LettersBox headerText={answer}/>
         </View>
       </Image>
