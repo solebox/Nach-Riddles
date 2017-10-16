@@ -7,7 +7,6 @@ class AnswerBox extends Component{
     render(){
     const answer = this.props.headerText;
     const answerlen =  answer.length;
-    console.log(answerlen)
     let test = [];
     for (let i = 0; i < answerlen; i++) {
         test.push(

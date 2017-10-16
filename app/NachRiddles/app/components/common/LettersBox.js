@@ -2,24 +2,26 @@ import React, {Component} from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 
 
-class LettersBox extends Component{
-
+class LettersBox extends Component {
+  onClick(letter) {
+    console.log(letter);
+  }
     render(){
     //this is script for making new string of the answer and random letters
     //the string is putting in the boxes in random way
     let answer = this.props.headerText;
-    console.log(answer)
-    let randomNum = Math.floor(Math.random() * 22)
-    let test = [];
+    let randomNum;
     var str = "אבגדהוזחטיכלמנסעפצקרשת";
     var res = '';
-    for (let i = 0; i < 5; i++) {
+    let LoopNum = 14-answer.length; //for making 14 letters to guess
+
+    for (let i = 0; i < LoopNum; i++) {
         let randomNum = Math.floor(Math.random() * 22)
         answer += str.charAt(randomNum)
+        console.log(i)
       }
-    console.log(answer)
+    console.log('answer is 14' + answer.length)
     let answerlen = answer.length;
-    console.log(answerlen)
     let mixingLetters = []
     for (let i = 0; i < answerlen; i++) {
         let randomNum = Math.floor(Math.random() * answerlen)
@@ -30,21 +32,25 @@ class LettersBox extends Component{
           mixingLetters.push(randomNum)
         }
       }
+
+
     /*var res = str.split("")
     var letter = "ת";
     var letterPosition = res.indexOf(letter)+1;
     ranNums.next().value;*/
+    let LettersBoxes = [];
 
     for (let i = 0; i < answerlen; i++) {
-        var res = answer[mixingLetters[i]]
-        test.push(
-            <TouchableOpacity onPress={console.log({res})} style={styles.boxStyle} key={i}>
-              <Text letter={res}>{res}</Text>
+        let letter = answer[mixingLetters[i]]
+        console.log('check',letter)
+        LettersBoxes.push(
+            <TouchableOpacity onPress={() => this.onClick(letter)} style={styles.boxStyle} key={i}>
+              <Text letter={letter}>{letter}</Text>
             </TouchableOpacity>
         );
       }
     return(
-      <View style={styles.viewStyle}>{test}</View>
+      <View style={styles.viewStyle}>{LettersBoxes}</View>
     )
   }
 };

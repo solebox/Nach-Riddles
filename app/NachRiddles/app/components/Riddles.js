@@ -26,17 +26,15 @@ export default class Riddles extends Component {
   render() {
     let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
-    console.log(data)
-    console.log(data[0].book)
-    console.log(database[0].riddle_section)
+    let num = 0;
 
 
-    const book = database[0].book
-    const riddle_section = database[0].riddle_section
-    const parallel = database[0].parallel
-    const riddle_number = database[0].riddle_number
-    let riddle = database[0].riddle;
-    let answer = database[0].answer;
+    const book = database[num].book
+    const riddle_section = database[num].riddle_section
+    const parallel = database[num].parallel
+    const riddle_number = database[num].riddle_number
+    let riddle = database[num].riddle;
+    let answer = database[num].answer;
 
 
       return(
