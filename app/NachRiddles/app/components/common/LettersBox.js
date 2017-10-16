@@ -20,14 +20,14 @@ class LettersBox extends Component{
     console.log(answer)
     let answerlen = answer.length;
     console.log(answerlen)
-    let list = []
+    let mixingLetters = []
     for (let i = 0; i < answerlen; i++) {
         let randomNum = Math.floor(Math.random() * answerlen)
-        if (list.indexOf(randomNum) >= 0) {
+        if (mixingLetters.indexOf(randomNum) >= 0) {
           i--
           continue
         } else {
-          list.push(randomNum)
+          mixingLetters.push(randomNum)
         }
       }
     /*var res = str.split("")
@@ -36,7 +36,7 @@ class LettersBox extends Component{
     ranNums.next().value;*/
 
     for (let i = 0; i < answerlen; i++) {
-        var res = answer[list[i]]
+        var res = answer[mixingLetters[i]]
         test.push(
             <TouchableOpacity onPress={console.log({res})} style={styles.boxStyle} key={i}>
               <Text letter={res}>{res}</Text>

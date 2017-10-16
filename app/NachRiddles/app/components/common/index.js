@@ -6,6 +6,7 @@ export * from './RiddleHeader';
 export * from './RiddleSectionsHeader';
 export * from './RiddleSections';
 export * from './RiddleBox';
+export * from './Letters';
 export * from './AnswerBox';
 export * from './LettersBox';
 export * from './Input';
