@@ -39,7 +39,7 @@ export default class HomeScreen extends React.Component {
               source={require('../img/Book.png')}
             />
             <View style={{ height: 50 }}>
-              <Text style={styles.lineText}>ברוכים הבאים למשחק חידות הנ''ך</Text>
+              <Text style={styles.lineText}>1188 חידות על הנביא</Text>
             </View>
             <View style={styles.buttonView}>
               <TouchableOpacity
@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255, 0.8)'
   },
   titleText: {
+    fontFamily: 'stam',
     textAlign: 'center',
     color: '#2196F3',
-    fontWeight: 'bold',
     fontSize: 50,
   },
   lineText: {
-    color: '#2196F3',
+    color: 'red',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center'

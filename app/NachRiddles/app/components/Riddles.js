@@ -39,6 +39,17 @@ export default class Riddles extends Component {
 
       return(
         <View>
+          <Image style={{flex: 1, alignItems: 'center', resizeMode: 'stretch'}} source={require('../img/riddle.jpg')}>
+            <View  style={{flex: 1, backgroundColor: 'rgba(255,255,255, 0.8)'}}>
+              <Text style={{color: '#2196F3', fontSize: 50,}}>test</Text>
+            </View>
+          </Image>
+        </View>
+      )
+    }
+  }
+/*
+        <View>
             <RiddleHeader headerText={book} />
             <View style={styles.viewFlex}>
               <View style={{flex: 1, flexDirection: 'row'}}>
@@ -54,7 +65,7 @@ export default class Riddles extends Component {
       );
     }
 }
-
+*/
 
 const styles = StyleSheet.create({
   viewFlex: {
