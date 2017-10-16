@@ -4,8 +4,11 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 class LettersBox extends Component {
 
-  onClick(letter) {
+  onClick(letter, test) {
     console.log(letter);
+    test.push(letter);
+    console.log(test.join(''));
+
 
   }
     render(){
@@ -41,12 +44,13 @@ class LettersBox extends Component {
     var letterPosition = res.indexOf(letter)+1;
     ranNums.next().value;*/
     let LettersBoxes = [];
-
+    var test = [];
     for (let i = 0; i < answerlen; i++) {
+      console.log(test)
         let letter = answer[mixingLetters[i]]
         console.log('check',letter)
         LettersBoxes.push(
-            <TouchableOpacity onPress={() => this.onClick(letter)} style={styles.boxStyle} key={i}>
+            <TouchableOpacity onPress={() => this.onClick(letter, test)} style={styles.boxStyle} key={i}>
               <Image
                 source={require('../../img/parchment3.gif')}
                 style={{width: 40, height: 40, alignItems: 'center'}}
