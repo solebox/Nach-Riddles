@@ -14,7 +14,6 @@ class RiddleHeader extends Component{
 
 const styles = {
   viewStyle:{
-    backgroundColor: '#ffffff',
     alignItems:'center',
     height: 30,
     shadowOffset: { width: 0, height: 2},

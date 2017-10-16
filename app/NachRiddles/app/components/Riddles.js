@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   TextInput,
+  TouchableOpacity,
 } from 'react-native'
 import { Header, RiddleHeader,RiddleSectionsHeader, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
@@ -37,17 +38,108 @@ export default class Riddles extends Component {
     let answer = database[num].answer;
 
 
-      return(
-        <View>
-          <Image style={{flex: 1, alignItems: 'center', resizeMode: 'stretch'}} source={require('../img/riddle.jpg')}>
-            <View  style={{flex: 1, backgroundColor: 'rgba(255,255,255, 0.8)'}}>
-              <Text style={{color: '#2196F3', fontSize: 50,}}>test</Text>
-            </View>
-          </Image>
+    return (
+      <View style={styles.container}>
+      <Image
+        style={styles.imageStyle}
+        source={require('../img/riddle.jpg')}
+      >
+        <View style={styles.backdropView}>
+                <RiddleHeader headerText={book} />
+                <View style={styles.viewFlex}>
+                  <View style={{flex: 1, flexDirection: 'row'}}>
+                    <RiddleSectionsHeader headerText={riddle_section} />
+                    <RiddleSectionsHeader headerText={parallel} />
+                    <RiddleSectionsHeader headerText={"חידה מספר" + riddle_number} />
+                  </View>
+                </View>
+                <RiddleBox headerText={riddle}/>
+                <AnswerBox headerText={answer}/>
+                <LettersBox headerText={answer}/>
         </View>
-      )
-    }
+      </Image>
+      </View>
+    )
   }
+  }
+
+  const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'rgba(0,0,0,0)',
+    alignItems: 'center',
+  },
+  imageStyle: {
+    resizeMode: 'stretch',
+    width: null,
+    height: null,
+  },
+  backdropView: {
+    flex:1,
+    backgroundColor: 'rgba(255,255,255, 0.8)'
+  },
+  titleText: {
+    fontFamily: 'stam',
+    textAlign: 'center',
+    color: '#2196F3',
+    fontSize: 50,
+  },
+  viewFlex: {
+    height: 60,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  titleText: {
+    height: 40,
+    width: 120,
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15,
+    textAlign: 'center',
+    backgroundColor: 'steelblue'
+  },
+  titleText2: {
+
+    width: 360,
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 32,
+    textAlign: 'center',
+    backgroundColor: 'skyblue'
+  },
+  imageView: {
+    paddingTop:0,
+    paddingBottom:0 ,
+    width: 360,
+    height: 300,
+  },
+  titleText3: {
+    paddingTop:100 ,
+    paddingBottom:130 ,
+    includeFontPadding: true,
+    backgroundColor: 'rgba(135,206,235, 0.4)',
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 28,
+    textAlign: 'center',
+  }
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
         <View>
             <RiddleHeader headerText={book} />
@@ -65,9 +157,14 @@ export default class Riddles extends Component {
       );
     }
 }
-*/
+
 
 const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: 'rgba(0,255,0,0)',
+    alignItems: 'center',
+  },
   viewFlex: {
     height: 60,
   },
@@ -107,6 +204,6 @@ const styles = StyleSheet.create({
   }
 
 })
-
+*/
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('Riddles', () => Riddles)

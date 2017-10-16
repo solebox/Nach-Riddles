@@ -108,8 +108,8 @@ class BookScreen extends React.Component {
 
 const Navigate = StackNavigator(
   {
-    Riddles: { screen: RiddlesScreen },
     Home: { screen: HomeScreen },
+    Riddles: { screen: RiddlesScreen },
     BookSelector: { screen: BookSelectorScreen },
     About: { screen: AboutScreen },
   },

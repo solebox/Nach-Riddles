@@ -14,7 +14,6 @@ class RiddleBox extends Component{
 
 const styles = {
   viewStyle:{
-    backgroundColor: '#ffffff',
     alignItems:'center',
     justifyContent:'center',
     height: 250,
