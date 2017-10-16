@@ -9,7 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native'
-import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, Button, Spinner } from './common';
+import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, AnswersAndLetters, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
 import axios from 'axios';
 
@@ -37,8 +37,7 @@ export default class Riddles extends Component {
     let riddle = database[num].riddle;
     let answer = database[num].answer;
 
-
-    return (
+      return (
       <View style={styles.container}>
       <Image
         style={styles.imageStyle}

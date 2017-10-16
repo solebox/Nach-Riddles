@@ -10,5 +10,6 @@ export * from './RiddleBox';
 export * from './Letters';
 export * from './AnswerBox';
 export * from './LettersBox';
+export * from './AnswersAndLetters';
 export * from './Input';
 export * from './Spinner';
