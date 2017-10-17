@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 class LettersBox extends Component {
-
+z
   onClick(letter, test) {
     console.log(letter);
     test.push(letter);
