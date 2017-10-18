@@ -3,15 +3,53 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 class LettersBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      letters: {
+        א: true,
+        ב: true,
+        ג: true,
+        ד: true,
+        ה: true,
+        ו: true,
+        ז: true,
+        ח: true,
+        ט: true,
+        י: true,
+        כ: true,
+        ל: true,
+        מ: true,
+        נ: true,
+        ס: true,
+        ע: true,
+        פ: true,
+        צ: true,
+        ק: true,
+        ר: true,
+        ש: true,
+        ת: true,
+      }
+    };
+}
 
-  onClick(letter, index, test) {
+  onClick = (letter) => {
+    this.setState({
+      letters: {
+       [letter]: !this.state.letters[letter]
+      }
+    })
+  }
+
+/*
+  onClick(letter, index, answerLetter) {
     console.log(letter);
-    test.push(letter);
-    console.log(test.join(''));
+    answerLetter.push(letter);
+    console.log(answerLetter.join(''));
 
 
   }
-
+*/
     render(){
     //this is script for making new string of the answer and random letters
     //the string is putting in the boxes in random way
@@ -47,18 +85,20 @@ class LettersBox extends Component {
     console.log(mixingLetters)
     console.log(answer)
     let LettersBoxes = [];
-    var test = [];
+    var answerLetter = [];
     for (let i = 0; i < answerlen; i++) {
-      console.log(test)
+      console.log(answerLetter)
         let letter = answer[mixingLetters[i]]
         console.log('check',letter)
         LettersBoxes.push(letter)
     }
-    console.log(LettersBoxes)
-    console.log(LettersBoxes.indexOf('ר'))
+    console.log(mixingLetters)
 
-    const button = LettersBoxes.map((letter, index) => (
-      <TouchableOpacity onPress={() => this.onClick(letter, index, test)} style={styles.boxStyle} key={index}>
+
+    const button = Object.keys(this.state.letters).map((letter, index) => {
+      if (this.state.letters[letter]) {
+        return (
+      <TouchableOpacity onPress={() => this.onClick(letter)} style={styles.boxStyle} key={index}>
         <Image
           source={require('../../img/parchment3.gif')}
           style={{width: 40, height: 40, alignItems: 'center'}}
@@ -71,9 +111,24 @@ class LettersBox extends Component {
           </View>
         </Image>
       </TouchableOpacity>
-    ))
-/*
-
+    )
+  } else {
+      return (
+        <TouchableOpacity onPress={() => this.onClick(letter)} style={styles.boxStyle} key={index}>
+          <Image
+            source={require('../../img/parchment3.gif')}
+            style={{width: 40, height: 40, alignItems: 'center'}}
+            >
+            <View>
+              <Text
+                style={{fontSize:28, fontWeight: 'bold',}}>
+              </Text>
+            </View>
+          </Image>
+        </TouchableOpacity>
+      )
+    }
+  });
 
 /*  for (let i = 0; i < answerlen; i++) {
       console.log(test)
@@ -100,7 +155,6 @@ class LettersBox extends Component {
     )
   }
 };
-
 const styles = {
   viewStyle:{
     flexDirection: 'row',
