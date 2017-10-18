@@ -7,7 +7,7 @@ export default class About extends Component {
     return (
              <ScrollView contentContainerStyle={styles.contentContainer}>
         <View>
-          <View style={{height:60, backgroundColor:"skyblue"}}>
+          <View style={{height:60, backgroundColor:"#2196F3"}}>
             <Text style={styles.titleText}>אודות</Text>
           </View>
           <Text style={styles.lineText}>
@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
     height: 45,
     width: 360,
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 60,
     textAlign: 'center',
-    backgroundColor: 'skyblue',
+    backgroundColor: '#2196F3',
+    fontFamily: 'nrkis',
   },
   lineText: {
     padding: 5,

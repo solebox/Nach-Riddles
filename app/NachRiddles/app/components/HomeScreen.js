@@ -110,10 +110,10 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 45,
     padding: 1,
     color: 'white',
-    fontWeight: 'bold',
+    fontFamily: 'nrkis',
     backgroundColor: 'rgba(0,0,0,0)'
   },
 })

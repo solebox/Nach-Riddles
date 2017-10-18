@@ -19,11 +19,8 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  constructor(props) {
-    super(props);
-    this.state = { userAnswer: '', count: 0, modalVisible: true };
+  state = { userAnswer: '', count: 0};
 
-  }
 
   componentWillMount(){
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
@@ -40,13 +37,20 @@ checkAnswer(answer){
 }
 }
 
-nextQuestion(){
-  console.log('befor',this.state.count)
+clearAnswer(){
   this.setState({
       userAnswer: '',
-      count: this.state.count + 1
-      this.visibleModal(false)
     });
+}
+
+nextQuestion(){
+  console.log('befor',this.state.count)
+  console.log(!this.state.modalVisible)
+  this.setState({
+      userAnswer: '',
+      count: this.state.count + 1,
+    });
+  this.refs.modalCorrect.close()
   console.log('after',this.state.count)
   }
 
@@ -78,12 +82,14 @@ nextQuestion(){
           style={[styles.modal, styles.modalCorrect]}
           position={'center'}
           ref={'modalCorrect'}
+          transparent={false}
           visible={this.state.modalVisible}
+          onRequestClose={() => {alert("Modal has been closed.")}}
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
           <Image style={{height:60, width:60, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
           <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion()}>
-            <Text style={styles.buttonText}>בדוק</Text>
+            <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>המשך</Text>
           </TouchableOpacity>
         </Modal>
 
@@ -127,7 +133,7 @@ nextQuestion(){
                   />
                 </Image>
                 <View style={{flex:1, flexDirection:'row', alignItems: 'center', justifyContent: 'center'}}>
-                  <TouchableOpacity style={styles.button}>
+                  <TouchableOpacity style={styles.button}  onPress={() => this.clearAnswer(answer)}>
                     <Text style={styles.buttonText}>תקן</Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.button} onPress={() => this.checkAnswer(answer)}>
