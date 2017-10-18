@@ -4,7 +4,7 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 class LettersBox extends Component {
 z
-  onClick(letter, test) {
+  onClick(letter, index, test) {
     console.log(letter);
     test.push(letter);
     console.log(test.join(''));
@@ -44,9 +44,38 @@ z
     var letter = "ת";
     var letterPosition = res.indexOf(letter)+1;
     ranNums.next().value;*/
+    console.log(mixingLetters)
+    console.log(answer)
     let LettersBoxes = [];
     var test = [];
     for (let i = 0; i < answerlen; i++) {
+      console.log(test)
+        let letter = answer[mixingLetters[i]]
+        console.log('check',letter)
+        LettersBoxes.push(letter)
+    }
+    console.log(LettersBoxes)
+    console.log(LettersBoxes.indexOf('ר'))
+
+    const button = LettersBoxes.map((letter, index) => (
+      <TouchableOpacity onPress={() => this.onClick(letter, index, test)} style={styles.boxStyle} key={index}>
+        <Image
+          source={require('../../img/parchment3.gif')}
+          style={{width: 40, height: 40, alignItems: 'center'}}
+          >
+          <View>
+            <Text
+              style={{fontSize:28, fontWeight: 'bold',}}>
+              {letter}
+            </Text>
+          </View>
+        </Image>
+      </TouchableOpacity>
+    ))
+/*
+
+
+/*  for (let i = 0; i < answerlen; i++) {
       console.log(test)
         let letter = answer[mixingLetters[i]]
         console.log('check',letter)
@@ -65,9 +94,9 @@ z
               </Image>
             </TouchableOpacity>
         );
-      }
+      }*/
     return(
-      <View style={styles.viewStyle}>{LettersBoxes}</View>
+      <View style={styles.viewStyle}>{button}</View>
     )
   }
 };
