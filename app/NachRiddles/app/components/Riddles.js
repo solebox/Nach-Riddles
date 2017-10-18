@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native'
 import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, AnswersAndLetters, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
@@ -17,18 +18,29 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  state = { urldatabase: [] };
+  constructor(props) {
+    super(props);
+    this.state = { userAnswer: '' };
+
+  }
+
   componentWillMount(){
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
       .then(response => this.setState({urldatabase: response.data}));
   }
 
+checkAnswer(answer){
+  if (this.state.userAnswer === answer){
+    console.log('it works!')
+    Alert.alert('תשובה נכונה')
+}
+}
 
   render() {
-    let data = this.state.urldatabase
+    //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
     let num = 0;
-
+    console.log(this.state.userAnswer)
 
     const book = database[num].book
     const riddle_section = database[num].riddle_section
@@ -39,11 +51,13 @@ export default class Riddles extends Component {
 
       return (
       <View style={styles.container}>
+
       <Image
         style={styles.imageStyle}
         source={require('../img/riddle.jpg')}
       >
         <View style={styles.backdropView}>
+        <ScrollView>
                 <RiddleHeader headerText={book} />
                 <View style={styles.viewFlex}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
@@ -54,14 +68,28 @@ export default class Riddles extends Component {
                 </View>
                 <RiddleBox headerText={riddle}/>
                 <Image
-                  style={{ width: 360, height: 165, justifyContent: 'center'}}
+                  style={{ width: 360, height: 165, resizeMode: 'stretch', justifyContent: 'center', alignItems: 'center'}}
                   source={require('../img/scroll.png')}>
-                    <AnswerBox headerText={answer}/>
+                  <TextInput
+                    underlineColorAndroid='transparent'
+                    placeholder='הקלד את תשובתך'
+                    style={styles.textInput}
+                    onChangeText={(userAnswer) => this.setState({userAnswer})}
+                    value={this.state.userAnswer}
+                  />
                 </Image>
-                <LettersBox headerText={answer}/>
+                <View style={{flex:1, flexDirection:'row', alignItems: 'center', justifyContent: 'center'}}>
+                  <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>תקן</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.button} onPress={() => this.checkAnswer(answer)}>
+                    <Text style={styles.buttonText}>בדוק</Text>
+                  </TouchableOpacity>
+                </View>
+              </ScrollView>
         </View>
       </Image>
-      </View>
+    </View>
     )
   }
   }
@@ -100,7 +128,6 @@ export default class Riddles extends Component {
     backgroundColor: 'steelblue'
   },
   titleText2: {
-
     width: 360,
     color: 'white',
     fontWeight: 'bold',
@@ -110,7 +137,7 @@ export default class Riddles extends Component {
   },
   imageView: {
     paddingTop:0,
-    paddingBottom:0 ,
+    paddingBottom:0,
     width: 360,
     height: 300,
   },
@@ -123,7 +150,34 @@ export default class Riddles extends Component {
     fontWeight: 'bold',
     fontSize: 28,
     textAlign: 'center',
-  }
+  },
+  textInput: {
+     width: 250,
+     height: 60,
+     borderWidth: 0,
+     textAlign: 'center',
+     fontSize:25
+  },
+  button: {
+    flex:2,
+    marginBottom: 5,
+    width: 100,
+    height: 45,
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    position: 'relative',
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'white',
+    margin:10,
+  },
+  buttonText: {
+    fontSize: 30,
+    padding: 0,
+    color: 'white',
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0)'
+  },
   })
 
 
