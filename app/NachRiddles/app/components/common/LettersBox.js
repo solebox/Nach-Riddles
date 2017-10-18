@@ -11,6 +11,12 @@ z
 
 
   }
+
+   componentWillMount(){
+
+   }
+
+
     render(){
     //this is script for making new string of the answer and random letters
     //the string is putting in the boxes in random way
