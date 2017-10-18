@@ -21,7 +21,7 @@ export default class Riddles extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { num: 0 };
+    this.state = { userAnswer: '', count: 0, modalVisible: true };
 
   }
 
@@ -40,17 +40,23 @@ checkAnswer(answer){
 }
 }
 
-nextQuestion(num){
-  console.log(num)
-  num += 1;
-}
+nextQuestion(){
+  console.log('befor',this.state.count)
+  this.setState({
+      userAnswer: '',
+      count: this.state.count + 1
+      this.visibleModal(false)
+    });
+  console.log('after',this.state.count)
+  }
 
 
   render() {
     //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
-    let num = this.state.num;
+    let num = this.state.count;
     console.log(this.state.userAnswer)
+    console.log(this.state.count)
 
     const book = database[num].book
     const riddle_section = database[num].riddle_section
@@ -72,10 +78,11 @@ nextQuestion(num){
           style={[styles.modal, styles.modalCorrect]}
           position={'center'}
           ref={'modalCorrect'}
+          visible={this.state.modalVisible}
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
           <Image style={{height:60, width:60, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
-          <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion(num)}>
+          <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion()}>
             <Text style={styles.buttonText}>בדוק</Text>
           </TouchableOpacity>
         </Modal>
