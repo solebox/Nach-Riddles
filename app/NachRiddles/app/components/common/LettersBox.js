@@ -57,8 +57,9 @@ z
                 >
                 <View>
                   <Text
-                    style={{fontSize:28, fontWeight: 'bold',}}
-                    letter={letter}>{letter}</Text>
+                    style={{fontSize:28, fontWeight: 'bold',}}>
+                    {letter}
+                  </Text>
                 </View>
               </Image>
             </TouchableOpacity>
