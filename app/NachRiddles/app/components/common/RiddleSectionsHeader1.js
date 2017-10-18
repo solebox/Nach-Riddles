@@ -21,9 +21,11 @@ const styles = {
     borderWidth: 2,
     height: 60,
     margin:0,
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   textStyle: {
+    fontFamily: 'nrkis',
     textAlign: 'center',
     fontSize:15,
     color: 'white',

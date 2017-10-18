@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, AnswersAndLetters, Button, Spinner } from './common';
 import database from '../database/riddles-testing-file';
+import Modal from 'react-native-modalbox';
 import axios from 'axios';
 
 export default class Riddles extends Component {
@@ -20,7 +21,7 @@ export default class Riddles extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { userAnswer: '' };
+    this.state = { num: 0 };
 
   }
 
@@ -31,15 +32,24 @@ export default class Riddles extends Component {
 
 checkAnswer(answer){
   if (this.state.userAnswer === answer){
-    console.log('it works!')
-    Alert.alert('תשובה נכונה')
+    this.refs.modalCorrect.open();
+} else if (this.state.userAnswer === '') {
+    this.refs.modalNone.open();
+} else {
+    this.refs.modalWrong.open();
 }
 }
+
+nextQuestion(num){
+  console.log(num)
+  num += 1;
+}
+
 
   render() {
     //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
-    let num = 0;
+    let num = this.state.num;
     console.log(this.state.userAnswer)
 
     const book = database[num].book
@@ -57,6 +67,37 @@ checkAnswer(answer){
         source={require('../img/riddle.jpg')}
       >
         <View style={styles.backdropView}>
+
+        <Modal
+          style={[styles.modal, styles.modalCorrect]}
+          position={'center'}
+          ref={'modalCorrect'}
+        >
+          <Text style={styles.modalText}>תשובה נכונה!</Text>
+          <Image style={{height:60, width:60, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
+          <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion(num)}>
+            <Text style={styles.buttonText}>בדוק</Text>
+          </TouchableOpacity>
+        </Modal>
+
+        <Modal
+          style={[styles.modal, styles.modalNone]}
+          position={'center'}
+          ref={'modalNone'}
+        >
+          <Text style={styles.modalText}>לא הקלדת תשובה</Text>
+          <Image style={{height:120, width:120, padding:0, marginTop:0}} source={require('../img/pointup.png')}/>
+        </Modal>
+
+        <Modal
+          style={[styles.modal, styles.modalWrong]}
+          position={'center'}
+          ref={'modalWrong'}
+        >
+          <Text style={styles.modalText}>טעות!</Text>
+          <Image style={{height:120, width:120, padding:0, marginTop:0}} source={require('../img/Red_x.png')}/>
+        </Modal>
+
         <ScrollView>
                 <RiddleHeader headerText={book} />
                 <View style={styles.viewFlex}>
@@ -85,6 +126,9 @@ checkAnswer(answer){
                   <TouchableOpacity style={styles.button} onPress={() => this.checkAnswer(answer)}>
                     <Text style={styles.buttonText}>בדוק</Text>
                   </TouchableOpacity>
+
+
+
                 </View>
               </ScrollView>
         </View>
@@ -93,6 +137,9 @@ checkAnswer(answer){
     )
   }
   }
+
+
+
 
   const styles = StyleSheet.create({
   container: {
@@ -156,7 +203,8 @@ checkAnswer(answer){
      height: 60,
      borderWidth: 0,
      textAlign: 'center',
-     fontSize:25
+     fontSize:25,
+     fontFamily: 'stam1',
   },
   button: {
     flex:2,
@@ -168,16 +216,47 @@ checkAnswer(answer){
     position: 'relative',
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'white',
+    borderColor: 'black',
     margin:10,
   },
   buttonText: {
+    marginTop:5,
     fontSize: 30,
     padding: 0,
     color: 'white',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0)'
+    backgroundColor: 'rgba(0,0,0,0)',
+    fontFamily: 'nrkis',
   },
+  modal: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalCorrect: {
+    backgroundColor: '#2196F3',
+    borderWidth: 3,
+    borderRadius: 10,
+    height: 200,
+    width: 300
+  },
+  modalNone: {
+    backgroundColor: '#2196F3',
+    borderWidth: 3,
+    borderRadius: 10,
+    height: 200,
+    width: 300
+  },
+  modalWrong: {
+    backgroundColor: '#2196F3',
+    borderWidth: 3,
+    borderRadius: 10,
+    height: 200,
+    width: 300
+  },
+  modalText: {
+    color: "white",
+    fontFamily: 'nrkis',
+    fontSize: 40
+  }
   })
 
 
