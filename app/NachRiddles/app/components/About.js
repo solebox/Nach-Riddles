@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     fontFamily: 'nrkis',
   },
   lineText: {
+    backgroundColor: 'white',
     padding: 5,
     color: 'black',
     fontWeight: 'bold',

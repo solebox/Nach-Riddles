@@ -29,7 +29,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
       <Image
         style={styles.imageStyle}
-        source={require('../img/riddle.jpg')}
+        source={require('../img/opening-img2.jpg')}
       >
         <View style={styles.backdropView}>
           <View>
@@ -84,10 +84,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255, 0.8)'
   },
   titleText: {
+    paddingTop:20,
     fontFamily: 'stam1',
     textAlign: 'center',
     color: '#2196F3',
-    fontSize: 50,
+    fontSize: 55,
   },
   lineText: {
     fontFamily: 'nrkis',

@@ -87,7 +87,7 @@ nextQuestion(){
           onRequestClose={() => {alert("Modal has been closed.")}}
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
-          <Image style={{height:60, width:60, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
+          <Image style={{height:30, width:30, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
           <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion()}>
             <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>המשך</Text>
           </TouchableOpacity>
