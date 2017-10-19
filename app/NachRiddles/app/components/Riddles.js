@@ -16,6 +16,7 @@ import {
   RiddleSectionsHeader1,
   RiddleSectionsHeader2,
   GetClue,
+  Diamonds,
   RiddleSections,
   RiddleBox,
   AnswerBox,
@@ -34,7 +35,7 @@ export default class Riddles extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { userAnswer: '', count: 0, urldatabase: {}, wordsnumber: 0, riddleletter: '' };
+    this.state = { userAnswer: '', count: 0, diamonds: 0, urldatabase: {}, wordsnumber: 0, riddleletter: '' };
   }
 
 
@@ -45,14 +46,24 @@ export default class Riddles extends Component {
   }
 
 clue(words_number, riddle_letter){
-  console.log('press on clue')
   this.setState({
     wordsnumber: words_number,
     riddleletter: riddle_letter
   })
-  console.log('this is after the state')
-  console.log(this.state.words_number, this.state.riddle_letter)
+  this.refs.modalClue.open()
+}
 
+Diamonds5(){
+    console.log("this is the diamond num ",this.state.diamonds)
+  if (this.state.diamonds-5<0){
+    Alert.alert("אין לך מספיק יהלומים")
+  } else {
+  console.log("on diamond5")
+  this.setState({
+    diamonds: this.state.diamonds - 5,
+  })
+  Alert.alert("מתחיל באות: " + this.state.riddleletter)
+}
 }
 
 checkAnswer(answer){
@@ -72,14 +83,14 @@ clearAnswer(){
 }
 
 nextQuestion(){
-  console.log('befor',this.state.count)
-  console.log(!this.state.modalVisible)
+  console.log('befor',this.state.diamonds)
   this.setState({
       userAnswer: '',
       count: this.state.count + 1,
+      diamonds: this.state.diamonds + 5,
     });
   this.refs.modalCorrect.close()
-  console.log('after',this.state.count)
+  console.log('after',this.state.diamonds)
   }
 
 
@@ -88,11 +99,7 @@ nextQuestion(){
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
     let num = this.state.count;
     let jsondata = this.state.urldatabase;
-    console.log("this is the urldatabase start")
-    console.log(jsondata)
-    console.log("this is the urldatabase end!")
-    console.log(this.state.userAnswer)
-    console.log(this.state.count)
+    let diamonds = this.state.diamonds
 
     const book = database[num].book
     const riddle_section = database[num].riddle_section
@@ -121,9 +128,9 @@ nextQuestion(){
           ref={'modalCorrect'}
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
-          <Image style={{height:30, width:30, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
-          <TouchableOpacity style={styles.button} onPress={() => this.nextQuestion()}>
-            <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>המשך</Text>
+          <Image style={{height:60, width:60, padding:10, marginTop:15, marginBottom:15}} source={require('../img/Green_v.png')}/>
+          <TouchableOpacity style={styles.modalButtonAnswer} onPress={() => this.nextQuestion()}>
+            <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>אישור</Text>
           </TouchableOpacity>
         </Modal>
 
@@ -132,8 +139,11 @@ nextQuestion(){
           position={'center'}
           ref={'modalNone'}
         >
-          <Text style={styles.modalText}>לא הקלדת תשובה</Text>
-          <Image style={{height:120, width:120, padding:0, marginTop:0}} source={require('../img/pointup.png')}/>
+          <Text style={styles.modalText}>לא הקלדת תשובה!</Text>
+          <Image style={{height:60, width:60, padding:10, marginTop:15, marginBottom:15}} source={require('../img/pointup.png')}/>
+          <TouchableOpacity style={styles.modalButtonAnswer} onPress={() => this.refs.modalNone.close()}>
+            <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>אישור</Text>
+          </TouchableOpacity>
         </Modal>
 
         <Modal
@@ -142,7 +152,23 @@ nextQuestion(){
           ref={'modalWrong'}
         >
           <Text style={styles.modalText}>טעות!</Text>
-          <Image style={{height:120, width:120, padding:0, marginTop:0}} source={require('../img/Red_x.png')}/>
+          <Image style={{height:60, width:60, padding:10, marginTop:15, marginBottom:15}} source={require('../img/Red_x.png')}/>
+          <TouchableOpacity style={styles.modalButtonAnswer} onPress={() => this.refs.modalWrong.close()}>
+            <Text style={{fontFamily: 'nrkis',fontSize: 22, color:'white'}}>אישור</Text>
+          </TouchableOpacity>
+        </Modal>
+
+        <Modal
+          style={[styles.modal, styles.modalClue]}
+          position={'center'}
+          ref={'modalClue'}
+        >
+          <TouchableOpacity style={styles.modalButton}  onPress={() => this.Diamonds5()}>
+            <Text style={styles.modalClueText}>קנה רמז תמורת 5 יהלומים</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalButton}>
+            <Text style={styles.modalClueText}>עבור לחידה הבאה תמורת 10 יהלומים</Text>
+          </TouchableOpacity>
         </Modal>
 
         <ScrollView>
@@ -156,10 +182,10 @@ nextQuestion(){
                 </View>
                 <View style={styles.viewFlex}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
-                    <RiddleSectionsHeader1 headerText={"חידה מספר\n" + riddle_number} />
-                    <View style={styles.ClueviewStyle}>
+                    <Diamonds headerText={diamonds} />
+                    <View style={styles.ClueViewStyle}>
                       <TouchableOpacity onPress={() => this.clue(words_number, riddle_letter)}>
-                        <Text style={styles.CluetextStyle}>רמז</Text>
+                        <Text style={styles.ClueTextStyle}>עזרה</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -266,7 +292,7 @@ nextQuestion(){
   button: {
     flex:2,
     marginBottom: 5,
-    width: 100,
+    width: 80,
     height: 45,
     alignItems: 'center',
     backgroundColor: '#2196F3',
@@ -287,6 +313,32 @@ nextQuestion(){
   modal: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  modalButtonAnswer: {
+    marginBottom: 2,
+    width: 100,
+    height: 40,
+    alignItems: 'center',
+    backgroundColor: '#8e4e8e',
+    position: 'relative',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: 'black',
+    margin:2,
+    justifyContent: 'center',
+  },
+  modalButton: {
+    marginBottom: 2,
+    width: 250,
+    height: 40,
+    alignItems: 'center',
+    backgroundColor: '#8e4e8e',
+    position: 'relative',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: 'black',
+    margin:2,
+    justifyContent: 'center',
   },
   modalCorrect: {
     backgroundColor: '#2196F3',
@@ -309,13 +361,26 @@ nextQuestion(){
     height: 200,
     width: 300
   },
+  modalClue: {
+    backgroundColor: '#2196F3',
+    borderWidth: 3,
+    borderRadius: 10,
+    height: 200,
+    width: 300
+  },
+  modalClueText: {
+    color: "white",
+    textAlign:'center',
+    fontFamily: 'nrkis',
+    fontSize: 20
+  },
   modalText: {
     color: "white",
     fontFamily: 'nrkis',
     fontSize: 40
   },
-  ClueviewStyle:{
-    flex:1,
+  ClueViewStyle:{
+    flex:2,
     alignItems:'center',
     backgroundColor: '#472747',
     borderColor: 'black',
@@ -325,10 +390,10 @@ nextQuestion(){
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
-  CluetextStyle: {
+  ClueTextStyle: {
     fontFamily: 'nrkis',
     textAlign: 'center',
-    fontSize:15,
+    fontSize:30,
     color: 'white',
   }
   })
