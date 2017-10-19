@@ -19,7 +19,7 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  state = { userAnswer: '', count: 0};
+  state = { userAnswer: '', count: 0, urldatabase: {} };
 
 
   componentWillMount(){
@@ -59,6 +59,9 @@ nextQuestion(){
     //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
     let num = this.state.count;
+    console.log("this is the urldatabase start")
+    console.log(this.state.urldatabase)
+    console.log("this is the urldatabase end!")
     console.log(this.state.userAnswer)
     console.log(this.state.count)
 
