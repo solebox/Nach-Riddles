@@ -62,7 +62,21 @@ Diamonds5(){
   this.setState({
     diamonds: this.state.diamonds - 5,
   })
-  Alert.alert("מתחיל באות: " + this.state.riddleletter)
+  Alert.alert("מילים: " + this.state.wordsnumber + ", מתחיל באות: " + this.state.riddleletter)
+}
+}
+
+Diamonds10(){
+    console.log("this is the diamond num ",this.state.diamonds)
+  if (this.state.diamonds-10<0){
+    Alert.alert("אין לך מספיק יהלומים")
+  } else {
+  console.log("on diamond5")
+  this.setState({
+    userAnswer: '',
+    count: this.state.count + 1,
+    diamonds: this.state.diamonds - 10,
+  })
 }
 }
 
@@ -166,7 +180,7 @@ nextQuestion(){
           <TouchableOpacity style={styles.modalButton}  onPress={() => this.Diamonds5()}>
             <Text style={styles.modalClueText}>קנה רמז תמורת 5 יהלומים</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.modalButton}>
+          <TouchableOpacity style={styles.modalButton}   onPress={() => this.Diamonds10()}>
             <Text style={styles.modalClueText}>עבור לחידה הבאה תמורת 10 יהלומים</Text>
           </TouchableOpacity>
         </Modal>

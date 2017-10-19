@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, View, Image } from 'react-native';
 
 
-class Diamonds extends Component{
+class Direction extends Component{
   render(){
     return(
       <View style={styles.viewStyle}>
@@ -44,4 +44,4 @@ const styles = {
 
 };
 
-export {Diamonds};
+export {Direction};

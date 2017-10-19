@@ -7,6 +7,7 @@ export * from './RiddleSectionsHeader1';
 export * from './RiddleSectionsHeader2';
 export * from './GetClue';
 export * from './Diamonds';
+export * from './Direction';
 export * from './RiddleSections';
 export * from './RiddleBox';
 export * from './Letters';
