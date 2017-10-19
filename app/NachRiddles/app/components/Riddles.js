@@ -10,7 +10,20 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native'
-import { Header, RiddleHeader, RiddleSectionsHeader1, RiddleSectionsHeader2, RiddleSections, RiddleBox, AnswerBox, LettersBox, AnswersAndLetters, Button, Spinner } from './common';
+import {
+  Header,
+  RiddleHeader,
+  RiddleSectionsHeader1,
+  RiddleSectionsHeader2,
+  GetClue,
+  RiddleSections,
+  RiddleBox,
+  AnswerBox,
+  LettersBox,
+  AnswersAndLetters,
+  Button,
+  Spinner
+} from './common';
 import database from '../database/riddles-testing-file';
 import Modal from 'react-native-modalbox';
 import axios from 'axios';
@@ -19,13 +32,28 @@ export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
-  state = { userAnswer: '', count: 0, urldatabase: {} };
+  constructor(props) {
+    super(props);
+    this.state = { userAnswer: '', count: 0, urldatabase: {}, wordsnumber: 0, riddleletter: '' };
+  }
+
 
 
   componentWillMount(){
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
       .then(response => this.setState({urldatabase: response.data}));
   }
+
+clue(words_number, riddle_letter){
+  console.log('press on clue')
+  this.setState({
+    wordsnumber: words_number,
+    riddleletter: riddle_letter
+  })
+  console.log('this is after the state')
+  console.log(this.state.words_number, this.state.riddle_letter)
+
+}
 
 checkAnswer(answer){
   if (this.state.userAnswer === answer){
@@ -59,8 +87,9 @@ nextQuestion(){
     //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
     let num = this.state.count;
+    let jsondata = this.state.urldatabase;
     console.log("this is the urldatabase start")
-    console.log(this.state.urldatabase)
+    console.log(jsondata)
     console.log("this is the urldatabase end!")
     console.log(this.state.userAnswer)
     console.log(this.state.count)
@@ -71,6 +100,11 @@ nextQuestion(){
     const riddle_number = database[num].riddle_number
     let riddle = database[num].riddle;
     let answer = database[num].answer;
+    const words_number = answer.split(' ').length;
+    const riddle_letter = database[num].riddle_letter;
+
+
+    const letter = riddle_letter
 
       return (
       <View style={styles.container}>
@@ -86,8 +120,7 @@ nextQuestion(){
           position={'center'}
           ref={'modalCorrect'}
           transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {alert("Modal has been closed.")}}
+
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
           <Image style={{height:30, width:30, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
@@ -121,6 +154,16 @@ nextQuestion(){
                     <RiddleSectionsHeader2 headerText={riddle_section} />
                     <RiddleSectionsHeader1 headerText={parallel} />
                     <RiddleSectionsHeader1 headerText={"חידה מספר\n" + riddle_number} />
+                  </View>
+                </View>
+                <View style={styles.viewFlex}>
+                  <View style={{flex: 1, flexDirection: 'row'}}>
+                    <RiddleSectionsHeader1 headerText={"חידה מספר\n" + riddle_number} />
+                    <View style={styles.ClueviewStyle}>
+                      <TouchableOpacity onPress={() => this.clue(words_number, riddle_letter)}>
+                        <Text style={styles.CluetextStyle}>רמז</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
                 <RiddleBox headerText={riddle}/>
@@ -272,6 +315,23 @@ nextQuestion(){
     color: "white",
     fontFamily: 'nrkis',
     fontSize: 40
+  },
+  ClueviewStyle:{
+    flex:1,
+    alignItems:'center',
+    backgroundColor: '#472747',
+    borderColor: 'black',
+    borderWidth: 2,
+    height: 60,
+    margin:0,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  CluetextStyle: {
+    fontFamily: 'nrkis',
+    textAlign: 'center',
+    fontSize:15,
+    color: 'white',
   }
   })
 
