@@ -119,8 +119,6 @@ nextQuestion(){
           style={[styles.modal, styles.modalCorrect]}
           position={'center'}
           ref={'modalCorrect'}
-          transparent={false}
-
         >
           <Text style={styles.modalText}>תשובה נכונה!</Text>
           <Image style={{height:30, width:30, padding:50, marginTop:15}} source={require('../img/Green_v.png')}/>
@@ -273,7 +271,7 @@ nextQuestion(){
     alignItems: 'center',
     backgroundColor: '#2196F3',
     position: 'relative',
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 10,
     borderColor: 'black',
     margin:10,
