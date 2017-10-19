@@ -57,12 +57,14 @@ Diamonds5(){
     console.log("this is the diamond num ",this.state.diamonds)
   if (this.state.diamonds-5<0){
     Alert.alert("אין לך מספיק יהלומים")
+    this.refs.modalClue.close()
   } else {
   console.log("on diamond5")
   this.setState({
     diamonds: this.state.diamonds - 5,
   })
-  Alert.alert("מילים: " + this.state.wordsnumber + ", מתחיל באות: " + this.state.riddleletter)
+  Alert.alert("מספר מילים: " + this.state.wordsnumber + ", מתחיל באות: " + this.state.riddleletter)
+  this.refs.modalClue.close()
 }
 }
 
@@ -70,6 +72,7 @@ Diamonds10(){
     console.log("this is the diamond num ",this.state.diamonds)
   if (this.state.diamonds-10<0){
     Alert.alert("אין לך מספיק יהלומים")
+    this.refs.modalClue.close()
   } else {
   console.log("on diamond5")
   this.setState({
@@ -77,6 +80,7 @@ Diamonds10(){
     count: this.state.count + 1,
     diamonds: this.state.diamonds - 10,
   })
+  this.refs.modalClue.close()
 }
 }
 
@@ -112,8 +116,9 @@ nextQuestion(){
     //let data = this.state.urldatabase
     const data2 = [{key1:"this is key1", key2:"this is key2"},{key10:"this is key10", key20:"this is key20"}]
     let num = this.state.count;
-    let jsondata = this.state.urldatabase;
+    let jsondata = this.state.urldatabase[num];
     let diamonds = this.state.diamonds
+    console.log(jsondata && jsondata)
 
     const book = database[num].book
     const riddle_section = database[num].riddle_section
