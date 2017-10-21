@@ -2,9 +2,6 @@
 Nach-Riddles - Based on David Zwerdling's book "Abiha Hidot Meni Kedem"
 
 
-<h1>README</h1>
-_______________
-
 This application is about riddles on Neviim and Ktuvim which is the second and the third parts of the Bible, the original book named "אביעה חידות מני קדם" was writing by my dear brother. We working on this app day and nigth with huge wish to finish the first version in 5.10 of this year. I think this is the place to write a little about the author
 
 
