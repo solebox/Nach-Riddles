@@ -7,25 +7,28 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from './HomeScreen';
+import Home from './Home';
 import BookSelector from './BookSelector';
 import About from './About';
 import Riddles from './Riddles';
 
-export default class NachRiddles extends React.Component {
+
+class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   }
-  /*constructor(props) {
-      super(props);
-      this.state = {
-          discounts: undefined
-      }
-   }*/
+
+  constructor(props) {
+    super(props);
+    this.state = { userAnswer: '', count: 0, diamonds: 0, urldatabase: {}, wordsnumber: 0, riddleletter: '' };
+  }
+
+
   render() {
+    const count = this.state.count
     return (
       <View>
-        <HomeScreen />
+        <Home  navigation={this.props.navigation}/>
       </View>
     )
   }
@@ -42,7 +45,7 @@ class BookSelectorScreen extends React.Component {
   render() {
     return (
       <View>
-        <BookSelector navigation={this.props.navigation} />
+        <BookSelector navigation={this.props.navigation}/>
       </View>
     )
   }
@@ -92,6 +95,7 @@ class RiddlesScreen extends React.Component {
     header: null
   }
   render() {
+    console.log("go to resadlle screen")
     return (
       <View>
         <Riddles navigation={this.props.navigation}/>

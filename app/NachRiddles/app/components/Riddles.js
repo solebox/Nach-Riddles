@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  Alert,zz
+  Alert,
 } from 'react-native'
 import {
   Header,
@@ -17,6 +17,7 @@ import {
   RiddleSectionsHeader2,
   GetClue,
   Diamonds,
+  Direction,
   RiddleSections,
   RiddleBox,
   AnswerBox,
@@ -41,9 +42,33 @@ export default class Riddles extends Component {
 
 
   componentWillMount(){
+    AsyncStorage.getItem("userAnswer").then((value) => {
+        this.setState({userAnswer: value || ''})}).done();
+    AsyncStorage.getItem("count").then((value) => {
+        this.setState({count: value || 0})}).done();
+    AsyncStorage.getItem("diamonds").then((value) => {
+        this.setState({diamonds: value || 0})}).done();
+    AsyncStorage.getItem("urldatabase").then((value) => {
+        this.setState({urldatabase: value || {}})}).done();
+    AsyncStorage.getItem("wordsnumber").then((value) => {
+        this.setState({wordsnumber: value || 0})}).done();
+    AsyncStorage.getItem("riddleletter").then((value) => {
+        this.setState({riddleletter: value || ''})}).done();
+
+
+    /*
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
-      .then(response => this.setState({urldatabase: response.data}));
+      .then(response => this.setState({urldatabase: response.data}));*/
   }
+
+  saveData(){
+    AsyncStorage.setItem("userAnswer",this.state.userAnswer);
+    AsyncStorage.setItem("count",this.state.count);
+    AsyncStorage.setItem("diamonds",this.state.diamonds);
+    AsyncStorage.setItem("urldatabase",this.state.urldatabase);
+    AsyncStorage.setItem("wordsnumber",this.state.wordsnumber);
+    AsyncStorage.setItem("riddleletter",this.state.riddleletter);
+  };
 
 clue(words_number, riddle_letter){
   this.setState({
@@ -85,6 +110,7 @@ Diamonds10(){
 }
 
 checkAnswer(answer){
+  this.saveData()
   if (this.state.userAnswer === answer){
     this.refs.modalCorrect.open();
 } else if (this.state.userAnswer === '') {
@@ -101,6 +127,7 @@ clearAnswer(){
 }
 
 nextQuestion(){
+  this.saveData()
   console.log('befor',this.state.diamonds)
   this.setState({
       userAnswer: '',
@@ -207,6 +234,7 @@ nextQuestion(){
                         <Text style={styles.ClueTextStyle}>עזרה</Text>
                       </TouchableOpacity>
                     </View>
+                    <Direction headerText={diamonds} />
                   </View>
                 </View>
                 <RiddleBox headerText={riddle}/>
@@ -399,7 +427,20 @@ nextQuestion(){
     fontSize: 40
   },
   ClueViewStyle:{
-    flex:2,
+    flex:1,
+    flexDirection: 'row',
+    alignItems:'center',
+    backgroundColor: '#472747',
+    borderColor: 'black',
+    borderWidth: 2,
+    height: 60,
+    margin:0,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  DirectionView:{
+    flex:1,
+    flexDirection: 'row',
     alignItems:'center',
     backgroundColor: '#472747',
     borderColor: 'black',

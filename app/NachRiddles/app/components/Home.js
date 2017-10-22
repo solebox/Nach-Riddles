@@ -24,6 +24,12 @@ export default class HomeScreen extends React.Component {
           discounts: undefined
       }
    }*/
+
+   constructor(props) {
+     super(props);
+     this.state = { userAnswer: '', count: 0, diamonds: 0, urldatabase: {}, wordsnumber: 0, riddleletter: '' };
+   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -69,12 +75,10 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
     backgroundColor: 'rgba(0,0,0,0)',
     alignItems: 'center',
   },
   imageStyle: {
-    flex: 1,
     resizeMode: 'stretch',
     width: null,
     height: null,
