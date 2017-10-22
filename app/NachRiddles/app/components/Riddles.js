@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  Alert,
+  Alert,zz
 } from 'react-native'
 import {
   Header,
