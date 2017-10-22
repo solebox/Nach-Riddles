@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image} from 'react-native';
 
 
 class Diamonds extends Component{
+
   render(){
     return(
       <View style={styles.viewStyle}>
         <Image style={styles.imageStyle} source={require('../../img/diamond.gif')}/>
         <Text style={styles.textStyle}>{this.props.headerText}</Text>
       </View>
+
     )
   }
 };

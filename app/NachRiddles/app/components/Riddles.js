@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  AsyncStorage,
 } from 'react-native'
 import {
   Header,
@@ -40,7 +41,7 @@ export default class Riddles extends Component {
   }
 
 
-
+/*
   componentWillMount(){
     AsyncStorage.getItem("userAnswer").then((value) => {
         this.setState({userAnswer: value || ''})}).done();
@@ -54,13 +55,9 @@ export default class Riddles extends Component {
         this.setState({wordsnumber: value || 0})}).done();
     AsyncStorage.getItem("riddleletter").then((value) => {
         this.setState({riddleletter: value || ''})}).done();
-
-
-    /*
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
-      .then(response => this.setState({urldatabase: response.data}));*/
+      .then(response => this.setState({urldatabase: response.data}));
   }
-
   saveData(){
     AsyncStorage.setItem("userAnswer",this.state.userAnswer);
     AsyncStorage.setItem("count",this.state.count);
@@ -69,7 +66,7 @@ export default class Riddles extends Component {
     AsyncStorage.setItem("wordsnumber",this.state.wordsnumber);
     AsyncStorage.setItem("riddleletter",this.state.riddleletter);
   };
-
+*/
 clue(words_number, riddle_letter){
   this.setState({
     wordsnumber: words_number,
@@ -78,39 +75,47 @@ clue(words_number, riddle_letter){
   this.refs.modalClue.open()
 }
 
-Diamonds5(){
-    console.log("this is the diamond num ",this.state.diamonds)
-  if (this.state.diamonds-5<0){
+Diamonds1(){
+  if (this.state.diamonds-1<0){
     Alert.alert("אין לך מספיק יהלומים")
     this.refs.modalClue.close()
   } else {
-  console.log("on diamond5")
   this.setState({
-    diamonds: this.state.diamonds - 5,
+    diamonds: this.state.diamonds - 1,
   })
-  Alert.alert("מספר מילים: " + this.state.wordsnumber + ", מתחיל באות: " + this.state.riddleletter)
+  Alert.alert("מספר מילים: " + this.state.wordsnumber)
   this.refs.modalClue.close()
 }
 }
 
-Diamonds10(){
-    console.log("this is the diamond num ",this.state.diamonds)
-  if (this.state.diamonds-10<0){
+Diamonds2(){
+  if (this.state.diamonds-2<0){
     Alert.alert("אין לך מספיק יהלומים")
     this.refs.modalClue.close()
   } else {
-  console.log("on diamond5")
+  this.setState({
+    diamonds: this.state.diamonds - 2,
+  })
+  Alert.alert(", מתחיל באות: " + this.state.riddleletter)
+  this.refs.modalClue.close()
+}
+}
+
+Diamonds3(){
+  if (this.state.diamonds-3<0){
+    Alert.alert("אין לך מספיק יהלומים")
+    this.refs.modalClue.close()
+  } else {
   this.setState({
     userAnswer: '',
     count: this.state.count + 1,
-    diamonds: this.state.diamonds - 10,
+    diamonds: this.state.diamonds - 3,
   })
   this.refs.modalClue.close()
 }
 }
 
 checkAnswer(answer){
-  this.saveData()
   if (this.state.userAnswer === answer){
     this.refs.modalCorrect.open();
 } else if (this.state.userAnswer === '') {
@@ -127,7 +132,6 @@ clearAnswer(){
 }
 
 nextQuestion(){
-  this.saveData()
   console.log('befor',this.state.diamonds)
   this.setState({
       userAnswer: '',
@@ -209,11 +213,24 @@ nextQuestion(){
           position={'center'}
           ref={'modalClue'}
         >
-          <TouchableOpacity style={styles.modalButton}  onPress={() => this.Diamonds5()}>
-            <Text style={styles.modalClueText}>קנה רמז תמורת 5 יהלומים</Text>
+        <Text style={{textAlign:'center',color:'white',fontSize:35, fontFamily: 'nrkis',}}>ברוך הבא לחנות</Text>
+          <TouchableOpacity style={styles.modalButton}  onPress={() => this.Diamonds1()}>
+            <Image style={{flex:1, flexDirection: 'row', alignItems:'center',marginLeft:10,height:45,width:50}} source={require('../img/diamond.gif')}>
+              <Text style={{color: 'white'}}>-1</Text>
+            </Image>
+            <Text style={styles.modalClueText}>רמז</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.modalButton}   onPress={() => this.Diamonds10()}>
-            <Text style={styles.modalClueText}>עבור לחידה הבאה תמורת 10 יהלומים</Text>
+          <TouchableOpacity style={styles.modalButton}  onPress={() => this.Diamonds2()}>
+            <Image style={{flex:1, flexDirection: 'row', alignItems:'center',marginLeft:10,height:45,width:50}} source={require('../img/diamond.gif')}>
+              <Text style={{color: 'white'}}>-2</Text>
+            </Image>
+            <Text style={styles.modalClueText}>רמז</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalButton}   onPress={() => this.Diamonds3()}>
+            <Image style={{flex:1, flexDirection: 'row', alignItems:'center',marginLeft:10,height:45,width:50}} source={require('../img/diamond.gif')}>
+              <Text style={{color: 'white'}}>-3</Text>
+            </Image>
+            <Text style={styles.modalClueText}>מעבר לחידה הבאה</Text>
           </TouchableOpacity>
         </Modal>
 
@@ -230,8 +247,9 @@ nextQuestion(){
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <Diamonds headerText={diamonds} />
                     <View style={styles.ClueViewStyle}>
-                      <TouchableOpacity onPress={() => this.clue(words_number, riddle_letter)}>
-                        <Text style={styles.ClueTextStyle}>עזרה</Text>
+                      <TouchableOpacity style={{flex:1, flexDirection:'row'}}onPress={() => this.clue(words_number, riddle_letter)}>
+                        <Image style={{ alignItems:'center',marginLeft:10,height:45,width:50}} source={require('../img/Helpout.png')}/>
+                        <Text style={styles.ClueTextStyle}>חנות הצלה</Text>
                       </TouchableOpacity>
                     </View>
                     <Direction headerText={diamonds} />
@@ -375,6 +393,7 @@ nextQuestion(){
     justifyContent: 'center',
   },
   modalButton: {
+    flexDirection:'row',
     marginBottom: 2,
     width: 250,
     height: 40,
@@ -416,6 +435,7 @@ nextQuestion(){
     width: 300
   },
   modalClueText: {
+    flex:3,
     color: "white",
     textAlign:'center',
     fontFamily: 'nrkis',
@@ -430,7 +450,7 @@ nextQuestion(){
     flex:1,
     flexDirection: 'row',
     alignItems:'center',
-    backgroundColor: '#472747',
+    backgroundColor: '#8e4e8e',
     borderColor: 'black',
     borderWidth: 2,
     height: 60,
@@ -451,9 +471,11 @@ nextQuestion(){
     justifyContent: 'center',
   },
   ClueTextStyle: {
+    flex:1,
+    flexWrap: 'wrap',
     fontFamily: 'nrkis',
     textAlign: 'center',
-    fontSize:30,
+    fontSize:20,
     color: 'white',
   }
   })
