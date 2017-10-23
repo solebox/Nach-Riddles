@@ -5,11 +5,13 @@ import { StackNavigator } from 'react-navigation';
 export default class About extends Component {
   render() {
     return (
-             <ScrollView contentContainerStyle={styles.contentContainer}>
-        <View>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={{height:60, backgroundColor:"#2196F3"}}>
             <Text style={styles.titleText}>אודות</Text>
           </View>
+          <View style={styles.container}>
+          <Image style={styles.imageStyle} source={require('../img/riddle.jpg')}>
+          <View style={styles.backdropView}>
           <Text style={styles.lineText}>
           אפליקציה זאת נכתבה על הספר
           "אביעה חידות מני קדם" שכתב וערך דוד צברדלינג ז"ל.
@@ -52,13 +54,28 @@ export default class About extends Component {
 
 
           </Text>
-        </View>
+          </View>
+          </Image>
+          </View>
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'rgba(0,0,0,0)',
+    alignItems: 'center'
+  },
+imageStyle: {
+  resizeMode: 'stretch',
+  width: null,
+  height: null
+},
+backdropView: {
+  flex: 1,
+  backgroundColor: 'rgba(255,255,255, 0.9)'
+},
   titleText: {
     height: 45,
     width: 360,
@@ -69,7 +86,6 @@ const styles = StyleSheet.create({
     fontFamily: 'nrkis',
   },
   lineText: {
-    backgroundColor: 'white',
     padding: 5,
     color: 'black',
     fontWeight: 'bold',

@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
 import { Text, View, Image, TouchableOpacity, Modal} from 'react-native';
+import Introduction from '../Introduction';
 
 
 class Direction extends Component{
+
+comp(){
+  return (<Introduction />)
+}
+
+
   render(){
     return(
 
       <View style={styles.viewStyle}>
-        <TouchableOpacity style={{flex:1, flexDirection:'row'}}>
+        <TouchableOpacity style={{flex:1, flexDirection:'row'}} onPress={() => this.props.navigation.navigate('Introduction')}>
           <Image style={styles.imageStyle} source={require('../../img/sign.png')}/>
           <Text style={styles.textStyle}>הוראות</Text>
         </TouchableOpacity>

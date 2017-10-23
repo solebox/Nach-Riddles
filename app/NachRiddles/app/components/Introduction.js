@@ -34,7 +34,7 @@ export default class Introduction extends Component{
            {"\n"}
            בכותרת של מסך החידה מצויין שם הספר בנ''ך עליו מבוסס החידון, לדוגמא:
            {"\n"}
-           <Image style={{height:140, width: 1000}}source={require('../img/book.png')}/>
+           <Image style={{height:70, resizeMode:'stretch'}}source={require('../img/book.png')}/>
            {"\n"}
            {"\n"}
            מתחת לכותרת מצויינים נתוני החידון הבאים:
@@ -46,7 +46,7 @@ export default class Introduction extends Component{
            3. שם החידון.
            {"\n"}
            {"\n"}
-           <Image style={{height:140, width: 1000}}source={require('../img/listA.png')}/>
+           <Image style={{height:90, width: 700}}source={require('../img/listA.png')}/>
            {"\n"}
            {"\n"}
            {"\n"}
@@ -69,7 +69,7 @@ export default class Introduction extends Component{
            3. מספר יהלומים.
            {"\n"}
            {"\n"}
-           <Image style={{height:140, width: 1000}}source={require('../img/listB.png')}/>
+           <Image style={{height:90, width: 700}}source={require('../img/listB.png')}/>
            {"\n"}
            {"\n"}
            הוראות - בלחיצה על כפתור זה יפתח חלון אשר יציג את דף הוראות זה.
@@ -91,13 +91,13 @@ export default class Introduction extends Component{
            {"\n"}
            מתחת לטבלת הכלים תופיע החידה, מענה נכון על החידה תעביר אתכם לחידה הבאה.
            {"\n"}
-           <Image style={{height:400, width: 1000}}source={require('../img/DaRiddle.png')}/>
+           <Image style={{height:350, width: 700}}source={require('../img/DaRiddle.png')}/>
            {"\n"}
            {"\n"}
            מתחת החידה תופיע מגילת התשובה עליה יש להקיש את התשובה.
            {"\n"}
            {"\n"}
-           <Image style={{height:400, width: 1000}}source={require('../img/DaAnswer.png')}/>
+           <Image style={{height:350, width: 700}}source={require('../img/DaAnswer.png')}/>
            {"\n"}
            {"\n"}
            מתחת למגילת התשובה יופיעו שני כפתורים:
@@ -107,7 +107,7 @@ export default class Introduction extends Component{
            2. נקה - מסיר את הפתרון שהוכנס במגילת התשובה.
            {"\n"}
            {"\n"}
-           <Image style={{height:140, width: 1000}}source={require('../img/buttons.png')}/>
+           <Image style={{height:90, width: 700}}source={require('../img/buttons.png')}/>
            {"\n"}
            {"\n"}
            {"\n"}
@@ -119,7 +119,7 @@ export default class Introduction extends Component{
            אנו מקווים שתהנו שתפיקו את המייטב היידע וההנאה מהמשחק.
            {"\n"}
            {"\n"}
-           נודה לכם להשארת תגובות, הערות או הערות בדף של האפליקציה ב-Google-Store,
+           נודה לכם להשארת תגובות, הערות או הארות בדף של האפליקציה ב-Google-Store,
            {"\n"}
            או בשליחת דוא''ל לכתובת:
            {"\n"}
@@ -164,9 +164,7 @@ fontFamily: 'nrkis',
 lineText: {
 padding: 5,
 color: 'black',
-fontWeight: 'bold',
 fontSize: 20,
-textAlign: 'right',
 },
 
 

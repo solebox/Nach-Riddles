@@ -355,7 +355,7 @@ export default class Riddles extends Component {
                       <Text style={styles.ClueTextStyle}>חנות הצלה</Text>
                     </TouchableOpacity>
                   </View>
-                  <Direction headerText={diamonds} />
+                  <Direction headerText={diamonds} navigation={this.props.navigation}/>
                 </View>
               </View>
               <RiddleBox headerText={riddle} />
