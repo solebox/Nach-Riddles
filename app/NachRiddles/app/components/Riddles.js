@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
@@ -10,33 +10,25 @@ import {
   TouchableOpacity,
   Alert,
   AsyncStorage
-} from 'react-native'
+} from 'react-native';
 import {
-  Header,
   RiddleHeader,
   RiddleSectionsHeader1,
   RiddleSectionsHeader2,
-  GetClue,
   Diamonds,
   Direction,
-  RiddleSections,
   RiddleBox,
-  AnswerBox,
-  LettersBox,
-  AnswersAndLetters,
-  Button,
-  Spinner
-} from './common'
-import database from '../database/riddles-testing-file'
-import Modal from 'react-native-modalbox'
-import axios from 'axios'
+} from './common';
+import database from '../database/riddles-testing-file';
+import Modal from 'react-native-modalbox';
+import axios from 'axios';
 
 export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       userAnswer: '',
       count: 0,
@@ -44,7 +36,7 @@ export default class Riddles extends Component {
       urldatabase: {},
       wordsnumber: 0,
       riddleletter: ''
-    }
+    };
   }
 
   /*
@@ -73,7 +65,7 @@ export default class Riddles extends Component {
     AsyncStorage.setItem("riddleletter",this.state.riddleletter);
   };
 */
-  clue(words_number, riddle_letter) {
+  clue(words_number,riddle_letter) {
     this.setState({
       wordsnumber: words_number,
       riddleletter: riddle_letter
@@ -286,7 +278,7 @@ export default class Riddles extends Component {
                     height: 45,
                     width: 50
                   }}
-                  source={require('../img/diamond.gif')}
+                  source={require('../img/diamond-small.gif')}
                 >
                   <Text style={{ color: 'white' }}>-1</Text>
                 </Image>
@@ -305,7 +297,7 @@ export default class Riddles extends Component {
                     height: 45,
                     width: 50
                   }}
-                  source={require('../img/diamond.gif')}
+                  source={require('../img/diamond-small.gif')}
                 >
                   <Text style={{ color: 'white' }}>-2</Text>
                 </Image>
@@ -324,7 +316,7 @@ export default class Riddles extends Component {
                     height: 45,
                     width: 50
                   }}
-                  source={require('../img/diamond.gif')}
+                  source={require('../img/diamond-small.gif')}
                 >
                   <Text style={{ color: 'white' }}>-3</Text>
                 </Image>

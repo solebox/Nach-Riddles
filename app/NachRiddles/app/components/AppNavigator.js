@@ -8,6 +8,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from './Home';
 import Riddles from './Riddles';
+import Introduction from './Introduction';
 import About from './About';
 
 class HomeScreen extends Component {
@@ -49,6 +50,19 @@ class RiddlesScreen extends Component {
   }
 }
 
+class IntroductionScreen extends Component {
+  static navigationOptions = {
+    header: null
+  }
+  render() {
+    return (
+      <View>
+        <Introduction navigation={this.props.navigation} />
+      </View>
+    );
+  }
+}
+
 class AboutScreen extends Component {
   static navigationOptions = {
     header: null
@@ -62,11 +76,11 @@ class AboutScreen extends Component {
   }
 }
 
-
 const Navigate = StackNavigator(
   {
     Home: { screen: HomeScreen },
     Riddles: { screen: RiddlesScreen },
+    Introduction: { screen: IntroductionScreen },
     About: { screen: AboutScreen },
   },
   { headerMode: 'screen' }
