@@ -10,7 +10,6 @@ import {
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-import BookSelector from './BookSelector'
 import About from './About'
 import Riddles from './Riddles'
 
