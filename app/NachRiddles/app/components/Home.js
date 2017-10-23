@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   View,
@@ -6,35 +6,33 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity
-} from 'react-native';
-
+} from 'react-native'
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
     header: null
   }
 
-   constructor(props) {
-     super(props);
-     this.state = {
-       userAnswer: '',
-       count: 0,
-       diamonds: 0,
-       urldatabase: {},
-       wordsnumber: 0,
-       riddleletter: ''
-     };
-   }
+  constructor(props) {
+    super(props)
+    this.state = {
+      userAnswer: '',
+      count: 0,
+      diamonds: 0,
+      urldatabase: {},
+      wordsnumber: 0,
+      riddleletter: ''
+    }
+  }
 
   render() {
     return (
       <View style={styles.container}>
-      <Image
-        style={styles.imageStyle}
-        source={require('../img/opening-img2.jpg')}
-      >
-        <View style={styles.backdropView}>
-          <View>
+        <Image
+          style={styles.imageStyle}
+          source={require('../img/opening-img2.jpg')}
+        >
+          <View style={styles.backdropView}>
             <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
             <Image
               style={{ width: 360, height: 165 }}
@@ -42,71 +40,72 @@ export default class HomeScreen extends Component {
             />
             <View style={{ height: 50 }}>
               <Text style={styles.lineText}>1188 חידות על הנביא</Text>
-            </View>
-            <View style={styles.buttonView}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('Riddles')}
-              >
-                <View style={styles.button}>
-                  <Text style={styles.buttonText}>התחל</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.buttonView}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('Introduction')}
-              >
-                <View style={styles.button}>
-                  <Text style={styles.buttonText}>הוראות</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.buttonView}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('About')}
-              >
-                <View style={styles.button}>
-                  <Text style={styles.buttonText}>אודות</Text>
-                </View>
-              </TouchableOpacity>
+              <View style={styles.buttonView}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('Riddles')}
+                >
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>התחל</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.buttonView}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('Introduction')}
+                >
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>הוראות</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.buttonView}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('About')}
+                >
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>אודות</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
-      </Image>
+        </Image>
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(0,0,0,0)',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   imageStyle: {
     resizeMode: 'stretch',
     width: null,
-    height: null,
+    height: null
   },
   backdropView: {
     flex: 1,
-    backgroundColor: 'rgba(255,255,255, 0.8)'
+    backgroundColor: 'rgba(255,255,255, 0.8)',
+    alignItems: 'center'
   },
   titleText: {
     paddingTop: 20,
     fontFamily: 'stam1',
     textAlign: 'center',
     color: '#2196F3',
-    fontSize: 55,
+    fontSize: 60
   },
   lineText: {
     fontFamily: 'nrkis',
     color: 'red',
     fontSize: 30,
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingBottom: 20
   },
   buttonView: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   button: {
     marginBottom: 5,
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'white',
+    borderColor: 'white'
   },
   buttonText: {
     fontSize: 45,
@@ -125,8 +124,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'nrkis',
     backgroundColor: 'rgba(0,0,0,0)'
-  },
-});
+  }
+})
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('HomeScreen', () => HomeScreen);
+AppRegistry.registerComponent('HomeScreen', () => HomeScreen)
