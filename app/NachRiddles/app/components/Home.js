@@ -5,15 +5,11 @@ import {
   Image,
   StyleSheet,
   Text,
-  Button,
   TouchableOpacity
-} from 'react-native'
-import { StackNavigator } from 'react-navigation'
+} from 'react-native';
 
-import About from './About'
-import Riddles from './Riddles'
 
-export default class HomeScreen extends React.Component {
+export default class HomeScreen extends Component {
   static navigationOptions = {
     header: null
   }
