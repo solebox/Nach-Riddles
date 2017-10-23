@@ -35,7 +35,7 @@ export default class HomeScreen extends Component {
           <View style={styles.backdropView}>
             <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
             <Image
-              style={{ width: 360, height: 165 }}
+              style={{width: 360, height: 165 }}
               source={require('../img/Book.png')}
             />
             <View style={{ height: 50 }}>
