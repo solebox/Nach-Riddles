@@ -19,7 +19,7 @@ import {
   Direction,
   RiddleBox,
 } from './common';
-import database from '../database/riddles-testing-file';
+import database from '../database/riddle-the-new-json';
 import Modal from 'react-native-modalbox';
 import axios from 'axios';
 
