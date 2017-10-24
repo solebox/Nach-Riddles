@@ -31,11 +31,11 @@ export default class Riddles extends Component {
     super(props);
     this.state = {
       userAnswer: '',
-      count: 0,
+      count: 1,
       diamonds: 0,
       urldatabase: {},
       wordsnumber: 0,
-      riddleletter: ''
+      riddleletter: '',
     };
   }
 
@@ -136,12 +136,22 @@ export default class Riddles extends Component {
       count: this.state.count + 1,
       diamonds: this.state.diamonds + 5
     })
+    this.onChangeCountValue.bind(this)
     this.refs.modalCorrect.close()
     console.log('after', this.state.diamonds)
   }
+onChangeCountValue(){
+  console.log('going to change homescreen value', this.state.count)
+  this.props.onChangeCount(this.state.count);
+}
 
   render() {
     //let data = this.state.urldatabase
+    //const {state} = this.props.navigation;
+    //const {setParams} = this.props.navigation;
+    //console.log(state.state.params.some);
+    //console.log('riddle screen', this.props.navigation.state.params.some)
+    //this.props.navigation.navigate('HomeScreen', { some: this.state.count})
     const data2 = [
       { key1: 'this is key1', key2: 'this is key2' },
       { key10: 'this is key10', key20: 'this is key20' }

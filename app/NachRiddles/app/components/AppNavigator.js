@@ -83,7 +83,7 @@ const Navigate = StackNavigator(
     Introduction: { screen: IntroductionScreen },
     About: { screen: AboutScreen },
   },
-  { headerMode: 'screen' }
+  { headerMode: 'screen' },
 );
 
 // skip this line if using Create React Native App

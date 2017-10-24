@@ -24,8 +24,27 @@ export default class HomeScreen extends Component {
       riddleletter: ''
     }
   }
+checkBeginning(){
+  if (this.state.count !== 0) {
+    return ("המשך")
+  } else {
+    return ("התחל")
+  }
+}
+
+onChangeCount(newCount){
+  console.log('onChangeCount at home')
+  this.setState({
+    count: newCount
+  })
+
+}
+
+componentWillMount(){
+}
 
   render() {
+    console.log(this.state.count);
     return (
       <View style={styles.container}>
         <Image
@@ -42,10 +61,10 @@ export default class HomeScreen extends Component {
               <Text style={styles.lineText}>1188 חידות על הנביא</Text>
               <View style={styles.buttonView}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('Riddles')}
+                  onPress={() => this.props.navigation.navigate('Riddles', { some: this.onChangeCount.bind(this)})}
                 >
                   <View style={styles.button}>
-                    <Text style={styles.buttonText}>התחל</Text>
+                    <Text style={styles.buttonText}>{this.checkBeginning()}</Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -63,7 +82,7 @@ export default class HomeScreen extends Component {
                   onPress={() => this.props.navigation.navigate('About')}
                 >
                   <View style={styles.button}>
-                    <Text style={styles.buttonText}>אודות</Text>
+                    <Text style={styles.buttonText}>אודות{this.state.count}</Text>
                   </View>
                 </TouchableOpacity>
               </View>
