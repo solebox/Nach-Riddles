@@ -31,7 +31,7 @@ export default class Riddles extends Component {
     super(props);
     this.state = {
       userAnswer: '',
-      count: 1,
+      count: 0,
       diamonds: 0,
       urldatabase: {},
       wordsnumber: 0,
@@ -39,32 +39,21 @@ export default class Riddles extends Component {
     };
   }
 
-  /*
+
   componentWillMount(){
-    AsyncStorage.getItem("userAnswer").then((value) => {
-        this.setState({userAnswer: value || ''})}).done();
     AsyncStorage.getItem("count").then((value) => {
-        this.setState({count: value || 0})}).done();
+        this.setState({count: JSON.parse(value) || 0})}).done();
     AsyncStorage.getItem("diamonds").then((value) => {
-        this.setState({diamonds: value || 0})}).done();
-    AsyncStorage.getItem("urldatabase").then((value) => {
-        this.setState({urldatabase: value || {}})}).done();
-    AsyncStorage.getItem("wordsnumber").then((value) => {
-        this.setState({wordsnumber: value || 0})}).done();
-    AsyncStorage.getItem("riddleletter").then((value) => {
-        this.setState({riddleletter: value || ''})}).done();
+        this.setState({diamonds: JSON.parse(value) || 0})}).done();
     axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
       .then(response => this.setState({urldatabase: response.data}));
   }
   saveData(){
-    AsyncStorage.setItem("userAnswer",this.state.userAnswer);
-    AsyncStorage.setItem("count",this.state.count);
-    AsyncStorage.setItem("diamonds",this.state.diamonds);
-    AsyncStorage.setItem("urldatabase",this.state.urldatabase);
-    AsyncStorage.setItem("wordsnumber",this.state.wordsnumber);
-    AsyncStorage.setItem("riddleletter",this.state.riddleletter);
+    console.log('save data')
+    AsyncStorage.setItem("count",String(this.state.count));
+    AsyncStorage.setItem("diamonds",String(this.state.diamonds));
   };
-*/
+
   clue(words_number,riddle_letter) {
     this.setState({
       wordsnumber: words_number,
@@ -84,6 +73,7 @@ export default class Riddles extends Component {
       Alert.alert('מספר מילים: ' + this.state.wordsnumber)
       this.refs.modalClue.close()
     }
+    this.saveData()
   }
 
   Diamonds2() {
@@ -97,6 +87,7 @@ export default class Riddles extends Component {
       Alert.alert(', מתחיל באות: ' + this.state.riddleletter)
       this.refs.modalClue.close()
     }
+    this.saveData()
   }
 
   Diamonds3() {
@@ -111,6 +102,7 @@ export default class Riddles extends Component {
       })
       this.refs.modalClue.close()
     }
+    this.saveData()
   }
 
   checkAnswer(answer) {
@@ -136,22 +128,15 @@ export default class Riddles extends Component {
       count: this.state.count + 1,
       diamonds: this.state.diamonds + 5
     })
-    this.onChangeCountValue.bind(this)
+    this.props.navigation.state.params.some(this.state.count+1);
     this.refs.modalCorrect.close()
     console.log('after', this.state.diamonds)
+    this.saveData()
   }
-onChangeCountValue(){
-  console.log('going to change homescreen value', this.state.count)
-  this.props.onChangeCount(this.state.count);
-}
+
 
   render() {
-    //let data = this.state.urldatabase
-    //const {state} = this.props.navigation;
-    //const {setParams} = this.props.navigation;
-    //console.log(state.state.params.some);
-    //console.log('riddle screen', this.props.navigation.state.params.some)
-    //this.props.navigation.navigate('HomeScreen', { some: this.state.count})
+    this.saveData()
     const data2 = [
       { key1: 'this is key1', key2: 'this is key2' },
       { key10: 'this is key10', key20: 'this is key20' }
@@ -159,7 +144,6 @@ onChangeCountValue(){
     let num = this.state.count
     let jsondata = this.state.urldatabase[num]
     let diamonds = this.state.diamonds
-    console.log(jsondata && jsondata)
 
     const book = database[num].book
     const riddle_section = database[num].riddle_section

@@ -5,7 +5,8 @@ import {
   Image,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage,
 } from 'react-native'
 
 export default class HomeScreen extends Component {
@@ -26,7 +27,7 @@ export default class HomeScreen extends Component {
   }
 checkBeginning(){
   if (this.state.count !== 0) {
-    return ("המשך")
+    return ("המשך משחק")
   } else {
     return ("התחל")
   }
@@ -36,15 +37,21 @@ onChangeCount(newCount){
   console.log('onChangeCount at home')
   this.setState({
     count: newCount
-  })
-
+  });
 }
 
 componentWillMount(){
+  AsyncStorage.getItem("count").then((value) => {
+      this.setState({count: JSON.parse(value) || 0})}).done();
 }
 
+saveData(){
+  console.log('save data')
+  AsyncStorage.setItem("count",String(this.state.count));
+};
+
   render() {
-    console.log(this.state.count);
+    console.log("count on home", this.state.count);
     return (
       <View style={styles.container}>
         <Image
@@ -82,7 +89,7 @@ componentWillMount(){
                   onPress={() => this.props.navigation.navigate('About')}
                 >
                   <View style={styles.button}>
-                    <Text style={styles.buttonText}>אודות{this.state.count}</Text>
+                    <Text style={styles.buttonText}>אודות</Text>
                   </View>
                 </TouchableOpacity>
               </View>

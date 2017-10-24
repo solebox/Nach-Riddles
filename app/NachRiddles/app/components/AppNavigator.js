@@ -16,18 +16,6 @@ class HomeScreen extends Component {
     header: null
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      userAnswer: '',
-      count: 0,
-      diamonds: 0,
-      urldatabase: {},
-      wordsnumber: 0,
-      riddleletter: ''
-    };
-  }
-
   render() {
     return (
       <View>
