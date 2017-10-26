@@ -13,8 +13,9 @@ export default class About extends Component {
           <Image style={styles.imageStyle} source={require('../img/riddle.jpg')}>
           <View style={styles.backdropView}>
           <Text style={styles.lineText}>
-          אפליקציה זאת נכתבה על הספר
-          "אביעה חידות מני קדם" שכתב וערך דוד צברדלינג ז"ל.
+          אפליקציה זאת נכתבה על פי הספר "אביעה חידות מני קדם" שאותו כתב וערך הבה''ח דוד צברדלינג ז''ל ומוקדשת לעילוי נשמתו.
+          </Text>
+          <Text style={styles.lineText2}>
 {"\n"}
 {"\n"}
           בספרו הוא מציין:
@@ -49,9 +50,24 @@ export default class About extends Component {
           {"\n"}
           {"\n"}
           {"\n"}
-          להארות והערות:
-          guy.zwerdling@gmail.com
 
+          </Text>
+          <Text style={styles.lineText}>
+          לתגובות, בקשות, שאלות, הערות או הארות נא לשלוח דוא"ל לכתובת הבאה:
+          guy.zwerdling@gmail.com
+          {"\n"}
+          {"\n"}
+          למעוניינים לקבל את הספר המקורי במחיר סמלי ניתן ליצור קשר דרך הדוא"ל הנ"ל ולציין בכותרת "אביעה חידות מני קדם".
+          {"\n"}'
+          <Image source={require('../img/the_original_book.png')}/>
+          {"\n"}
+          לפרטים נוספים:
+          {"\n"}
+          https://zwerd.com/NachRiddles
+          {"\n"}
+          {"\n"}
+          {"\n"}
+          {"\n"}
 
           </Text>
           </View>
@@ -89,6 +105,12 @@ backdropView: {
     padding: 5,
     color: 'black',
     fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'right',
+  },
+  lineText2: {
+    padding: 5,
+    color: 'black',
     fontSize: 20,
     textAlign: 'right',
   },

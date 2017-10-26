@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>NachRiddles</string>
+	<string>אביעה חידות</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -53,12 +53,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>STAM.TTF</string>
-		<string>STAM1.TTF</string>
+		<string>nrkis.ttf</string>
 		<string>stam.ttf</string>
 		<string>stam1.ttf</string>
 		<string>vinchand.ttf</string>
-		<string>nrkis.ttf</string>
 	</array>
 </dict>
 </plist>

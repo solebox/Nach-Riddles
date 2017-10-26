@@ -84,7 +84,7 @@ export default class Riddles extends Component {
       this.setState({
         diamonds: this.state.diamonds - 2
       })
-      Alert.alert(', מתחיל באות: ' + this.state.riddleletter)
+      Alert.alert('מתחיל באות: ' + this.state.riddleletter)
       this.refs.modalClue.close()
     }
     this.saveData()
