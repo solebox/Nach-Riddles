@@ -7,6 +7,8 @@ import {
   Text,
   TouchableOpacity,
   AsyncStorage,
+  ScrollView,
+  Dimensions,
 } from 'react-native'
 
 export default class HomeScreen extends Component {
@@ -27,9 +29,9 @@ export default class HomeScreen extends Component {
   }
 checkBeginning(){
   if (this.state.count !== 0) {
-    return ("המשך משחק")
+    return ("המשך")
   } else {
-    return ("התחל")
+    return ("שחק")
   }
 }
 
@@ -52,8 +54,9 @@ saveData(){
 
   render() {
     console.log("count on home", this.state.count);
+
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Image
           style={styles.imageStyle}
           source={require('../img/opening-img2.jpg')}
@@ -61,10 +64,9 @@ saveData(){
           <View style={styles.backdropView}>
             <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
             <Image
-              style={{width: 360, height: 165 }}
+              style={{width: 360, height: 165, resizeMode: 'stretch', }}
               source={require('../img/Book.png')}
             />
-            <View style={{ height: 50 }}>
               <Text style={styles.lineText}>1188 חידות על הנביא</Text>
               <View style={styles.buttonView}>
                 <TouchableOpacity
@@ -93,10 +95,9 @@ saveData(){
                   </View>
                 </TouchableOpacity>
               </View>
-            </View>
           </View>
         </Image>
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -104,7 +105,6 @@ saveData(){
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(0,0,0,0)',
-    alignItems: 'center'
   },
   imageStyle: {
     resizeMode: 'stretch',

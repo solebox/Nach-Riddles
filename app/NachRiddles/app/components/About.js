@@ -5,7 +5,7 @@ import { StackNavigator } from 'react-navigation';
 export default class About extends Component {
   render() {
     return (
-        <ScrollView contentContainerStyle={styles.contentContainer}>
+        <ScrollView>
           <View style={{height:60, backgroundColor:"#2196F3"}}>
             <Text style={styles.titleText}>אודות</Text>
           </View>

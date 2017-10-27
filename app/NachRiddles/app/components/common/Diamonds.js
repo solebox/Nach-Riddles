@@ -31,16 +31,16 @@ const styles = {
   imageStyle:{
     flex:1,
     alignItems:'center',
-    marginLeft:10,
+    marginLeft:0,
     height: 100,
 
 
   },
   textStyle: {
-    flex:1,
+    flex:0.9,
     fontFamily: 'nrkis',
     textAlign: 'center',
-    fontSize:40,
+    fontSize:28,
     color: 'white',
   }
 

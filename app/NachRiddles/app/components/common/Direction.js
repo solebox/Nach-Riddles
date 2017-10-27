@@ -14,7 +14,7 @@ comp(){
     return(
 
       <View style={styles.viewStyle}>
-        <TouchableOpacity style={{flex:1, flexDirection:'row'}} onPress={() => this.props.navigation.navigate('Introduction')}>
+        <TouchableOpacity style={{flex:1, flexDirection:'row', alignItems:'center'}} onPress={() => this.props.navigation.navigate('Introduction')}>
           <Image style={styles.imageStyle} source={require('../../img/sign.png')}/>
           <Text style={styles.textStyle}>הוראות</Text>
         </TouchableOpacity>
@@ -52,7 +52,7 @@ const styles = {
   imageStyle:{
     flex:1,
     alignItems:'center',
-    marginLeft:10,
+    marginLeft:0,
     height: 45,
 
 
@@ -61,7 +61,8 @@ const styles = {
     flex:1,
     fontFamily: 'nrkis',
     textAlign: 'center',
-    fontSize:19,
+    justifyContent: 'center',
+    fontSize:15,
     color: 'white',
   }
 

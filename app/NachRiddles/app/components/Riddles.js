@@ -190,7 +190,7 @@ export default class Riddles extends Component {
 
             <Modal
               style={[styles.modal, styles.modalNone]}
-              position={'center'}
+              
               ref={'modalNone'}
             >
               <Text style={styles.modalText}>לא הקלדת תשובה!</Text>
@@ -340,7 +340,7 @@ export default class Riddles extends Component {
                       <Image
                         style={{
                           alignItems: 'center',
-                          marginLeft: 10,
+                          marginLeft: 2,
                           height: 45,
                           width: 50
                         }}
@@ -349,7 +349,7 @@ export default class Riddles extends Component {
                       <Text style={styles.ClueTextStyle}>חנות הצלה</Text>
                     </TouchableOpacity>
                   </View>
-                  <Direction headerText={diamonds} navigation={this.props.navigation}/>
+                  <Direction navigation={this.props.navigation}/>
                 </View>
               </View>
               <RiddleBox headerText={riddle} />
@@ -366,7 +366,7 @@ export default class Riddles extends Component {
                 >
                   <TextInput
                     underlineColorAndroid="transparent"
-                    placeholder="הקלד את תשובתך"
+                    placeholder="התשובה היא..."
                     style={styles.textInput}
                     onChangeText={userAnswer => this.setState({ userAnswer })}
                     value={this.state.userAnswer}
