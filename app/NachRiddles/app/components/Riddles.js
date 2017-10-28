@@ -526,7 +526,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
-    width: 300
+
   },
   modalNone: {
     backgroundColor: '#2196F3',
@@ -535,7 +535,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
-    width: 300
+
   },
   modalWrong: {
     backgroundColor: '#2196F3',
@@ -544,7 +544,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
-    width: 300
+
   },
   modalClue: {
     backgroundColor: '#2196F3',
@@ -553,7 +553,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
-    width: 300
+
   },
   modalClueText: {
     flex: 3,
