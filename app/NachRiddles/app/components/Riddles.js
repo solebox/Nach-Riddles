@@ -190,7 +190,7 @@ export default class Riddles extends Component {
 
             <Modal
               style={[styles.modal, styles.modalNone]}
-              
+              position={'center'}
               ref={'modalNone'}
             >
               <Text style={styles.modalText}>לא הקלדת תשובה!</Text>
@@ -521,6 +521,8 @@ const styles = StyleSheet.create({
   },
   modalCorrect: {
     backgroundColor: '#2196F3',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
@@ -528,6 +530,8 @@ const styles = StyleSheet.create({
   },
   modalNone: {
     backgroundColor: '#2196F3',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
@@ -535,6 +539,8 @@ const styles = StyleSheet.create({
   },
   modalWrong: {
     backgroundColor: '#2196F3',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
@@ -542,6 +548,8 @@ const styles = StyleSheet.create({
   },
   modalClue: {
     backgroundColor: '#2196F3',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
     height: 200,
