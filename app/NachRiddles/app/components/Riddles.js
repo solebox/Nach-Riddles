@@ -189,7 +189,7 @@ export default class Riddles extends Component {
             </Modal>
 
             <Modal
-              style={[styles.modal, styles.modalNone]}
+              style={styles.modalNone}
               position={'center'}
               ref={'modalNone'}
             >
@@ -356,7 +356,7 @@ export default class Riddles extends Component {
               <View style={{ alignItems: 'center' }}>
                 <Image
                   style={{
-                    width: 360,
+                    width: 300,
                     height: 165,
                     resizeMode: 'stretch',
                     justifyContent: 'center',

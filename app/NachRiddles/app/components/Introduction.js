@@ -38,7 +38,7 @@ export default class Introduction extends Component{
            {"\n"}
            בכותרת של מסך החידה מצויין שם הספר בנ''ך עליו מבוסס החידון, לדוגמא:
            {"\n"}
-           <Image style={{height:70, resizeMode:'stretch'}}source={require('../img/book_for_riddle.png')}/>
+           <Image style={styles.ImageLine} source={require('../img/book_for_riddle.png')}/>
            {"\n"}
            {"\n"}
            מתחת לכותרת מצויינים נתוני החידון הבאים:
@@ -50,7 +50,7 @@ export default class Introduction extends Component{
            3. שם החידון.
            {"\n"}
            {"\n"}
-           <Image style={{height:90, width: 700}}source={require('../img/listA.png')}/>
+           <Image style={styles.ImageLine}source={require('../img/listA.png')}/>
            {"\n"}
            {"\n"}
            {"\n"}
@@ -73,7 +73,7 @@ export default class Introduction extends Component{
            3. מספר יהלומים.
            {"\n"}
            {"\n"}
-           <Image style={{height:90, width: 700}}source={require('../img/listB.png')}/>
+           <Image style={styles.ImageLine}source={require('../img/listB.png')}/>
            {"\n"}
            {"\n"}
            הוראות - בלחיצה על כפתור זה יפתח חלון אשר יציג את דף הוראות זה.
@@ -95,13 +95,13 @@ export default class Introduction extends Component{
            {"\n"}
            מתחת לטבלת הכלים תופיע החידה, מענה נכון על החידה תעביר אתכם לחידה הבאה.
            {"\n"}
-           <Image style={{height:350, width: 700}}source={require('../img/DaRiddle.png')}/>
+           <Image style={styles.ImageLine}source={require('../img/DaRiddle.png')}/>
            {"\n"}
            {"\n"}
            מתחת החידה תופיע מגילת התשובה עליה יש להקיש את התשובה.
            {"\n"}
            {"\n"}
-           <Image style={{height:350, width: 700}}source={require('../img/DaAnswer.png')}/>
+           <Image style={styles.ImageLine}source={require('../img/DaAnswer.png')}/>
            {"\n"}
            {"\n"}
            מתחת למגילת התשובה יופיעו שני כפתורים:
@@ -111,7 +111,7 @@ export default class Introduction extends Component{
            2. נקה - מסיר את הפתרון שהוכנס במגילת התשובה.
            {"\n"}
            {"\n"}
-           <Image style={{height:90, width: 700}}source={require('../img/buttons.png')}/>
+           <Image style={styles.ImageLine}source={require('../img/buttons.png')}/>
            {"\n"}
            {"\n"}
            {"\n"}
@@ -158,8 +158,6 @@ backdropView: {
   backgroundColor: 'rgba(255,255,255, 0.9)'
 },
 titleText: {
-height: 45,
-width: 360,
 color: 'white',
 fontSize: 60,
 textAlign: 'center',
@@ -170,6 +168,10 @@ padding: 5,
 color: 'black',
 fontSize: 20,
 },
+ImageLine: {
+
+  resizeMode:'stretch'
+}
 
 
 });

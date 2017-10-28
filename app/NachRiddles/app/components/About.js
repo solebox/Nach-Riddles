@@ -16,8 +16,8 @@ export default class About extends Component {
           אפליקציה זאת נכתבה על פי הספר "אביעה חידות מני קדם" שאותו כתב וערך הבה''ח דוד צברדלינג ז''ל ומוקדשת לעילוי נשמתו.
           </Text>
           <Text style={styles.lineText2}>
-{"\n"}
-{"\n"}
+          {"\n"}
+          {"\n"}
           בספרו הוא מציין:
           {"\n"}
           אביעה חידות מני קדם הוא הוא חיבור של 1188 חידות בחרוזים על ספרי נביאים ראשונים, דניאל, עזרה ונחמיה.
@@ -50,7 +50,6 @@ export default class About extends Component {
           {"\n"}
           {"\n"}
           {"\n"}
-
           </Text>
           <Text style={styles.lineText}>
           לתגובות, בקשות, שאלות, הערות או הארות נא לשלוח דוא"ל לכתובת הבאה:
@@ -58,8 +57,13 @@ export default class About extends Component {
           {"\n"}
           {"\n"}
           למעוניינים לקבל את הספר המקורי במחיר סמלי ניתן ליצור קשר דרך הדוא"ל הנ"ל ולציין בכותרת "אביעה חידות מני קדם".
-          {"\n"}'
-          <Image source={require('../img/the_original_book.png')}/>
+          {"\n"}
+          </Text>
+          <Text style={styles.lineText2}>
+          {"\n"}
+          <Image style={styles.imageStyle2} source={require('../img/the_original_book.png')}/>
+          {"\n"}
+          {"\n"}
           {"\n"}
           לפרטים נוספים:
           {"\n"}
@@ -68,7 +72,6 @@ export default class About extends Component {
           {"\n"}
           {"\n"}
           {"\n"}
-
           </Text>
           </View>
           </Image>
@@ -90,11 +93,10 @@ imageStyle: {
 },
 backdropView: {
   flex: 1,
-  backgroundColor: 'rgba(255,255,255, 0.9)'
+  backgroundColor: 'rgba(255,255,255, 0.9)',
+  alignItems: 'center'
 },
   titleText: {
-    height: 45,
-    width: 360,
     color: 'white',
     fontSize: 60,
     textAlign: 'center',
@@ -106,14 +108,17 @@ backdropView: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 20,
-    textAlign: 'right',
   },
   lineText2: {
     padding: 5,
     color: 'black',
     fontSize: 20,
-    textAlign: 'right',
   },
+  imageStyle2: {
+    resizeMode: 'stretch',
+    width: 300,
+    height: 300
+  }
 
 
 });
