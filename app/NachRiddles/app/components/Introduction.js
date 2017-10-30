@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import email from 'react-native-email';
 
 export default class Introduction extends Component{
   render() {
@@ -118,7 +119,16 @@ export default class Introduction extends Component{
            {"\n"}
            משחק זה פותח באמצעות React-Native והוא מוגדר כקוד פתוח,
            {"\n"}
-           כמו כן המשחק נבנה על ידי Guy Zwerdling בשיתוף פעולה עם צוות rumors.com,
+           כמו כן המשחק נבנה על ידי Guy Zwerdling בשיתוף פעולה עם צוות
+           </Text>
+           <TouchableOpacity
+             onPress={() => { Linking.openURL('https://rumors.io')}}
+           >
+           <Text style={styles.lineLink}>
+           rumors.io
+           </Text>
+           </TouchableOpacity>
+           <Text style={styles.lineText}>
            {"\n"}
            אנו מקווים שתהנו שתפיקו את המייטב היידע וההנאה מהמשחק.
            {"\n"}
@@ -127,7 +137,16 @@ export default class Introduction extends Component{
            {"\n"}
            או בשליחת דוא''ל לכתובת:
            {"\n"}
+           </Text>
+           <TouchableOpacity
+             onPress={() => {this.handleEmail}}
+           >
+           <Text style={styles.lineLink}>
            Guy.Zwerdling@gmail.com
+           </Text>
+           </TouchableOpacity>
+
+      <Text style={styles.lineText}>
            {"\n"}
            תהנו.
            {"\n"}
@@ -141,7 +160,19 @@ export default class Introduction extends Component{
     </ScrollView>
     );
   }
+
+  handleEmail = () => {
+      email('guy.zwerdling@gmail.com', {
+          // Optional additional arguments
+          subject: 'אביעה חידות מני קדם',
+      }).catch(console.error)
+  }
+
+
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -171,7 +202,13 @@ fontSize: 20,
 ImageLine: {
 
   resizeMode:'stretch'
+},
+lineLink:{
+  textAlign:'center',
+  color: 'blue',
+  fontSize: 20,
 }
+
 
 
 });
