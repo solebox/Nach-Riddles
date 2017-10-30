@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppRegistry, View, Image,ScrollView, StyleSheet, Text, Button} from 'react-native';
+import {AppRegistry, View, Image,ScrollView, StyleSheet, Text, Button, TouchableOpacity, Linking} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class About extends Component {
@@ -50,10 +50,36 @@ export default class About extends Component {
           {"\n"}
           {"\n"}
           {"\n"}
+          {"\n"}
+          {"\n"}
+          משחק זה פותח באמצעות React-Native והוא מוגדר כקוד פתוח,
+          {"\n"}
+          כמו כן המשחק נבנה על ידי Guy Zwerdling בשיתוף פעולה עם צוות
+          </Text>
+          <TouchableOpacity
+            onPress={() => { Linking.openURL('https://rumors.io')}}
+          >
+          <Text style={styles.lineLink}>
+          rumors.io
+          </Text>
+          </TouchableOpacity>
+          <Text style={styles.lineText2}>
+          {"\n"}
+          אנו מקווים שתהנו שתפיקו את מייטב היידע וההנאה מהמשחק.
+          {"\n"}
+          {"\n"}
           </Text>
           <Text style={styles.lineText}>
           לתגובות, בקשות, שאלות, הערות או הארות נא לשלוח דוא"ל לכתובת הבאה:
-          guy.zwerdling@gmail.com
+          </Text>
+          <TouchableOpacity
+            onPress={() => { Linking.openURL('mailto:guy.zwerdling@gmail.com?subject=אביעה_חידות_מני_קדם&body=')}}
+          >
+          <Text style={styles.lineLink}>
+          Guy.Zwerdling@gmail.com
+          </Text>
+          </TouchableOpacity>
+          <Text style={styles.lineText}>
           {"\n"}
           {"\n"}
           למעוניינים לקבל את הספר המקורי במחיר סמלי ניתן ליצור קשר דרך הדוא"ל הנ"ל ולציין בכותרת "אביעה חידות מני קדם".
@@ -67,12 +93,14 @@ export default class About extends Component {
           {"\n"}
           לפרטים נוספים:
           {"\n"}
-          https://zwerd.com/NachRiddles
-          {"\n"}
-          {"\n"}
-          {"\n"}
-          {"\n"}
           </Text>
+          <TouchableOpacity
+            onPress={() => { Linking.openURL('https://zwerd.com/NachRiddles')}}
+          >
+          <Text style={styles.lineLink}>
+          https://zwerd.com/NachRiddles
+          </Text>
+          </TouchableOpacity>
           </View>
           </Image>
           </View>
@@ -118,6 +146,11 @@ backdropView: {
     resizeMode: 'stretch',
     width: 300,
     height: 300
+  },
+  lineLink:{
+    textAlign:'center',
+    color: 'blue',
+    fontSize: 20,
   }
 
 

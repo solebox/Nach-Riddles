@@ -128,12 +128,21 @@ export default class Riddles extends Component {
       count: this.state.count + 1,
       diamonds: this.state.diamonds + 5
     })
-    this.props.navigation.state.params.some(this.state.count+1);
+    this.props.navigation.state.params.home(this.state.count+1);
     this.refs.modalCorrect.close()
     console.log('after', this.state.diamonds)
     this.saveData()
   }
-
+restartGame(){
+  this.setState({
+    userAnswer: '',
+    count: 0,
+    diamonds: 0,
+    urldatabase: {},
+    wordsnumber: 0,
+    riddleletter: '',
+  });
+}
 
   render() {
     this.saveData()
@@ -257,7 +266,7 @@ export default class Riddles extends Component {
                   fontFamily: 'nrkis'
                 }}
               >
-                ברוך הבא לחנות
+              ברוכים הבאים לחנות
               </Text>
               <TouchableOpacity
                 style={styles.modalButton}
@@ -394,6 +403,14 @@ export default class Riddles extends Component {
                   <Text style={styles.buttonText}>בדוק</Text>
                 </TouchableOpacity>
               </View>
+              <View>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.restartGame()}
+              >
+                <Text style={{textAlign:'center', justifyContent:'center', color:'white'}}>אפס משחק</Text>
+              </TouchableOpacity>
+              </View>
             </ScrollView>
           </View>
         </Image>
@@ -469,19 +486,18 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 2,
-    marginBottom: 5,
     width: 80,
     height: 45,
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#2196F3',
     position: 'relative',
     borderWidth: 2,
     borderRadius: 10,
     borderColor: 'black',
-    margin: 10
+    margin: 5
   },
   buttonText: {
-    marginTop: 5,
     fontSize: 30,
     padding: 0,
     color: 'white',

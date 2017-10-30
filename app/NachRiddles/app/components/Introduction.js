@@ -139,7 +139,7 @@ export default class Introduction extends Component{
            {"\n"}
            </Text>
            <TouchableOpacity
-             onPress={() => {this.handleEmail}}
+             onPress={() => { Linking.openURL('mailto:guy.zwerdling@gmail.com?subject=אביעה_חידות_מני_קדם&body=')}}
            >
            <Text style={styles.lineLink}>
            Guy.Zwerdling@gmail.com
@@ -160,14 +160,6 @@ export default class Introduction extends Component{
     </ScrollView>
     );
   }
-
-  handleEmail = () => {
-      email('guy.zwerdling@gmail.com', {
-          // Optional additional arguments
-          subject: 'אביעה חידות מני קדם',
-      }).catch(console.error)
-  }
-
 
 }
 

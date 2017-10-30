@@ -14,18 +14,18 @@ class Header extends Component{
 
 const styles = {
   viewStyle:{
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#ffffff',
     alignItems:'center',
     justifyContent:'center',
-    height: 60,
-    paddingTop: 15,
+    height: 50,
     shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.8,
     elevation: 2,
     position: 'relative'
   },
   textStyle: {
-    fontSize:20
+    fontSize:20,
+    color: 'steelblue',
   }
 
 };

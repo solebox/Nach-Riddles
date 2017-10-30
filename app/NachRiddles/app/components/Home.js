@@ -36,7 +36,6 @@ checkBeginning(){
 }
 
 onChangeCount(newCount){
-  console.log('onChangeCount at home')
   this.setState({
     count: newCount
   });
@@ -48,13 +47,10 @@ componentWillMount(){
 }
 
 saveData(){
-  console.log('save data')
   AsyncStorage.setItem("count",String(this.state.count));
 };
 
   render() {
-    console.log("count on home", this.state.count);
-
     return (
       <ScrollView style={styles.container}>
         <Image
@@ -70,7 +66,7 @@ saveData(){
               <Text style={styles.lineText}>1188 חידות על הנביא</Text>
               <View style={styles.buttonView}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('Riddles', { some: this.onChangeCount.bind(this)})}
+                  onPress={() => this.props.navigation.navigate('Riddles', { home: this.onChangeCount.bind(this)})}
                 >
                   <View style={styles.button}>
                     <Text style={styles.buttonText}>{this.checkBeginning()}</Text>
