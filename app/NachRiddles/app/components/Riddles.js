@@ -49,7 +49,6 @@ export default class Riddles extends Component {
       .then(response => this.setState({urldatabase: response.data}));
   }
   saveData(){
-    console.log('save data')
     AsyncStorage.setItem("count",String(this.state.count));
     AsyncStorage.setItem("diamonds",String(this.state.diamonds));
   };
@@ -122,7 +121,6 @@ export default class Riddles extends Component {
   }
 
   nextQuestion() {
-    console.log('befor', this.state.diamonds)
     this.setState({
       userAnswer: '',
       count: this.state.count + 1,
@@ -130,7 +128,6 @@ export default class Riddles extends Component {
     })
     this.props.navigation.state.params.home(this.state.count+1);
     this.refs.modalCorrect.close()
-    console.log('after', this.state.diamonds)
     this.saveData()
   }
 restartGame(){
