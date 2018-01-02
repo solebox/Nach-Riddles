@@ -51,14 +51,18 @@ saveData(){
 };
 
   render() {
+    let width = Dimensions.get('window').width;
+    let font = width / 10;
+    console.log(font)
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView>
+      <View style={styles.container}>
         <Image
           style={styles.imageStyle}
           source={require('../img/opening-img2.jpg')}
         >
           <View style={styles.backdropView}>
-            <Text style={styles.titleText}>אביעה חידות מני קדם</Text>
+            <Text style={{paddingTop: 20, fontFamily: 'stam1', textAlign: 'center', color: '#2196F3', fontSize:font}}>אביעה חידות מני קדם</Text>
             <Image
               style={{width: 360, height: 165, resizeMode: 'stretch', }}
               source={require('../img/Book.png')}
@@ -93,6 +97,7 @@ saveData(){
               </View>
           </View>
         </Image>
+      </View>
       </ScrollView>
     )
   }
@@ -100,9 +105,11 @@ saveData(){
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     backgroundColor: 'rgba(0,0,0,0)',
   },
   imageStyle: {
+    flex:1,
     resizeMode: 'stretch',
     width: null,
     height: null
@@ -117,7 +124,7 @@ const styles = StyleSheet.create({
     fontFamily: 'stam1',
     textAlign: 'center',
     color: '#2196F3',
-    fontSize: 60
+    fontSize: 60,
   },
   lineText: {
     fontFamily: 'nrkis',

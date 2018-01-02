@@ -428,7 +428,8 @@ const styles = StyleSheet.create({
   },
   backdropView: {
     flex: 1,
-    backgroundColor: 'rgba(255,255,255, 0.8)'
+    backgroundColor: 'rgba(255,255,255, 0.8)',
+    alignItems: 'center'
   },
   titleText: {
     fontFamily: 'stam',
