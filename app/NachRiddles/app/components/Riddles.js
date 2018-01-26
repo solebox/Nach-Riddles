@@ -44,7 +44,7 @@ export default class Riddles extends Component {
     console.log("onChilde")
     console.log(this.state.count)
     this.setState.count
-    this.props.navigation.state.params.home(this.setState.count)
+  
     AsyncStorage.getItem("count").then((value) => {
         this.setState({count: JSON.parse(value) || 0})}).done();
     AsyncStorage.getItem("diamonds").then((value) => {
