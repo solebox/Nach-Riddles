@@ -31,7 +31,7 @@ export default class Riddles extends Component {
     super(props);
     this.state = {
       userAnswer: '',
-      count: 0,
+      count:0,
       diamonds: 0,
       urldatabase: {},
       wordsnumber: 0,
@@ -41,6 +41,10 @@ export default class Riddles extends Component {
 
 
   componentWillMount(){
+    console.log("onChilde")
+    console.log(this.state.count)
+    this.setState.count
+    this.props.navigation.state.params.home(this.setState.count)
     AsyncStorage.getItem("count").then((value) => {
         this.setState({count: JSON.parse(value) || 0})}).done();
     AsyncStorage.getItem("diamonds").then((value) => {
@@ -150,7 +154,7 @@ restartGame(){
     let num = this.state.count
     let jsondata = this.state.urldatabase[num]
     let diamonds = this.state.diamonds
-
+    console.log(this.state.count)
     const book = database[num].book
     const riddle_section = database[num].riddle_section
     const parallel = database[num].parallel

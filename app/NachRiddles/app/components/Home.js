@@ -50,6 +50,21 @@ saveData(){
   AsyncStorage.setItem("count",String(this.state.count));
 };
 
+restartGame(){
+  console.log(this.state.count)
+  console.log("checking")
+  this.setState({
+    userAnswer: '',
+    count: 0,
+    diamonds: 0,
+    urldatabase: {},
+    wordsnumber: 0,
+    riddleletter: '',
+  });
+  console.log(this.state.count)
+  this.props.navigation.state.params.Riddles(this.setState.count)
+}
+
   render() {
     let width = Dimensions.get('window').width;
     let font = width / 10;
@@ -94,6 +109,14 @@ saveData(){
                     <Text style={styles.buttonText}>אודות</Text>
                   </View>
                 </TouchableOpacity>
+              </View>
+              <View>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.restartGame()}
+              >
+                <Text style={{textAlign:'center', justifyContent:'center', color:'white'}}>אפס משחק</Text>
+              </TouchableOpacity>
               </View>
           </View>
         </Image>
