@@ -399,7 +399,7 @@ export default class Riddles extends Component {
                   style={styles.button}
                   onPress={() => this.clearAnswer(answer)}
                 >
-                  <Text style={styles.buttonText}>תקן</Text>
+                  <Text style={styles.buttonText}>מחק</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.button}
