@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   View,
@@ -10,52 +10,60 @@ import {
   TouchableOpacity,
   Alert,
   AsyncStorage
-} from 'react-native';
+} from 'react-native'
 import {
   RiddleHeader,
   RiddleSectionsHeader1,
   RiddleSectionsHeader2,
   Diamonds,
   Direction,
-  RiddleBox,
-} from './common';
-import database from '../database/riddle-the-new-json';
-import Modal from 'react-native-modalbox';
-import axios from 'axios';
+  RiddleBox
+} from './common'
+import database from '../database/riddle-the-new-json'
+import Modal from 'react-native-modalbox'
+import axios from 'axios'
 
 export default class Riddles extends Component {
   static navigationOptions = {
     header: null
   }
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       userAnswer: '',
-      count:0,
+      count: 0,
       diamonds: 0,
       urldatabase: {},
       wordsnumber: 0,
-      riddleletter: '',
-    };
+      riddleletter: ''
+    }
   }
 
-
-  componentWillMount(){
-    console.log("onChilde")
-    this.props.navigation.navigate('Home', { riddles: this.restartGame.bind(this)})
-    AsyncStorage.getItem("count").then((value) => {
-        this.setState({count: JSON.parse(value) || 0})}).done();
-    AsyncStorage.getItem("diamonds").then((value) => {
-        this.setState({diamonds: JSON.parse(value) || 0})}).done();
-    axios.get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
-      .then(response => this.setState({urldatabase: response.data}));
+  componentWillMount() {
+    console.log('onChilde')
+    this.props.navigation.navigate('Home', {
+      riddles: this.restartGame.bind(this)
+    })
+    AsyncStorage.getItem('count')
+      .then(value => {
+        this.setState({ count: JSON.parse(value) || 0 })
+      })
+      .done()
+    AsyncStorage.getItem('diamonds')
+      .then(value => {
+        this.setState({ diamonds: JSON.parse(value) || 0 })
+      })
+      .done()
+    axios
+      .get('https://zwerd.com/NachRiddles/database/riddles-testing-file.html')
+      .then(response => this.setState({ urldatabase: response.data }))
   }
-  saveData(){
-    AsyncStorage.setItem("count",String(this.state.count));
-    AsyncStorage.setItem("diamonds",String(this.state.diamonds));
-  };
+  saveData() {
+    AsyncStorage.setItem('count', String(this.state.count))
+    AsyncStorage.setItem('diamonds', String(this.state.diamonds))
+  }
 
-  clue(words_number,riddle_letter) {
+  clue(words_number, riddle_letter) {
     this.setState({
       wordsnumber: words_number,
       riddleletter: riddle_letter
@@ -128,9 +136,20 @@ export default class Riddles extends Component {
       count: this.state.count + 1,
       diamonds: this.state.diamonds + 5
     })
-    this.props.navigation.state.params.home(this.state.count+1);
+    this.props.navigation.state.params.home(this.state.count + 1)
     this.refs.modalCorrect.close()
     this.saveData()
+  }
+
+  restartGame(newCount) {
+    this.setState({
+      userAnswer: '',
+      count: newCount,
+      diamonds: 0,
+      urldatabase: {},
+      wordsnumber: 0,
+      riddleletter: ''
+    })
   }
 
   render() {
@@ -255,7 +274,7 @@ export default class Riddles extends Component {
                   fontFamily: 'nrkis'
                 }}
               >
-              ברוכים הבאים לחנות
+                ברוכים הבאים לחנות
               </Text>
               <TouchableOpacity
                 style={styles.modalButton}
@@ -347,7 +366,7 @@ export default class Riddles extends Component {
                       <Text style={styles.ClueTextStyle}>חנות הצלה</Text>
                     </TouchableOpacity>
                   </View>
-                  <Direction navigation={this.props.navigation}/>
+                  <Direction navigation={this.props.navigation} />
                 </View>
               </View>
               <RiddleBox headerText={riddle} />
@@ -393,12 +412,20 @@ export default class Riddles extends Component {
                 </TouchableOpacity>
               </View>
               <View>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => this.restartGame()}
-              >
-                <Text style={{textAlign:'center', justifyContent:'center', color:'white'}}>אפס משחק</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.restartGame()}
+                >
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      justifyContent: 'center',
+                      color: 'white'
+                    }}
+                  >
+                    אפס משחק
+                  </Text>
+                </TouchableOpacity>
               </View>
             </ScrollView>
           </View>
@@ -531,8 +558,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
-    height: 200,
-
+    height: 200
   },
   modalNone: {
     backgroundColor: '#2196F3',
@@ -540,8 +566,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
-    height: 200,
-
+    height: 200
   },
   modalWrong: {
     backgroundColor: '#2196F3',
@@ -549,8 +574,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
-    height: 200,
-
+    height: 200
   },
   modalClue: {
     backgroundColor: '#2196F3',
@@ -558,8 +582,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 3,
     borderRadius: 10,
-    height: 200,
-
+    height: 200
   },
   modalClueText: {
     flex: 3,

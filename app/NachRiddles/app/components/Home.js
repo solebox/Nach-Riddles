@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   AsyncStorage,
   ScrollView,
-  Dimensions,
+  Dimensions
 } from 'react-native'
 
 export default class HomeScreen extends Component {
@@ -27,67 +27,82 @@ export default class HomeScreen extends Component {
       riddleletter: ''
     }
   }
-checkBeginning(){
-  if (this.state.count !== 0) {
-    return ("המשך")
-  } else {
-    return ("שחק")
+  checkBeginning() {
+    if (this.state.count !== 0) {
+      return 'המשך'
+    } else {
+      return 'שחק'
+    }
   }
-}
 
-onChangeCount(newCount){
-  this.setState({
-    count: newCount
-  });
-}
+  onChangeCount(newCount) {
+    this.setState({
+      count: newCount
+    })
+  }
 
-componentWillMount(){
-  AsyncStorage.getItem("count").then((value) => {
-      this.setState({count: JSON.parse(value) || 0})}).done();
-}
+  componentWillMount() {
+    AsyncStorage.getItem('count')
+      .then(value => {
+        this.setState({ count: JSON.parse(value) || 0 })
+      })
+      .done()
+  }
 
-saveData(){
-  AsyncStorage.setItem("count",String(this.state.count));
-};
+  saveData() {
+    AsyncStorage.setItem('count', String(this.state.count))
+  }
 
-restartGame(){
-  console.log(this.state.count)
-  console.log("checking")
-  this.setState({
-    userAnswer: '',
-    count: 0,
-    diamonds: 0,
-    urldatabase: {},
-    wordsnumber: 0,
-    riddleletter: '',
-  })
-  this.props.navigation.state.params.riddles(this.state.count);
-}
+  restartGame() {
+    this.setState({
+      userAnswer: '',
+      count: 0,
+      diamonds: 0,
+      urldatabase: {},
+      wordsnumber: 0,
+      riddleletter: ''
+    })
+  }
 
   render() {
-    let width = Dimensions.get('window').width;
-    let font = width / 10;
+    let width = Dimensions.get('window').width
+    let font = width / 10
     console.log(font)
     return (
       <ScrollView>
-      <View style={styles.container}>
-        <Image
-          style={styles.imageStyle}
-          source={require('../img/opening-img2.jpg')}
-        >
-          <View style={styles.backdropView}>
-            <Text style={{paddingTop: 20, fontFamily: 'stam1', textAlign: 'center', color: '#2196F3', fontSize:font}}>אביעה חידות מני קדם</Text>
-            <Image
-              style={{width: 360, height: 165, resizeMode: 'stretch', }}
-              source={require('../img/Book.png')}
-            />
+        <View style={styles.container}>
+          <Image
+            style={styles.imageStyle}
+            source={require('../img/opening-img2.jpg')}
+          >
+            <View style={styles.backdropView}>
+              <Text
+                style={{
+                  paddingTop: 20,
+                  fontFamily: 'stam1',
+                  textAlign: 'center',
+                  color: '#2196F3',
+                  fontSize: font
+                }}
+              >
+                אביעה חידות מני קדם
+              </Text>
+              <Image
+                style={{ width: 360, height: 165, resizeMode: 'stretch' }}
+                source={require('../img/Book.png')}
+              />
               <Text style={styles.lineText}>1188 חידות על הנביא</Text>
               <View style={styles.buttonView}>
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('Riddles', { home: this.onChangeCount.bind(this)})}
+                  onPress={() =>
+                    this.props.navigation.navigate('Riddles', {
+                      home: this.onChangeCount.bind(this)
+                    })}
                 >
                   <View style={styles.button}>
-                    <Text style={styles.buttonText}>{this.checkBeginning()}</Text>
+                    <Text style={styles.buttonText}>
+                      {this.checkBeginning()}
+                    </Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -110,16 +125,27 @@ restartGame(){
                 </TouchableOpacity>
               </View>
               <View>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => this.restartGame()}
-              >
-                <Text style={{textAlign:'center', justifyContent:'center', color:'white'}}>אפס משחק</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() =>
+                    this.props.navigation.state.params.riddles(
+                      this.state.count - this.state.count
+                    )}
+                >
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      justifyContent: 'center',
+                      color: 'white'
+                    }}
+                  >
+                    אפס משחק
+                  </Text>
+                </TouchableOpacity>
               </View>
-          </View>
-        </Image>
-      </View>
+            </View>
+          </Image>
+        </View>
       </ScrollView>
     )
   }
@@ -127,11 +153,11 @@ restartGame(){
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    backgroundColor: 'rgba(0,0,0,0)',
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0)'
   },
   imageStyle: {
-    flex:1,
+    flex: 1,
     resizeMode: 'stretch',
     width: null,
     height: null
@@ -146,7 +172,7 @@ const styles = StyleSheet.create({
     fontFamily: 'stam1',
     textAlign: 'center',
     color: '#2196F3',
-    fontSize: 60,
+    fontSize: 60
   },
   lineText: {
     fontFamily: 'nrkis',
