@@ -10,17 +10,20 @@ import {
   ScrollView,
   Dimensions
 } from 'react-native'
+import { StackNavigator } from 'react-navigation';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
     header: null
   }
 
+
   constructor(props) {
     super(props)
     this.state = {
       userAnswer: '',
       count: 0,
+      resetCount: 0,
       diamonds: 0,
       urldatabase: {},
       wordsnumber: 0,
@@ -65,6 +68,7 @@ export default class HomeScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     let width = Dimensions.get('window').width
     let font = width / 10
     console.log(font)
@@ -127,19 +131,11 @@ export default class HomeScreen extends Component {
               <View>
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() =>
-                    this.props.navigation.state.params.riddles(
-                      this.state.count - this.state.count
-                    )}
+                  onPress={() => navigate('Riddles',  { resetCount: this.state.resetCount })}
                 >
-                  <Text
-                    style={{
-                      textAlign: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}
+                  <Text style={styles.buttonText}
                   >
-                    אפס משחק
+                    איפוס
                   </Text>
                 </TouchableOpacity>
               </View>
