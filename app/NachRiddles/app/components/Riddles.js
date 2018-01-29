@@ -42,9 +42,7 @@ export default class Riddles extends Component {
 
   componentWillMount(){
     console.log("onChilde")
-    console.log(this.state.count)
-    this.setState.count
-  
+    this.props.navigation.navigate('Home', { riddles: this.restartGame.bind(this)})
     AsyncStorage.getItem("count").then((value) => {
         this.setState({count: JSON.parse(value) || 0})}).done();
     AsyncStorage.getItem("diamonds").then((value) => {
@@ -134,16 +132,6 @@ export default class Riddles extends Component {
     this.refs.modalCorrect.close()
     this.saveData()
   }
-restartGame(){
-  this.setState({
-    userAnswer: '',
-    count: 0,
-    diamonds: 0,
-    urldatabase: {},
-    wordsnumber: 0,
-    riddleletter: '',
-  });
-}
 
   render() {
     this.saveData()

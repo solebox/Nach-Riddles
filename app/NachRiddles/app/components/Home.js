@@ -60,9 +60,8 @@ restartGame(){
     urldatabase: {},
     wordsnumber: 0,
     riddleletter: '',
-  });
-  console.log(this.state.count)
-  this.props.navigation.state.params.Riddles(this.setState.count)
+  })
+  this.props.navigation.state.params.riddles(this.state.count);
 }
 
   render() {
